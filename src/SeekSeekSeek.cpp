@@ -27,6 +27,22 @@ void SeekSeekSeek::destroyScene(void)
 //-------------------------------------------------------------------------------------
 void SeekSeekSeek::createScene(void)
 {
+	// 创建图形界面
+	mRenderer = & CEGUI::OgreRenderer::bootstrapSystem();
+
+	CEGUI::Imageset::setDefaultResourceGroup("Imagesets");
+	CEGUI::Font::setDefaultResourceGroup("Fonts");
+	CEGUI::Scheme::setDefaultResourceGroup("Schemes");
+	CEGUI::WidgetLookManager::setDefaultResourceGroup("LookNFeel");
+	CEGUI::WindowManager::setDefaultResourceGroup("Layouts");
+
+	// select the skin
+	CEGUI::SchemeManager::getSingleton().create("TaharezLook.scheme");
+	// set the default mouse cursor
+	// the 1st parameter specifies the Imageset and the 2nd one specifies the name of the image to use from that.
+	CEGUI::System::getSingleton().setDefaultMouseCursor("TaharezLook","MouseArrow");
+	CEGUI::MouseCursor::getSingleton().setImage( CEGUI::System::getSingleton().getDefaultMouseCursor() );
+
 	// 角色状态集
 	mCharacterState = new CharacterState( mCameraNode );
 

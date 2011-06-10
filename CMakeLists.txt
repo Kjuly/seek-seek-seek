@@ -93,6 +93,14 @@ if(UNIX)
 	set(OGREAL_INCLUDE_DIR
 		/usr/local/include/OgreAL/
 	)
+
+	# CEGUI
+	set(CEGUI_INCLUDE_DIR
+		/usr/local/include/CEGUI/
+	)
+	set(CEGUI_INCLUDE_DIRS
+		${CEGUI_INCLUDE_DIR}
+	)
 endif(UNIX)
  
 if (CMAKE_BUILD_TYPE STREQUAL "")
@@ -220,6 +228,7 @@ include_directories(
 	${OPENGL_INCLUDE_DIRS} # OpenGL >>> 4-23-1245
 	${OPENAL_INCLUDE_DIR} # OpenAL >>> 5-8-2059
 	${OGREAL_INCLUDE_DIR} # OgreAL >>> 5-8-2059
+	${CEGUI_INCLUDE_DIRS} # CEGUI
 )
 
 add_executable(seek WIN32 ${HDRS} ${SRCS})
@@ -266,6 +275,16 @@ if(UNIX)
 		OgreBulletDyn
 		openal					# OpenAL >>> 5-8-2100
 		OgreAL					# OgreAL >>> 5-8-2100
+		CEGUIBase				# CEGUI
+		CEGUIExpatParser
+		CEGUIFalagardWRBase
+		CEGUIFreeImageImageCodec
+		CEGUIOgreRenderer
+		CEGUIOpenGLRenderer
+		CEGUISampleHelper
+		CEGUISTBImageCodec
+		CEGUITGAImageCodec
+		CEGUITinyXMLParser
 )
 endif(UNIX) 
 
