@@ -27,6 +27,7 @@ void SeekSeekSeek::destroyScene(void)
 //-------------------------------------------------------------------------------------
 void SeekSeekSeek::createScene(void)
 {
+	//-------------------------------------------------------------
 	// 创建图形界面
 	mRenderer = & CEGUI::OgreRenderer::bootstrapSystem();
 
@@ -42,6 +43,7 @@ void SeekSeekSeek::createScene(void)
 	// the 1st parameter specifies the Imageset and the 2nd one specifies the name of the image to use from that.
 	CEGUI::System::getSingleton().setDefaultMouseCursor("TaharezLook","MouseArrow");
 	CEGUI::MouseCursor::getSingleton().setImage( CEGUI::System::getSingleton().getDefaultMouseCursor() );
+	//-------------------------------------------------------------
 
 	// 角色状态集
 	mCharacterState = new CharacterState( mCameraNode );
@@ -79,6 +81,21 @@ void SeekSeekSeek::createScene(void)
 
 	// 若为调试模式，则绘制物理框架
 	if( mDebugMode ) mPhysicsFrameListener->getPhysicsWorld()->setShowDebugShapes(true);
+
+	//----------------------------------------------------
+	CEGUI::WindowManager & wmgr = CEGUI::WindowManager::getSingleton();
+	CEGUI::Window * sheet = wmgr.createWindow("DefaultWindow","CEGUIDemo/Sheet");
+
+	CEGUI::Window * quit = wmgr.createWindow("TaharezLook/Button","CEGUIDemo/QuitButton");
+	quit->setText("Quit");
+	// width,height; UDim:1:relativ,%; 2:absolute,pix;
+	// in this case: 15%width & 5%height compared to Window
+	quit->setSize( CEGUI::UVector2( CEGUI::UDim(0.15,0), CEGUI::UDim(0.05,0) ) );
+	quit->subscribeEvent( CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber( & SeekSeekSeek::quit, this ) );
+
+	sheet->addChildWindow( quit );
+	CEGUI::System::getSingleton().setGUISheet( sheet );
+	//----------------------------------------------------
 }
 //-------------------------------------------------------------------------------------
 void SeekSeekSeek::createEnvir(void)
@@ -217,11 +234,12 @@ bool SeekSeekSeek::frameRenderingQueued(const Ogre::FrameEvent& evt)
 // ---------------------------------------------------------------------
 bool SeekSeekSeek::keyPressed( const OIS::KeyEvent & evt )
 {
-	GameBase::keyPressed( evt ); // 最基本的键盘操作
+/*	GameBase::keyPressed( evt ); // 最基本的键盘操作
 	// 对角色行为的输入监听
 	mCharacterInputListener->keyDown( evt );
 	// 控制Ogre角色
-	if ( ! mTrayMgr->isDialogVisible() ) mCharacter->getGraphicCharacter()->injectKeyDown( evt );
+	mCharacter->getGraphicCharacter()->injectKeyDown( evt );
+	//if ( ! mTrayMgr->isDialogVisible() ) mCharacter->getGraphicCharacter()->injectKeyDown( evt );
 
 	// 键盘代替鼠标控制视角
 	if( evt.key == OIS::KC_LEFT )		mViewTurningLeft	= true;
@@ -326,17 +344,23 @@ bool SeekSeekSeek::keyPressed( const OIS::KeyEvent & evt )
 	default:
 		break;
 	}
+*/
+
+	CEGUI::System & sys = CEGUI::System::getSingleton();
+	sys.injectKeyDown( evt.key );
+	sys.injectChar( evt.key );
 
 	return true;
 }
 // ---------------------------------------------------------------------
 bool SeekSeekSeek::keyReleased( const OIS::KeyEvent & evt )
 {
-	GameBase::keyReleased( evt ); // 最基本的键盘操作
+/*	GameBase::keyReleased( evt ); // 最基本的键盘操作
 	// 对角色行为的输入监听
 	mCharacterInputListener->keyUp( evt );
 	// 控制Ogre角色
-	if ( ! mTrayMgr->isDialogVisible() ) mCharacter->getGraphicCharacter()->injectKeyUp( evt );
+	mCharacter->getGraphicCharacter()->injectKeyUp( evt );
+	//if ( ! mTrayMgr->isDialogVisible() ) mCharacter->getGraphicCharacter()->injectKeyUp( evt );
 
 	// 键盘代替鼠标控制视角
 	if( evt.key == OIS::KC_LEFT )		mViewTurningLeft	= false;
@@ -345,6 +369,9 @@ bool SeekSeekSeek::keyReleased( const OIS::KeyEvent & evt )
 	else if( evt.key == OIS::KC_DOWN )	mViewTurningDown	= false;
 	else if( evt.key == OIS::KC_PGUP )	mViewZoomingIn		= false;
 	else if( evt.key == OIS::KC_PGDOWN) mViewZoomingOut		= false;
+*/
+
+	CEGUI::System::getSingleton().injectKeyUp( evt.key );
 
 	return true;
 }
@@ -352,7 +379,13 @@ bool SeekSeekSeek::keyReleased( const OIS::KeyEvent & evt )
 bool SeekSeekSeek::mouseMoved( const OIS::MouseEvent & evt )
 {
 	// 更新 Camera 视角
-	updateCameraGoal( -0.05f * evt.state.X.rel, -0.05f * evt.state.Y.rel, -0.0005f * evt.state.Z.rel );
+	//updateCameraGoal( -0.05f * evt.state.X.rel, -0.05f * evt.state.Y.rel, -0.0005f * evt.state.Z.rel );
+	
+	CEGUI::System & sys = CEGUI::System::getSingleton();
+	sys.injectMouseMove( evt.state.X.rel, evt.state.Y.rel );
+
+	if( evt.state.Z.rel )
+		sys.injectMouseWheelChange( evt.state.Z.rel / 120.0f );
     return true;
 }
 // ---------------------------------------------------------------------
@@ -400,16 +433,41 @@ void SeekSeekSeek::updateCameraGoal( Real deltaYaw, Real deltaPitch, Real deltaZ
 	}
 }
 // ---------------------------------------------------------------------
+CEGUI::MouseButton convertButton( OIS::MouseButtonID buttonID )
+{
+	switch( buttonID )
+	{
+	case OIS::MB_Left:
+		return CEGUI::LeftButton;
+	case OIS::MB_Right:
+		return CEGUI::RightButton;
+	case OIS::MB_Middle:
+		return CEGUI::MiddleButton;
+	default:
+		return CEGUI::LeftButton;
+	}
+}
+// ---------------------------------------------------------------------
 bool SeekSeekSeek::mousePressed( const OIS::MouseEvent & evt, OIS::MouseButtonID id )
 {
-	if ( ! mTrayMgr->isDialogVisible() ) mCharacter->getGraphicCharacter()->injectMouseDown( evt, id );
+	//mCharacter->getGraphicCharacter()->injectMouseDown( evt, id );
+	//if ( ! mTrayMgr->isDialogVisible() ) mCharacter->getGraphicCharacter()->injectMouseDown( evt, id );
+	
+	CEGUI::System::getSingleton().injectMouseButtonDown( convertButton(id) );
     return true;
 }
 // ---------------------------------------------------------------------
 bool SeekSeekSeek::mouseReleased( const OIS::MouseEvent & evt, OIS::MouseButtonID id )
 {
-    if (mTrayMgr->injectMouseUp(evt, id)) return true;
-    mCameraMan->injectMouseUp(evt, id);
+    //if (mTrayMgr->injectMouseUp(evt, id)) return true;
+    //mCameraMan->injectMouseUp(evt, id);
+	CEGUI::System::getSingleton().injectMouseButtonUp( convertButton(id) );
     return true;
+}
+// ---------------------------------------------------------------------
+bool SeekSeekSeek::quit( const CEGUI::EventArgs & evt )
+{
+	mShutDown = true;
+	return true;
 }
 // ---------------------------------------------------------------------

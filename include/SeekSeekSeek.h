@@ -47,6 +47,7 @@ protected:
     virtual bool mouseMoved( const OIS::MouseEvent & evt );
     virtual bool mousePressed( const OIS::MouseEvent & evt, OIS::MouseButtonID id );
     virtual bool mouseReleased( const OIS::MouseEvent & evt, OIS::MouseButtonID id );
+	bool quit( const CEGUI::EventArgs & evt );
 
 	void updateCamera( Real deltaTime );									 // 更新 Camera
 	void updateCameraGoal( Real deltaYaw, Real deltaPitch, Real deltaZoom ); // 更新 Camera 目标方向 | 更新视角

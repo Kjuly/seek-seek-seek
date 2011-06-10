@@ -1,7 +1,0 @@
-set tags+=../include/tags
-set tags+=~/.vim/tags/ogre_lib
-set tags+=~/.vim/tags/ogre_main
-" set tags+=~/.vim/tags/ogre_sdk_sample
-set tags+=~/.vim/tags/ogre_components
-set tags+=~/.vim/tags/ogre_renderSystems
-set tags+=~/.vim/tags/ois
