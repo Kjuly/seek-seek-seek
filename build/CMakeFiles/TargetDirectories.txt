@@ -1,0 +1,1 @@
+/home/kjuly/ogre project/seek_for_project/build/CMakeFiles/seek.dir

@@ -1,0 +1,310 @@
+<scene formatVersion="1.0" upAxis="y" unitsPerMeter="1" unitType="meters" minOgreVersion="1.7" ogreMaxVersion="2.3.7" author="OgreMax Scene Exporter (www.ogremax.com)" application="3DS Max">
+    <environment>
+        <colourAmbient r="0.333333" g="0.333333" b="0.333333" />
+        <colourBackground r="0" g="0" b="0" />
+        <clipping near="0" far="2540" />
+    </environment>
+    <nodes>
+        <node name="GeoSphere01">
+            <position x="0" y="6.42476" z="-2.80835e-007" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="0" qz="0" qw="1" />
+            <entity name="GeoSphere01" castShadows="true" receiveShadows="true" meshFile="GeoSphere01.mesh">
+                <subentities>
+                    <subentity index="0" materialName="NoMaterial" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="sLand10">
+            <position x="106.566" y="8.29689e-006" z="189.811" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="0" qz="0" qw="1" />
+            <entity name="sLand10" castShadows="true" receiveShadows="true" meshFile="sLand10.mesh">
+                <subentities>
+                    <subentity index="0" materialName="GreenColor" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="Cylinder01">
+            <position x="-268.623" y="321.447" z="-116.334" />
+            <scale x="0.999" y="0.999" z="0.999" />
+            <rotation qx="0.448338" qy="-0.448338" qz="-0.546803" qw="0.546803" />
+            <entity name="Cylinder01" castShadows="true" receiveShadows="true" meshFile="Cylinder01.mesh">
+                <subentities>
+                    <subentity index="0" materialName="03-Default" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="FDirect01">
+            <position x="374.223" y="747.677" z="263.335" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="-0.699212" qy="0.475402" qz="0.03622" qw="-0.532713" />
+            <light name="FDirect01" visible="true" type="directional" castShadows="false" power="1">
+                <colourDiffuse r="1" g="1" b="1" />
+                <colourSpecular r="1" g="1" b="1" />
+                <lightAttenuation range="5.08" constant="1" linear="0" quadric="0" />
+            </light>
+        </node>
+        <node name="Sky01">
+            <position x="0" y="829.176" z="-3.62444e-005" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="-0.707107" qy="-0" qz="-0" qw="-0.707107" />
+            <light name="Sky01" visible="true" type="spot" castShadows="false" power="1">
+                <colourDiffuse r="0.95" g="0.95" b="1" />
+                <colourSpecular r="1" g="1" b="1" />
+                <lightAttenuation range="10000" constant="1" linear="0" quadric="0" />
+                <lightRange inner="0" outer="0" />
+            </light>
+        </node>
+        <node name="sLand_1">
+            <position x="-17.4708" y="-1.27257e-006" z="-29.113" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="0" qz="0" qw="1" />
+            <entity name="sLand_1" castShadows="true" receiveShadows="true" meshFile="sLand_1.mesh">
+                <subentities>
+                    <subentity index="0" materialName="GreenColor" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="sLand_2">
+            <position x="66.3383" y="-3.05222e-006" z="-69.8267" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="0" qz="0" qw="1" />
+            <entity name="sLand_2" castShadows="true" receiveShadows="true" meshFile="sLand_2.mesh">
+                <subentities>
+                    <subentity index="0" materialName="GreenColor" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="sLand_3">
+            <position x="-160.739" y="1.02142e-007" z="2.33673" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="0.707107" qz="-3.09086e-008" qw="0.707107" />
+            <entity name="sLand_3" castShadows="true" receiveShadows="true" meshFile="sLand_3.mesh">
+                <subentities>
+                    <subentity index="0" materialName="GreenColor" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="sLand_4">
+            <position x="12.5023" y="47.8878" z="23.4336" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0.707107" qy="-0.707107" qz="2.84773e-006" qw="-2.80838e-006" />
+            <entity name="sLand_4" castShadows="true" receiveShadows="true" meshFile="sLand_4.mesh">
+                <subentities>
+                    <subentity index="0" materialName="02-Default" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="sLand_5">
+            <position x="-110.501" y="6.53722e-006" z="149.554" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="0" qz="0" qw="1" />
+            <entity name="sLand_5" castShadows="true" receiveShadows="true" meshFile="sLand_5.mesh">
+                <subentities>
+                    <subentity index="0" materialName="GreenColor" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="sLand_6">
+            <position x="-110.501" y="-9.1819e-006" z="-210.057" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="0" qz="0" qw="1" />
+            <entity name="sLand_6" castShadows="true" receiveShadows="true" meshFile="sLand_6.mesh">
+                <subentities>
+                    <subentity index="0" materialName="GreenColor" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="sLand_7">
+            <position x="72.6502" y="104.814" z="-172.172" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="0.707107" qz="-3.09086e-008" qw="0.707107" />
+            <entity name="sLand_7" castShadows="true" receiveShadows="true" meshFile="sLand_7.mesh">
+                <subentities>
+                    <subentity index="0" materialName="02-Default" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="sLand_8">
+            <position x="-283.495" y="-6.12821e-006" z="-140.197" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="0.707107" qz="-3.09086e-008" qw="0.707107" />
+            <entity name="sLand_8" castShadows="true" receiveShadows="true" meshFile="sLand_8.mesh">
+                <subentities>
+                    <subentity index="0" materialName="GreenColor" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="sLand_9">
+            <position x="235.26" y="-8.17463e-006" z="-187.014" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="0.707107" qz="-3.09086e-008" qw="0.707107" />
+            <entity name="sLand_9" castShadows="true" receiveShadows="true" meshFile="sLand_9.mesh">
+                <subentities>
+                    <subentity index="0" materialName="GreenColor" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="sLand_10">
+            <position x="-293.026" y="6.97516e-007" z="15.9573" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="0.707107" qz="-3.09086e-008" qw="0.707107" />
+            <entity name="sLand_10" castShadows="true" receiveShadows="true" meshFile="sLand_10.mesh">
+                <subentities>
+                    <subentity index="0" materialName="GreenColor" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="sLand_11">
+            <position x="-47.2303" y="9.79525e-006" z="224.089" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="0" qz="0" qw="1" />
+            <entity name="sLand_11" castShadows="true" receiveShadows="true" meshFile="sLand_11.mesh">
+                <subentities>
+                    <subentity index="0" materialName="GreenColor" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="sLand_12">
+            <position x="-288.798" y="-1.04943e-005" z="-240.081" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="0.707107" qz="-3.09086e-008" qw="0.707107" />
+            <entity name="sLand_12" castShadows="true" receiveShadows="true" meshFile="sLand_12.mesh">
+                <subentities>
+                    <subentity index="0" materialName="GreenColor" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="sLand_13">
+            <position x="14.711" y="-1.26301e-005" z="-288.943" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="0" qz="0" qw="1" />
+            <entity name="sLand_13" castShadows="true" receiveShadows="true" meshFile="sLand_13.mesh">
+                <subentities>
+                    <subentity index="0" materialName="GreenColor" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="sLand_14">
+            <position x="-166.611" y="-32.2127" z="1.47619" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="0.707107" qz="-3.09086e-008" qw="0.707107" />
+            <entity name="sLand_14" castShadows="true" receiveShadows="true" meshFile="sLand_14.mesh">
+                <subentities>
+                    <subentity index="0" materialName="GreenColor" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="StraightStair01">
+            <position x="-90.0815" y="-1.36502" z="38.8074" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="1" qz="-4.37114e-008" qw="-1.19249e-008" />
+            <entity name="StraightStair01" castShadows="true" receiveShadows="true" meshFile="StraightStair01.mesh">
+                <subentities>
+                    <subentity index="0" materialName="03-Default" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="StraightStair02">
+            <position x="-89.6828" y="33.5627" z="121.283" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="-0.707107" qz="3.09086e-008" qw="0.707107" />
+            <entity name="StraightStair02" castShadows="true" receiveShadows="true" meshFile="StraightStair02.mesh">
+                <subentities>
+                    <subentity index="0" materialName="03-Default" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="StraightStair03">
+            <position x="-266.06" y="229.866" z="-238.443" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="-0.707107" qz="3.09086e-008" qw="0.707107" />
+            <entity name="StraightStair03" castShadows="true" receiveShadows="true" meshFile="StraightStair03.mesh">
+                <subentities>
+                    <subentity index="0" materialName="03-Default" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="StraightStair04">
+            <position x="230.049" y="255.077" z="-123.184" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="0.707107" qz="-3.09086e-008" qw="0.707107" />
+            <entity name="StraightStair04" castShadows="true" receiveShadows="true" meshFile="StraightStair04.mesh">
+                <subentities>
+                    <subentity index="0" materialName="03-Default" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="StraightStair05">
+            <position x="-309.064" y="178.389" z="105.566" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="2.98023e-008" qy="8.74228e-008" qz="-6.42677e-015" qw="1" />
+            <entity name="StraightStair05" castShadows="true" receiveShadows="true" meshFile="StraightStair05.mesh">
+                <subentities>
+                    <subentity index="0" materialName="03-Default" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="StraightStair06">
+            <position x="-32.1652" y="64.4453" z="12.0474" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="1.74846e-007" qz="-7.64274e-015" qw="1" />
+            <entity name="StraightStair06" castShadows="true" receiveShadows="true" meshFile="StraightStair06.mesh">
+                <subentities>
+                    <subentity index="0" materialName="03-Default" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="StraightStair07">
+            <position x="107.477" y="118.089" z="-136.048" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="1.74846e-007" qz="-7.64274e-015" qw="1" />
+            <entity name="StraightStair07" castShadows="true" receiveShadows="true" meshFile="StraightStair07.mesh">
+                <subentities>
+                    <subentity index="0" materialName="03-Default" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="StraightStair08">
+            <position x="-130.213" y="191.348" z="-259.918" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="0.707107" qz="-3.09086e-008" qw="0.707107" />
+            <entity name="StraightStair08" castShadows="true" receiveShadows="true" meshFile="StraightStair08.mesh">
+                <subentities>
+                    <subentity index="0" materialName="03-Default" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="StraightStair09">
+            <position x="-177.211" y="311.62" z="147.545" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="2.98023e-008" qy="8.74228e-008" qz="-6.42677e-015" qw="1" />
+            <entity name="StraightStair09" castShadows="true" receiveShadows="true" meshFile="StraightStair09.mesh">
+                <subentities>
+                    <subentity index="0" materialName="03-Default" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="C-Ext01">
+            <position x="-236.839" y="30.8746" z="193.019" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="-0.5" qy="-0.5" qz="0.5" qw="0.5" />
+            <entity name="C-Ext01" castShadows="true" receiveShadows="true" meshFile="C-Ext01.mesh">
+                <subentities>
+                    <subentity index="0" materialName="GreenColor" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="C-Ext02">
+            <position x="-100.298" y="1.04864e-005" z="239.901" />
+            <scale x="1" y="1" z="1" />
+            <rotation qx="0" qy="-3.09086e-008" qz="-0.707107" qw="0.707107" />
+            <entity name="C-Ext02" castShadows="true" receiveShadows="true" meshFile="C-Ext02.mesh">
+                <subentities>
+                    <subentity index="0" materialName="GreenColor" />
+                </subentities>
+            </entity>
+        </node>
+    </nodes>
+</scene>

@@ -1,0 +1,81 @@
+
+material NoMaterial
+{
+	technique
+	{
+		pass
+		{
+		}
+
+	}
+
+}
+
+
+
+material GreenColor
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.752941 0.854902 0.45098 1
+			diffuse 0.752941 0.854902 0.45098 1
+			specular 0 0 0 1 10
+
+			texture_unit
+			{
+				texture grass.jpg
+			}
+		}
+
+	}
+
+}
+
+
+
+material 02-Default
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.588235 0.588235 0.588235 1
+			diffuse 0.588235 0.588235 0.588235 1
+			specular 0 0 0 1 10
+
+			texture_unit
+			{
+				texture stone_01.JPG
+				transform 0.5 0 0 0 0 0.5 0 0 0 0 1 0 0 0 0 1
+			}
+		}
+
+	}
+
+}
+
+
+
+material 03-Default
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.588235 0.588235 0.588235 1
+			diffuse 0.588235 0.588235 0.588235 1
+			specular 0 0 0 1 10
+
+			texture_unit
+			{
+				texture wood_01.jpg
+			}
+		}
+
+	}
+
+}
+
+
