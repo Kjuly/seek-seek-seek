@@ -8,9 +8,9 @@ GameBase::GameBase(void)
     mWindow(0),
     mResourcesCfg(Ogre::StringUtil::BLANK),
     mPluginsCfg(Ogre::StringUtil::BLANK),
-    mTrayMgr(0),
     mCameraMan(0),
     mDetailsPanel(0),
+	mGUIWasVisible(false),
     mCursorWasVisible(false),
     mShutDown(false),
     mInputManager(0),
@@ -21,7 +21,6 @@ GameBase::GameBase(void)
 //-------------------------------------------------------------------------
 GameBase::~GameBase(void)
 {
-    if (mTrayMgr) delete mTrayMgr;
     if (mCameraMan) delete mCameraMan;
 
     //Remove ourself as a Window listener
@@ -241,7 +240,7 @@ bool GameBase::frameRenderingQueued(const Ogre::FrameEvent& evt)
 //-------------------------------------------------------------------------
 bool GameBase::keyPressed( const OIS::KeyEvent &evt )
 {
-    if (mTrayMgr->isDialogVisible()) return true;   // don't process any more keys if dialog is up
+    //if (mTrayMgr->isDialogVisible()) return true;   // don't process any more keys if dialog is up
 
     mCameraMan->injectKeyDown(evt);
     return true;

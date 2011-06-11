@@ -188,6 +188,7 @@ set(HDRS
 	include/CharacterState.h
 	include/GameBase.h
 	include/GraphicCharacter.h
+	include/GameGUI.h
 	include/GameMap.h
 	include/KinematicCharacter.h
 	include/LoadingBar.h
@@ -203,6 +204,7 @@ set(SRCS
 	src/CharacterInputListener.cpp
 	src/GameBase.cpp
 	src/GraphicCharacter.cpp
+	src/GameGUI.cpp
 	src/GameMap.cpp
 	src/KinematicCharacter.cpp
 	src/main.cpp

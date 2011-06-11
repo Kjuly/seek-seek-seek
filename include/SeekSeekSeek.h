@@ -21,6 +21,7 @@
 
 #include "CEGUI.h"									// CEGUI
 #include "RendererModules/Ogre/CEGUIOgreRenderer.h"
+#include "GameGUI.h"
 
 using namespace Ogre;
 
@@ -47,7 +48,6 @@ protected:
     virtual bool mouseMoved( const OIS::MouseEvent & evt );
     virtual bool mousePressed( const OIS::MouseEvent & evt, OIS::MouseButtonID id );
     virtual bool mouseReleased( const OIS::MouseEvent & evt, OIS::MouseButtonID id );
-	bool quit( const CEGUI::EventArgs & evt );
 
 	void updateCamera( Real deltaTime );									 // 更新 Camera
 	void updateCameraGoal( Real deltaYaw, Real deltaPitch, Real deltaZoom ); // 更新 Camera 目标方向 | 更新视角
@@ -76,7 +76,7 @@ protected:
 
 	bool mDebugMode;									// 调试模式切换
 
-	CEGUI::OgreRenderer		* mRenderer;				// CEGUI 渲染
+	GameGUI * mGUIMgr;									// GUI控制器
 };
 
 #endif // #ifndef __SeekSeekSeek_h_

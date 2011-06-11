@@ -102,7 +102,7 @@ GameBase::mPluginsCfg	GameBase.h	/^    Ogre::String		  mPluginsCfg;$/;"	m	class:
 GameBase::mResourcesCfg	GameBase.h	/^    Ogre::String		  mResourcesCfg;$/;"	m	class:GameBase	access:protected
 GameBase::mRoot	GameBase.h	/^    Ogre::Root			* mRoot;$/;"	m	class:GameBase	access:protected
 GameBase::mSceneMgr	GameBase.h	/^    Ogre::SceneManager	* mSceneMgr;$/;"	m	class:GameBase	access:protected
-GameBase::mShutDown	GameBase.h	/^    bool						  mShutDown;$/;"	m	class:GameBase	access:protected
+GameBase::mShutDown	GameBase.h	/^    bool						  mShutDown;		 \/\/ ÈÄöËøáÈîÆÁõòÊéßÂà∂ÈÄÄÂá∫Ê∏∏Êàè$/;"	m	class:GameBase	access:protected
 GameBase::mTrayMgr	GameBase.h	/^    OgreBites::SdkTrayManager	* mTrayMgr;$/;"	m	class:GameBase	access:protected
 GameBase::mViewport	GameBase.h	/^	Ogre::Viewport		* mViewport;$/;"	m	class:GameBase	access:protected
 GameBase::mWindow	GameBase.h	/^    Ogre::RenderWindow	* mWindow;$/;"	m	class:GameBase	access:protected
@@ -114,6 +114,23 @@ GameBase::setupResources	GameBase.h	/^    virtual void setupResources(void);$/;"
 GameBase::windowClosed	GameBase.h	/^    virtual void windowClosed( Ogre::RenderWindow * rw );$/;"	p	class:GameBase	access:protected	signature:( Ogre::RenderWindow * rw )
 GameBase::windowResized	GameBase.h	/^    virtual void windowResized( Ogre::RenderWindow * rw );$/;"	p	class:GameBase	access:protected	signature:( Ogre::RenderWindow * rw )
 GameBase::~GameBase	GameBase.h	/^    virtual ~GameBase(void);$/;"	p	class:GameBase	access:public	signature:(void)
+GameGUI	GameGUI.h	/^	GameGUI();$/;"	p	class:GameGUI	access:public	signature:()
+GameGUI	GameGUI.h	/^class GameGUI$/;"	c
+GameGUI::GameGUI	GameGUI.h	/^	GameGUI();$/;"	p	class:GameGUI	access:public	signature:()
+GameGUI::gameShutDown	GameGUI.h	/^	bool gameShutDown();$/;"	p	class:GameGUI	access:public	signature:()
+GameGUI::hideGUI	GameGUI.h	/^	void hideGUI();$/;"	p	class:GameGUI	access:protected	signature:()
+GameGUI::initGUI	GameGUI.h	/^	void initGUI();$/;"	p	class:GameGUI	access:protected	signature:()
+GameGUI::injectKeyPressed	GameGUI.h	/^	void injectKeyPressed( const OIS::KeyEvent & evt );$/;"	p	class:GameGUI	access:public	signature:( const OIS::KeyEvent & evt )
+GameGUI::injectKeyReleased	GameGUI.h	/^	void injectKeyReleased( const OIS::KeyEvent & evt );$/;"	p	class:GameGUI	access:public	signature:( const OIS::KeyEvent & evt )
+GameGUI::injectMouseMoved	GameGUI.h	/^	void injectMouseMoved( const OIS::MouseEvent & evt );$/;"	p	class:GameGUI	access:public	signature:( const OIS::MouseEvent & evt )
+GameGUI::injectMousePressed	GameGUI.h	/^	void injectMousePressed( OIS::MouseButtonID id );$/;"	p	class:GameGUI	access:public	signature:( OIS::MouseButtonID id )
+GameGUI::injectMouseReleased	GameGUI.h	/^	void injectMouseReleased( OIS::MouseButtonID id );$/;"	p	class:GameGUI	access:public	signature:( OIS::MouseButtonID id )
+GameGUI::mGameShutDown	GameGUI.h	/^	bool					  mGameShutDown;			\/\/  «∑ÒÕÀ≥ˆ”Œœ∑$/;"	m	class:GameGUI	access:private
+GameGUI::mRenderer	GameGUI.h	/^	CEGUI::OgreRenderer		* mRenderer;				\/\/ CEGUI ‰÷»æ$/;"	m	class:GameGUI	access:private
+GameGUI::quit	GameGUI.h	/^	bool quit( const CEGUI::EventArgs & evt );$/;"	p	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )
+GameGUI::showGUI	GameGUI.h	/^	void showGUI();$/;"	p	class:GameGUI	access:protected	signature:()
+GameGUI::toggleGUIVisibility	GameGUI.h	/^	void toggleGUIVisibility();$/;"	p	class:GameGUI	access:public	signature:()
+GameGUI::~GameGUI	GameGUI.h	/^	~GameGUI();$/;"	p	class:GameGUI	access:public	signature:()
 GameMap	GameMap.h	/^    GameMap( Ogre::SceneManager * pSceneMgr, Ogre::Light * pLight );$/;"	p	class:GameMap	access:public	signature:( Ogre::SceneManager * pSceneMgr, Ogre::Light * pLight )
 GameMap	GameMap.h	/^    GameMap(void);$/;"	p	class:GameMap	access:public	signature:(void)
 GameMap	GameMap.h	/^class GameMap\/\/ : public GameBase$/;"	c
@@ -321,10 +338,10 @@ SeekSeekSeek::mCharacter	SeekSeekSeek.h	/^	Character				* mCharacter;				\/\/ Ω«
 SeekSeekSeek::mCharacterInputListener	SeekSeekSeek.h	/^	CharacterInputListener	* mCharacterInputListener;	\/\/ Ω«…´∂Ø◊˜ ‰»Îº‡Ã˝$/;"	m	class:SeekSeekSeek	access:protected
 SeekSeekSeek::mCharacterState	SeekSeekSeek.h	/^	CharacterState			* mCharacterState;			\/\/ ‘À∂Ø◊¥Ã¨ºØ$/;"	m	class:SeekSeekSeek	access:protected
 SeekSeekSeek::mDebugMode	SeekSeekSeek.h	/^	bool mDebugMode;									\/\/ µ˜ ‘ƒ£ Ω«–ªª$/;"	m	class:SeekSeekSeek	access:protected
+SeekSeekSeek::mGUIMgr	SeekSeekSeek.h	/^	GameGUI * mGUIMgr;									\/\/ GUIøÿ÷∆∆˜$/;"	m	class:SeekSeekSeek	access:protected
 SeekSeekSeek::mMap	SeekSeekSeek.h	/^	GameMap					* mMap;						\/\/ ”Œœ∑µÿÕº$/;"	m	class:SeekSeekSeek	access:protected
 SeekSeekSeek::mPhysicsFrameListener	SeekSeekSeek.h	/^	PhysicsFrameListener	* mPhysicsFrameListener;	\/\/ ŒÔ¿Ì ¬º˛º‡Ã˝$/;"	m	class:SeekSeekSeek	access:protected
 SeekSeekSeek::mPivotPitch	SeekSeekSeek.h	/^	Real mPivotPitch;		\/\/ …œœ¬œﬁ÷∆¿€º”∂» ˝$/;"	m	class:SeekSeekSeek	access:protected
-SeekSeekSeek::mRenderer	SeekSeekSeek.h	/^	CEGUI::OgreRenderer		* mRenderer;				\/\/ CEGUI ‰÷»æ$/;"	m	class:SeekSeekSeek	access:protected
 SeekSeekSeek::mSoundMgr	SeekSeekSeek.h	/^	OgreAL::SoundManager	* mSoundMgr;				\/\/ …˘“Ù$/;"	m	class:SeekSeekSeek	access:protected
 SeekSeekSeek::mViewTurningDown	SeekSeekSeek.h	/^	bool mViewTurningDown;	\/\/ œÚœ¬$/;"	m	class:SeekSeekSeek	access:protected
 SeekSeekSeek::mViewTurningLeft	SeekSeekSeek.h	/^	bool mViewTurningLeft;	\/\/ œÚ◊Û–˝◊™ ”Ω«$/;"	m	class:SeekSeekSeek	access:protected
@@ -343,6 +360,7 @@ __CharacterInputListener_H__	CharacterInputListener.h	12;"	d
 __CharacterState_h_	CharacterState.h	12;"	d
 __Character_h_	Character.h	12;"	d
 __GameBase_h_	GameBase.h	11;"	d
+__GameGUI_h_	GameGUI.h	2;"	d
 __GameMap_h_	GameMap.h	11;"	d
 __GraphicCharacter_H__	GraphicCharacter.h	12;"	d
 __KinematicCharacter_h_	KinematicCharacter.h	14;"	d
@@ -452,6 +470,7 @@ format	tags	/^!_TAG_FILE_FORMAT	2	\/extended format; --format=1 will not append 
 frameRenderingQueued	GameBase.h	/^    virtual bool frameRenderingQueued(const Ogre::FrameEvent& evt);$/;"	p	class:GameBase	access:protected	signature:(const Ogre::FrameEvent& evt)
 frameRenderingQueued	GameMap.h	/^    virtual void frameRenderingQueued( OgreBites::SdkTrayManager * pTrayMgr );$/;"	p	class:GameMap	access:public	signature:( OgreBites::SdkTrayManager * pTrayMgr )
 frameRenderingQueued	SeekSeekSeek.h	/^    virtual bool frameRenderingQueued(const Ogre::FrameEvent& evt);$/;"	p	class:SeekSeekSeek	access:protected	signature:(const Ogre::FrameEvent& evt)
+gameShutDown	GameGUI.h	/^	bool gameShutDown();$/;"	p	class:GameGUI	access:public	signature:()
 getAttrib	DotSceneLoader.h	/^        String getAttrib(TiXmlElement *XMLNode, const String &parameter, const String &defaultValue = "");$/;"	p	class:Ogre::DotSceneLoader	access:protected	signature:(TiXmlElement *XMLNode, const String &parameter, const String &defaultValue = ”)
 getAttribBool	DotSceneLoader.h	/^        bool getAttribBool(TiXmlElement *XMLNode, const String &parameter, bool defaultValue = false);$/;"	p	class:Ogre::DotSceneLoader	access:protected	signature:(TiXmlElement *XMLNode, const String &parameter, bool defaultValue = false)
 getAttribReal	DotSceneLoader.h	/^        Real getAttribReal(TiXmlElement *XMLNode, const String &parameter, Real defaultValue = 0);$/;"	p	class:Ogre::DotSceneLoader	access:protected	signature:(TiXmlElement *XMLNode, const String &parameter, Real defaultValue = 0)
@@ -477,13 +496,20 @@ getUpAxisDirections	btKinematicCharacterController.h	/^	static btVector3 * getUp
 getWorldTransform	KinematicCharacter.h	/^	btTransform getWorldTransform() const;$/;"	p	class:KinematicCharacter	access:public	signature:() const
 getWorldTransform	KinematicCharacter.h	/^	void getWorldTransform( btTransform & pWorldTrans ) const;$/;"	p	class:KinematicCharacter	access:public	signature:( btTransform & pWorldTrans ) const
 go	GameBase.h	/^    virtual void go(void);$/;"	p	class:GameBase	access:public	signature:(void)
+hideGUI	GameGUI.h	/^	void hideGUI();$/;"	p	class:GameGUI	access:protected	signature:()
 initBlendMaps	GameMap.h	/^    void initBlendMaps( Ogre::Terrain * terrain );$/;"	p	class:GameMap	access:private	signature:( Ogre::Terrain * terrain )
+initGUI	GameGUI.h	/^	void initGUI();$/;"	p	class:GameGUI	access:protected	signature:()
 initMap	GameMap.h	/^    virtual void initMap( Ogre::SceneManager * pSceneMgr, Ogre::Light * pLight );$/;"	p	class:GameMap	access:public	signature:( Ogre::SceneManager * pSceneMgr, Ogre::Light * pLight )
 initPhysicsWorld	PhysicsBase.h	/^	virtual void initPhysicsWorld();			\/\/ ≥ı ºªØŒÔ¿Ì ¿ΩÁ$/;"	p	class:PhysicsBase	access:public	signature:()
 initSound	SeekSeekSeek.h	/^	void initSound(void);				\/\/ ≥ı ºªØ±≥æ∞“Ù¿÷, “Ù–ß$/;"	p	class:SeekSeekSeek	access:protected	signature:(void)
 injectKeyDown	GraphicCharacter.h	/^	void injectKeyDown( const OIS::KeyEvent & evt );$/;"	p	class:GraphicCharacter	access:public	signature:( const OIS::KeyEvent & evt )
+injectKeyPressed	GameGUI.h	/^	void injectKeyPressed( const OIS::KeyEvent & evt );$/;"	p	class:GameGUI	access:public	signature:( const OIS::KeyEvent & evt )
+injectKeyReleased	GameGUI.h	/^	void injectKeyReleased( const OIS::KeyEvent & evt );$/;"	p	class:GameGUI	access:public	signature:( const OIS::KeyEvent & evt )
 injectKeyUp	GraphicCharacter.h	/^	void injectKeyUp( const OIS::KeyEvent & evt );$/;"	p	class:GraphicCharacter	access:public	signature:( const OIS::KeyEvent & evt )
 injectMouseDown	GraphicCharacter.h	/^	void injectMouseDown( const OIS::MouseEvent & evt, OIS::MouseButtonID id );$/;"	p	class:GraphicCharacter	access:public	signature:( const OIS::MouseEvent & evt, OIS::MouseButtonID id )
+injectMouseMoved	GameGUI.h	/^	void injectMouseMoved( const OIS::MouseEvent & evt );$/;"	p	class:GameGUI	access:public	signature:( const OIS::MouseEvent & evt )
+injectMousePressed	GameGUI.h	/^	void injectMousePressed( OIS::MouseButtonID id );$/;"	p	class:GameGUI	access:public	signature:( OIS::MouseButtonID id )
+injectMouseReleased	GameGUI.h	/^	void injectMouseReleased( OIS::MouseButtonID id );$/;"	p	class:GameGUI	access:public	signature:( OIS::MouseButtonID id )
 isLanded	KinematicCharacter.h	/^	bool isLanded();			\/\/ Ω«…´ «∑Ò‘⁄µÿ…œ$/;"	p	class:KinematicCharacter	access:public	signature:()
 jump	btKinematicCharacterController.h	/^	void jump();$/;"	p	class:btKinematicCharacterController	access:public	signature:()
 keyDown	CharacterInputListener.h	/^	void keyDown( const KeyEvent & evt );$/;"	p	class:CharacterInputListener	access:public	signature:( const KeyEvent & evt )
@@ -519,6 +545,8 @@ mDebugMode	SeekSeekSeek.h	/^	bool mDebugMode;									\/\/ µ˜ ‘ƒ£ Ω«–ªª$/;"	m	cl
 mDetailsPanel	GameBase.h	/^    OgreBites::ParamsPanel		* mDetailsPanel;     \/\/ sample details panel$/;"	m	class:GameBase	access:protected
 mFadingIn	GraphicCharacter.h	/^	bool			  mFadingIn[ NUM_ANIMS ];   \/\/ which animations are fading in$/;"	m	class:GraphicCharacter	access:private
 mFadingOut	GraphicCharacter.h	/^	bool			  mFadingOut[ NUM_ANIMS ];  \/\/ which animations are fading out$/;"	m	class:GraphicCharacter	access:private
+mGUIMgr	SeekSeekSeek.h	/^	GameGUI * mGUIMgr;									\/\/ GUIøÿ÷∆∆˜$/;"	m	class:SeekSeekSeek	access:protected
+mGameShutDown	GameGUI.h	/^	bool					  mGameShutDown;			\/\/  «∑ÒÕÀ≥ˆ”Œœ∑$/;"	m	class:GameGUI	access:private
 mGoalDirection	CharacterState.h	/^	Ogre::Vector3	  mGoalDirection;	\/\/ Ω«…´“∆∂Ø µº ∑ΩœÚ$/;"	m	class:CharacterState	access:private
 mGoalDirection	KinematicCharacter.h	/^	Ogre::Vector3	  mGoalDirection; \/\/ Ω«…´«∞Ω¯∑ΩœÚ$/;"	m	class:KinematicCharacter	access:protected
 mGraphicCharacter	Character.h	/^	GraphicCharacter				  * mGraphicCharacter;   \/\/ Õº–Œ—ßΩ«…´$/;"	m	class:Character	access:private
@@ -550,7 +578,7 @@ mPluginsCfg	GameBase.h	/^    Ogre::String		  mPluginsCfg;$/;"	m	class:GameBase	a
 mProgressBarInc	LoadingBar.h	/^	Real mProgressBarInc;$/;"	m	class:LoadingBar	access:protected
 mProgressBarMaxSize	LoadingBar.h	/^	Real mProgressBarMaxSize;$/;"	m	class:LoadingBar	access:protected
 mProgressBarScriptSize	LoadingBar.h	/^	Real mProgressBarScriptSize;$/;"	m	class:LoadingBar	access:protected
-mRenderer	SeekSeekSeek.h	/^	CEGUI::OgreRenderer		* mRenderer;				\/\/ CEGUI ‰÷»æ$/;"	m	class:SeekSeekSeek	access:protected
+mRenderer	GameGUI.h	/^	CEGUI::OgreRenderer		* mRenderer;				\/\/ CEGUI ‰÷»æ$/;"	m	class:GameGUI	access:private
 mResourcesCfg	GameBase.h	/^    Ogre::String		  mResourcesCfg;$/;"	m	class:GameBase	access:protected
 mRoot	GameBase.h	/^    Ogre::Root			* mRoot;$/;"	m	class:GameBase	access:protected
 mSceneMgr	Character.h	/^    Ogre::SceneManager				  * mSceneMgr;			 \/\/ Ogre≥°æ∞øÿ÷∆∆˜$/;"	m	class:Character	access:private
@@ -559,7 +587,7 @@ mSceneMgr	GameBase.h	/^    Ogre::SceneManager	* mSceneMgr;$/;"	m	class:GameBase	
 mSceneMgr	GameMap.h	/^	Ogre::SceneManager			* mSceneMgr;$/;"	m	class:GameMap	access:private
 mSceneMgr	PhysicsBase.h	/^	Ogre::SceneManager				  * mSceneMgr;				\/\/ ¥Ê¥¢¥”Ogre¥´µ›Ω¯¿¥µƒpSceneMgr$/;"	m	class:PhysicsBase	access:protected
 mShapes	PhysicsBase.h	/^ 	std::deque< OgreBulletCollisions::CollisionShape * >  mShapes; \/\/ ŒÔ¿Ì–Œ◊¥∂”¡–$/;"	m	class:PhysicsBase	access:protected
-mShutDown	GameBase.h	/^    bool						  mShutDown;$/;"	m	class:GameBase	access:protected
+mShutDown	GameBase.h	/^    bool						  mShutDown;		 \/\/ ÈÄöËøáÈîÆÁõòÊéßÂà∂ÈÄÄÂá∫Ê∏∏Êàè$/;"	m	class:GameBase	access:protected
 mSoundMgr	SeekSeekSeek.h	/^	OgreAL::SoundManager	* mSoundMgr;				\/\/ …˘“Ù$/;"	m	class:SeekSeekSeek	access:protected
 mTerrain	GameMap.h	/^	Ogre::Entity * mTerrain;$/;"	m	class:GameMap	access:private
 mTerrain	PhysicsBase.h	/^	GameMap								 * mTerrain;$/;"	m	class:PhysicsBase	access:protected
@@ -657,6 +685,7 @@ processTrackTarget	DotSceneLoader.h	/^        void processTrackTarget(TiXmlEleme
 processUserDataReference	DotSceneLoader.h	/^        void processUserDataReference(TiXmlElement *XMLNode, Entity *pEntity);$/;"	p	class:Ogre::DotSceneLoader	access:protected	signature:(TiXmlElement *XMLNode, Entity *pEntity)
 processUserDataReference	DotSceneLoader.h	/^        void processUserDataReference(TiXmlElement *XMLNode, SceneNode *pParent = 0);$/;"	p	class:Ogre::DotSceneLoader	access:protected	signature:(TiXmlElement *XMLNode, SceneNode *pParent = 0)
 propertyNm	DotSceneLoader.h	/^        String propertyNm;$/;"	m	class:Ogre::nodeProperty	access:public
+quit	GameGUI.h	/^	bool quit( const CEGUI::EventArgs & evt );$/;"	p	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )
 recoverFromPenetration	btKinematicCharacterController.h	/^	bool recoverFromPenetration ( btCollisionWorld* collisionWorld);$/;"	p	class:btKinematicCharacterController	access:protected	signature:( btCollisionWorld* collisionWorld)
 reset	btKinematicCharacterController.h	/^	void reset();$/;"	p	class:btKinematicCharacterController	access:public	signature:()
 resourceCollision	LoadingBar.h	/^	bool resourceCollision(ResourcePtr &resource, ResourceManager *resourceManager)$/;"	f	class:LoadingBar	access:public	signature:(ResourcePtr &resource, ResourceManager *resourceManager)
@@ -692,11 +721,13 @@ setup	GameBase.h	/^    virtual bool setup();$/;"	p	class:GameBase	access:protect
 setupAnimations	GraphicCharacter.h	/^	void setupAnimations();$/;"	p	class:GraphicCharacter	access:private	signature:()
 setupBody	GraphicCharacter.h	/^	void setupBody( SceneManager * pSceneMgr );$/;"	p	class:GraphicCharacter	access:private	signature:( SceneManager * pSceneMgr )
 setupResources	GameBase.h	/^    virtual void setupResources(void);$/;"	p	class:GameBase	access:protected	signature:(void)
+showGUI	GameGUI.h	/^	void showGUI();$/;"	p	class:GameGUI	access:protected	signature:()
 start	LoadingBar.h	/^	virtual void start(RenderWindow* window, $/;"	f	class:LoadingBar	access:public	signature:(RenderWindow* window, unsigned short numGroupsInit = 1, unsigned short numGroupsLoad = 1, Real initProportion = 0.70f)
 staticObjects	DotSceneLoader.h	/^        std::vector<String> staticObjects;$/;"	m	class:Ogre::DotSceneLoader	access:public
 stepDown	btKinematicCharacterController.h	/^	void stepDown (btCollisionWorld* collisionWorld, btScalar dt);$/;"	p	class:btKinematicCharacterController	access:protected	signature:(btCollisionWorld* collisionWorld, btScalar dt)
 stepForwardAndStrafe	btKinematicCharacterController.h	/^	void stepForwardAndStrafe (btCollisionWorld* collisionWorld, const btVector3& walkMove);$/;"	p	class:btKinematicCharacterController	access:protected	signature:(btCollisionWorld* collisionWorld, const btVector3& walkMove)
 stepUp	btKinematicCharacterController.h	/^	void stepUp (btCollisionWorld* collisionWorld);$/;"	p	class:btKinematicCharacterController	access:protected	signature:(btCollisionWorld* collisionWorld)
+toggleGUIVisibility	GameGUI.h	/^	void toggleGUIVisibility();$/;"	p	class:GameGUI	access:public	signature:()
 typeName	DotSceneLoader.h	/^        String typeName;$/;"	m	class:Ogre::nodeProperty	access:public
 update	Character.h	/^	void update( Ogre::Real deltaTime );	\/\/ ∏¸–¬À˘”–£¨∞¸¿®“∆∂Ø°¢Ã¯‘æ°¢◊≈¬‰◊¥Ã¨∏¸–¬µ»$/;"	p	class:Character	access:public	signature:( Ogre::Real deltaTime )
 updateAction	btKinematicCharacterController.h	/^	virtual void updateAction( btCollisionWorld * collisionWorld, btScalar deltaTime )$/;"	f	class:btKinematicCharacterController	access:public	signature:( btCollisionWorld * collisionWorld, btScalar deltaTime )
@@ -717,6 +748,7 @@ zeroKeyDirection	CharacterState.h	/^	bool zeroKeyDirection()$/;"	f	class:Charact
 ~CharacterState	CharacterState.h	/^	~CharacterState(){};$/;"	f	class:CharacterState	access:public	signature:()
 ~DotSceneLoader	DotSceneLoader.h	/^        virtual ~DotSceneLoader() {}$/;"	f	class:Ogre::DotSceneLoader	access:public	signature:()
 ~GameBase	GameBase.h	/^    virtual ~GameBase(void);$/;"	p	class:GameBase	access:public	signature:(void)
+~GameGUI	GameGUI.h	/^	~GameGUI();$/;"	p	class:GameGUI	access:public	signature:()
 ~GameMap	GameMap.h	/^    virtual ~GameMap(void);$/;"	p	class:GameMap	access:public	signature:(void)
 ~KinematicCharacter	KinematicCharacter.h	/^	~KinematicCharacter();$/;"	p	class:KinematicCharacter	access:public	signature:()
 ~LoadingBar	LoadingBar.h	/^	virtual ~LoadingBar(){}$/;"	f	class:LoadingBar	access:public	signature:()
