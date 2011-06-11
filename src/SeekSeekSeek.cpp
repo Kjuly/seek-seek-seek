@@ -63,6 +63,9 @@ void SeekSeekSeek::createScene(void)
 
 	// 若为调试模式，则绘制物理框架
 	if( mDebugMode ) mPhysicsFrameListener->getPhysicsWorld()->setShowDebugShapes(true);
+
+	// GUI
+	mGUIMgr = new GameGUI();
 }
 //-------------------------------------------------------------------------------------
 void SeekSeekSeek::createEnvir(void)
@@ -188,6 +191,9 @@ bool SeekSeekSeek::frameRenderingQueued(const Ogre::FrameEvent& evt)
 {
     bool ret = GameBase::frameRenderingQueued( evt );
 
+	// 通过GUI退出游戏
+	if( mGUIMgr->gameShutDown() ) return false;
+
 	// 物理世界模拟
 	mPhysicsFrameListener->getPhysicsWorld()->stepSimulation( evt.timeSinceLastFrame );
 	// 更新角色动画状态
@@ -201,11 +207,24 @@ bool SeekSeekSeek::frameRenderingQueued(const Ogre::FrameEvent& evt)
 // ---------------------------------------------------------------------
 bool SeekSeekSeek::keyPressed( const OIS::KeyEvent & evt )
 {
+	// GUI
+	if( evt.key == OIS::KC_ESCAPE ) mShutDown = true;
+	if( evt.key == OIS::KC_F11 )
+	{
+		mGUIMgr->toggleGUIVisibility(); // 切换GUI显示
+		mGUIWasVisible = ! mGUIWasVisible;
+	}
+
+	// 正常游戏
+	if( ! mGUIWasVisible )
+	{
+
 	GameBase::keyPressed( evt ); // 最基本的键盘操作
 	// 对角色行为的输入监听
 	mCharacterInputListener->keyDown( evt );
 	// 控制Ogre角色
-	if ( ! mTrayMgr->isDialogVisible() ) mCharacter->getGraphicCharacter()->injectKeyDown( evt );
+	mCharacter->getGraphicCharacter()->injectKeyDown( evt );
+	//if ( ! mTrayMgr->isDialogVisible() ) mCharacter->getGraphicCharacter()->injectKeyDown( evt );
 
 	// 键盘代替鼠标控制视角
 	if( evt.key == OIS::KC_LEFT )		mViewTurningLeft	= true;
@@ -311,32 +330,57 @@ bool SeekSeekSeek::keyPressed( const OIS::KeyEvent & evt )
 		break;
 	}
 
+	} // end if( ! mGUIWasVisible )
+	// 在显示用户界面状态下对GUI注入键盘输入行为
+	else
+	{
+		mGUIMgr->injectKeyPressed( evt );
+	}
+
 	return true;
 }
 // ---------------------------------------------------------------------
 bool SeekSeekSeek::keyReleased( const OIS::KeyEvent & evt )
 {
-	GameBase::keyReleased( evt ); // 最基本的键盘操作
-	// 对角色行为的输入监听
-	mCharacterInputListener->keyUp( evt );
-	// 控制Ogre角色
-	if ( ! mTrayMgr->isDialogVisible() ) mCharacter->getGraphicCharacter()->injectKeyUp( evt );
+	if( ! mGUIWasVisible )
+	{
+		GameBase::keyReleased( evt ); // 最基本的键盘操作
+		// 对角色行为的输入监听
+		mCharacterInputListener->keyUp( evt );
+		// 控制Ogre角色
+		mCharacter->getGraphicCharacter()->injectKeyUp( evt );
+		//if ( ! mTrayMgr->isDialogVisible() ) mCharacter->getGraphicCharacter()->injectKeyUp( evt );
 
-	// 键盘代替鼠标控制视角
-	if( evt.key == OIS::KC_LEFT )		mViewTurningLeft	= false;
-	else if( evt.key == OIS::KC_RIGHT ) mViewTurningRight	= false;
-	else if( evt.key == OIS::KC_UP )	mViewTurningUp		= false;
-	else if( evt.key == OIS::KC_DOWN )	mViewTurningDown	= false;
-	else if( evt.key == OIS::KC_PGUP )	mViewZoomingIn		= false;
-	else if( evt.key == OIS::KC_PGDOWN) mViewZoomingOut		= false;
+		// 键盘代替鼠标控制视角
+		if( evt.key == OIS::KC_LEFT )		mViewTurningLeft	= false;
+		else if( evt.key == OIS::KC_RIGHT ) mViewTurningRight	= false;
+		else if( evt.key == OIS::KC_UP )	mViewTurningUp		= false;
+		else if( evt.key == OIS::KC_DOWN )	mViewTurningDown	= false;
+		else if( evt.key == OIS::KC_PGUP )	mViewZoomingIn		= false;
+		else if( evt.key == OIS::KC_PGDOWN) mViewZoomingOut		= false;
+	} // end if( ! mGUIWasVisible )
+	// GUI
+	else
+	{
+		mGUIMgr->injectKeyReleased( evt );
+	}
 
 	return true;
 }
 // ---------------------------------------------------------------------
 bool SeekSeekSeek::mouseMoved( const OIS::MouseEvent & evt )
 {
-	// 更新 Camera 视角
-	updateCameraGoal( -0.05f * evt.state.X.rel, -0.05f * evt.state.Y.rel, -0.0005f * evt.state.Z.rel );
+	if( ! mGUIWasVisible )
+	{
+		// 更新 Camera 视角
+		updateCameraGoal( -0.05f * evt.state.X.rel, -0.05f * evt.state.Y.rel, -0.0005f * evt.state.Z.rel );
+	} // end if( ! mGUIWasVisible )
+	// GUI
+	else
+	{
+		mGUIMgr->injectMouseMoved( evt );
+	}
+	
     return true;
 }
 // ---------------------------------------------------------------------
@@ -386,14 +430,23 @@ void SeekSeekSeek::updateCameraGoal( Real deltaYaw, Real deltaPitch, Real deltaZ
 // ---------------------------------------------------------------------
 bool SeekSeekSeek::mousePressed( const OIS::MouseEvent & evt, OIS::MouseButtonID id )
 {
-	if ( ! mTrayMgr->isDialogVisible() ) mCharacter->getGraphicCharacter()->injectMouseDown( evt, id );
+	//mCharacter->getGraphicCharacter()->injectMouseDown( evt, id );
+	//if ( ! mTrayMgr->isDialogVisible() ) mCharacter->getGraphicCharacter()->injectMouseDown( evt, id );
+	
+	// GUI
+	if( mGUIWasVisible ) mGUIMgr->injectMousePressed( id );
+
     return true;
 }
 // ---------------------------------------------------------------------
 bool SeekSeekSeek::mouseReleased( const OIS::MouseEvent & evt, OIS::MouseButtonID id )
 {
-    if (mTrayMgr->injectMouseUp(evt, id)) return true;
-    mCameraMan->injectMouseUp(evt, id);
+    //if (mTrayMgr->injectMouseUp(evt, id)) return true;
+    //mCameraMan->injectMouseUp(evt, id);
+	
+	// GUI
+	if( mGUIWasVisible ) mGUIMgr->injectMouseReleased( id );
+
     return true;
 }
 // ---------------------------------------------------------------------

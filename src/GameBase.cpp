@@ -8,9 +8,9 @@ GameBase::GameBase(void)
     mWindow(0),
     mResourcesCfg(Ogre::StringUtil::BLANK),
     mPluginsCfg(Ogre::StringUtil::BLANK),
-    mTrayMgr(0),
     mCameraMan(0),
     mDetailsPanel(0),
+	mGUIWasVisible(false),
     mCursorWasVisible(false),
     mShutDown(false),
     mInputManager(0),
@@ -21,7 +21,6 @@ GameBase::GameBase(void)
 //-------------------------------------------------------------------------
 GameBase::~GameBase(void)
 {
-    if (mTrayMgr) delete mTrayMgr;
     if (mCameraMan) delete mCameraMan;
 
     //Remove ourself as a Window listener
@@ -139,7 +138,7 @@ void GameBase::loadResources(void)
 {
 	//--------------------------------
 	// 开始加载
-	mLoadingBar.start( mWindow, 1, 1, 0.5 );
+//	mLoadingBar.start( mWindow, 1, 1, 0.5 );
 
 	mSceneMgr->clearSpecialCaseRenderQueues();
 	mSceneMgr->addSpecialCaseRenderQueue( RENDER_QUEUE_OVERLAY );
@@ -158,7 +157,7 @@ void GameBase::loadResources(void)
 
 	//--------------------------------
 	// 加载结束
-	mLoadingBar.finish();
+//	mLoadingBar.finish();
 }
 //-------------------------------------------------------------------------
 void GameBase::chooseSceneManager(void)
@@ -192,10 +191,10 @@ void GameBase::createFrameListener(void)
     //Register as a Window listener
     Ogre::WindowEventUtilities::addWindowEventListener(mWindow, this);
 
-    mTrayMgr = new OgreBites::SdkTrayManager("InterfaceName", mWindow, mMouse, this);
-    mTrayMgr->showFrameStats(OgreBites::TL_BOTTOMLEFT);
+//    mTrayMgr = new OgreBites::SdkTrayManager("InterfaceName", mWindow, mMouse, this);
+//    mTrayMgr->showFrameStats(OgreBites::TL_BOTTOMLEFT);
     //mTrayMgr->showLogo(OgreBites::TL_BOTTOMRIGHT); // 显示右下角的OGRE Logo
-    mTrayMgr->hideCursor(); // 隐藏鼠标箭头
+//    mTrayMgr->hideCursor(); // 隐藏鼠标箭头
 
     mRoot->addFrameListener(this);
 }
@@ -225,13 +224,13 @@ bool GameBase::frameRenderingQueued(const Ogre::FrameEvent& evt)
     mKeyboard->capture();
     mMouse->capture();
 
-    mTrayMgr->frameRenderingQueued(evt);
+/*    mTrayMgr->frameRenderingQueued(evt);
 
     if (!mTrayMgr->isDialogVisible())
     {
         mCameraMan->frameRenderingQueued(evt);   // if dialog isn't up, then update the camera
     }
-
+*/
     return true;
 }
 //-------------------------------------------------------------------------
@@ -241,7 +240,7 @@ bool GameBase::frameRenderingQueued(const Ogre::FrameEvent& evt)
 //-------------------------------------------------------------------------
 bool GameBase::keyPressed( const OIS::KeyEvent &evt )
 {
-    if (mTrayMgr->isDialogVisible()) return true;   // don't process any more keys if dialog is up
+    //if (mTrayMgr->isDialogVisible()) return true;   // don't process any more keys if dialog is up
 
     mCameraMan->injectKeyDown(evt);
     return true;

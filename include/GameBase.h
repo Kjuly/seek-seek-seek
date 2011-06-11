@@ -85,11 +85,11 @@ protected:
     Ogre::String		  mPluginsCfg;
 
     // OgreBites
-    OgreBites::SdkTrayManager	* mTrayMgr;
     OgreBites::SdkCameraMan		* mCameraMan;        // basic camera controller
     OgreBites::ParamsPanel		* mDetailsPanel;     // sample details panel
+	bool						  mGUIWasVisible;	 // 是否显示GUI
     bool						  mCursorWasVisible; // was cursor visible before dialog appeared
-    bool						  mShutDown;
+    bool						  mShutDown;		 // 通过键盘控制退出游戏
 
     //OIS Input devices
     OIS::InputManager	* mInputManager;

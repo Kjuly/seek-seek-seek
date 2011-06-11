@@ -19,6 +19,10 @@
 #include "OgreALListener.h"			// OgreAL | Ogre Audio Lib | 加载音乐类库 >>> 5-8-2109
 #include "OgreALSoundManager.h"		// OgreAL
 
+#include "CEGUI.h"									// CEGUI
+#include "RendererModules/Ogre/CEGUIOgreRenderer.h"
+#include "GameGUI.h"
+
 using namespace Ogre;
 
 class SeekSeekSeek : public GameBase
@@ -71,6 +75,8 @@ protected:
 	Ogre::Real				  mBgFog;					// 背景雾: 0 无，1 白天 白雾，2 夜晚 蓝雾
 
 	bool mDebugMode;									// 调试模式切换
+
+	GameGUI * mGUIMgr;									// GUI控制器
 };
 
 #endif // #ifndef __SeekSeekSeek_h_
