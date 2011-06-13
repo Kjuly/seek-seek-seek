@@ -27,7 +27,7 @@
 #include <SdkTrays.h>
 #include <SdkCameraMan.h>
 
-#include "LoadingBar.h"	// 加载进度条
+//#include "LoadingBar.h"	// 加载进度条
 
 class GameBase :
 	public Ogre::FrameListener,
@@ -86,9 +86,6 @@ protected:
 
     // OgreBites
     OgreBites::SdkCameraMan		* mCameraMan;        // basic camera controller
-    OgreBites::ParamsPanel		* mDetailsPanel;     // sample details panel
-	bool						  mGUIWasVisible;	 // 是否显示GUI
-    bool						  mCursorWasVisible; // was cursor visible before dialog appeared
     bool						  mShutDown;		 // 通过键盘控制退出游戏
 
     //OIS Input devices
@@ -96,7 +93,7 @@ protected:
     OIS::Mouse			* mMouse;
     OIS::Keyboard		* mKeyboard;
 
-	LoadingBar			  mLoadingBar;	// Loging Bar
+	//LoadingBar			  mLoadingBar;	// Loging Bar
 };
 
 #endif // #ifndef __GameBase_h_

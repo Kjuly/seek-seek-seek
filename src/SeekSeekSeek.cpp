@@ -208,15 +208,15 @@ bool SeekSeekSeek::frameRenderingQueued(const Ogre::FrameEvent& evt)
 bool SeekSeekSeek::keyPressed( const OIS::KeyEvent & evt )
 {
 	// GUI
-	if( evt.key == OIS::KC_ESCAPE ) mShutDown = true;
-	if( evt.key == OIS::KC_F11 )
+	if( evt.key == OIS::KC_DELETE ) mShutDown = true;
+	if( evt.key == OIS::KC_ESCAPE )
 	{
 		mGUIMgr->toggleGUIVisibility(); // 切换GUI显示
-		mGUIWasVisible = ! mGUIWasVisible;
+		//mGUIWasVisible = ! mGUIWasVisible;
 	}
 
 	// 正常游戏
-	if( ! mGUIWasVisible )
+	if( ! mGUIMgr->GUIisVisible() )
 	{
 
 	GameBase::keyPressed( evt ); // 最基本的键盘操作
@@ -236,7 +236,7 @@ bool SeekSeekSeek::keyPressed( const OIS::KeyEvent & evt )
 
 	switch( evt.key )
 	{
-	case OIS::KC_ESCAPE:
+	case OIS::KC_DELETE:
 		mShutDown = true;
 		break;
 	case OIS::KC_B:
@@ -342,7 +342,7 @@ bool SeekSeekSeek::keyPressed( const OIS::KeyEvent & evt )
 // ---------------------------------------------------------------------
 bool SeekSeekSeek::keyReleased( const OIS::KeyEvent & evt )
 {
-	if( ! mGUIWasVisible )
+	if( ! mGUIMgr->GUIisVisible() )
 	{
 		GameBase::keyReleased( evt ); // 最基本的键盘操作
 		// 对角色行为的输入监听
@@ -370,7 +370,7 @@ bool SeekSeekSeek::keyReleased( const OIS::KeyEvent & evt )
 // ---------------------------------------------------------------------
 bool SeekSeekSeek::mouseMoved( const OIS::MouseEvent & evt )
 {
-	if( ! mGUIWasVisible )
+	if( ! mGUIMgr->GUIisVisible() )
 	{
 		// 更新 Camera 视角
 		updateCameraGoal( -0.05f * evt.state.X.rel, -0.05f * evt.state.Y.rel, -0.0005f * evt.state.Z.rel );
@@ -434,7 +434,7 @@ bool SeekSeekSeek::mousePressed( const OIS::MouseEvent & evt, OIS::MouseButtonID
 	//if ( ! mTrayMgr->isDialogVisible() ) mCharacter->getGraphicCharacter()->injectMouseDown( evt, id );
 	
 	// GUI
-	if( mGUIWasVisible ) mGUIMgr->injectMousePressed( id );
+	if( mGUIMgr->GUIisVisible() ) mGUIMgr->injectMousePressed( id );
 
     return true;
 }
@@ -445,7 +445,7 @@ bool SeekSeekSeek::mouseReleased( const OIS::MouseEvent & evt, OIS::MouseButtonI
     //mCameraMan->injectMouseUp(evt, id);
 	
 	// GUI
-	if( mGUIWasVisible ) mGUIMgr->injectMouseReleased( id );
+	if( mGUIMgr->GUIisVisible() ) mGUIMgr->injectMouseReleased( id );
 
     return true;
 }

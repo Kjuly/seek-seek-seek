@@ -73,6 +73,7 @@ DOT_SCENELOADER_H	DotSceneLoader.h	2;"	d
 DotSceneLoader	DotSceneLoader.h	/^        DotSceneLoader() : mSceneMgr(0) {}$/;"	f	class:Ogre::DotSceneLoader	access:public	signature:()
 DotSceneLoader	DotSceneLoader.h	/^    class DotSceneLoader$/;"	c	namespace:Ogre
 GRAVITY	GraphicCharacter.h	31;"	d
+GUIisVisible	GameGUI.h	/^	bool GUIisVisible();$/;"	p	class:GameGUI	access:public	signature:()
 GameBase	GameBase.h	/^    GameBase(void);$/;"	p	class:GameBase	access:public	signature:(void)
 GameBase	GameBase.h	/^class GameBase :$/;"	c	inherits:Ogre::FrameListener,Ogre::WindowEventListener,OIS::KeyListener,OIS::MouseListener,OgreBites::SdkTrayListener
 GameBase::GameBase	GameBase.h	/^    GameBase(void);$/;"	p	class:GameBase	access:public	signature:(void)
@@ -91,19 +92,15 @@ GameBase::keyReleased	GameBase.h	/^    virtual bool keyReleased( const OIS::KeyE
 GameBase::loadResources	GameBase.h	/^    virtual void loadResources(void);$/;"	p	class:GameBase	access:protected	signature:(void)
 GameBase::mCamera	GameBase.h	/^    Ogre::Camera		* mCamera;$/;"	m	class:GameBase	access:protected
 GameBase::mCameraMan	GameBase.h	/^    OgreBites::SdkCameraMan		* mCameraMan;        \/\/ basic camera controller$/;"	m	class:GameBase	access:protected
-GameBase::mCursorWasVisible	GameBase.h	/^    bool						  mCursorWasVisible; \/\/ was cursor visible before dialog appeared$/;"	m	class:GameBase	access:protected
-GameBase::mDetailsPanel	GameBase.h	/^    OgreBites::ParamsPanel		* mDetailsPanel;     \/\/ sample details panel$/;"	m	class:GameBase	access:protected
 GameBase::mInputManager	GameBase.h	/^    OIS::InputManager	* mInputManager;$/;"	m	class:GameBase	access:protected
 GameBase::mKeyboard	GameBase.h	/^    OIS::Keyboard		* mKeyboard;$/;"	m	class:GameBase	access:protected
 GameBase::mLight	GameBase.h	/^	Ogre::Light			* mLight;$/;"	m	class:GameBase	access:protected
-GameBase::mLoadingBar	GameBase.h	/^	LoadingBar			  mLoadingBar;	\/\/ Loging Bar$/;"	m	class:GameBase	access:protected
 GameBase::mMouse	GameBase.h	/^    OIS::Mouse			* mMouse;$/;"	m	class:GameBase	access:protected
 GameBase::mPluginsCfg	GameBase.h	/^    Ogre::String		  mPluginsCfg;$/;"	m	class:GameBase	access:protected
 GameBase::mResourcesCfg	GameBase.h	/^    Ogre::String		  mResourcesCfg;$/;"	m	class:GameBase	access:protected
 GameBase::mRoot	GameBase.h	/^    Ogre::Root			* mRoot;$/;"	m	class:GameBase	access:protected
 GameBase::mSceneMgr	GameBase.h	/^    Ogre::SceneManager	* mSceneMgr;$/;"	m	class:GameBase	access:protected
 GameBase::mShutDown	GameBase.h	/^    bool						  mShutDown;		 \/\/ ÈÄöËøáÈîÆÁõòÊéßÂà∂ÈÄÄÂá∫Ê∏∏Êàè$/;"	m	class:GameBase	access:protected
-GameBase::mTrayMgr	GameBase.h	/^    OgreBites::SdkTrayManager	* mTrayMgr;$/;"	m	class:GameBase	access:protected
 GameBase::mViewport	GameBase.h	/^	Ogre::Viewport		* mViewport;$/;"	m	class:GameBase	access:protected
 GameBase::mWindow	GameBase.h	/^    Ogre::RenderWindow	* mWindow;$/;"	m	class:GameBase	access:protected
 GameBase::mouseMoved	GameBase.h	/^    virtual bool mouseMoved( const OIS::MouseEvent & evt );$/;"	p	class:GameBase	access:protected	signature:( const OIS::MouseEvent & evt )
@@ -116,18 +113,22 @@ GameBase::windowResized	GameBase.h	/^    virtual void windowResized( Ogre::Rende
 GameBase::~GameBase	GameBase.h	/^    virtual ~GameBase(void);$/;"	p	class:GameBase	access:public	signature:(void)
 GameGUI	GameGUI.h	/^	GameGUI();$/;"	p	class:GameGUI	access:public	signature:()
 GameGUI	GameGUI.h	/^class GameGUI$/;"	c
+GameGUI::GUIisVisible	GameGUI.h	/^	bool GUIisVisible();$/;"	p	class:GameGUI	access:public	signature:()
 GameGUI::GameGUI	GameGUI.h	/^	GameGUI();$/;"	p	class:GameGUI	access:public	signature:()
 GameGUI::gameShutDown	GameGUI.h	/^	bool gameShutDown();$/;"	p	class:GameGUI	access:public	signature:()
 GameGUI::hideGUI	GameGUI.h	/^	void hideGUI();$/;"	p	class:GameGUI	access:protected	signature:()
 GameGUI::initGUI	GameGUI.h	/^	void initGUI();$/;"	p	class:GameGUI	access:protected	signature:()
+GameGUI::initGUICallbackFunctionSet	GameGUI.h	/^	void initGUICallbackFunctionSet();$/;"	p	class:GameGUI	access:protected	signature:()
 GameGUI::injectKeyPressed	GameGUI.h	/^	void injectKeyPressed( const OIS::KeyEvent & evt );$/;"	p	class:GameGUI	access:public	signature:( const OIS::KeyEvent & evt )
 GameGUI::injectKeyReleased	GameGUI.h	/^	void injectKeyReleased( const OIS::KeyEvent & evt );$/;"	p	class:GameGUI	access:public	signature:( const OIS::KeyEvent & evt )
 GameGUI::injectMouseMoved	GameGUI.h	/^	void injectMouseMoved( const OIS::MouseEvent & evt );$/;"	p	class:GameGUI	access:public	signature:( const OIS::MouseEvent & evt )
 GameGUI::injectMousePressed	GameGUI.h	/^	void injectMousePressed( OIS::MouseButtonID id );$/;"	p	class:GameGUI	access:public	signature:( OIS::MouseButtonID id )
 GameGUI::injectMouseReleased	GameGUI.h	/^	void injectMouseReleased( OIS::MouseButtonID id );$/;"	p	class:GameGUI	access:public	signature:( OIS::MouseButtonID id )
-GameGUI::mGameShutDown	GameGUI.h	/^	bool					  mGameShutDown;			\/\/  «∑ÒÕÀ≥ˆ”Œœ∑$/;"	m	class:GameGUI	access:private
-GameGUI::mRenderer	GameGUI.h	/^	CEGUI::OgreRenderer		* mRenderer;				\/\/ CEGUI ‰÷»æ$/;"	m	class:GameGUI	access:private
+GameGUI::mGUIRoot	GameGUI.h	/^	Window			* mGUIRoot;					\/\/ GUI÷˜¥∞ø⁄$/;"	m	class:GameGUI	access:private
+GameGUI::mGameShutDown	GameGUI.h	/^	bool			  mGameShutDown;			\/\/  «∑ÒÕÀ≥ˆ”Œœ∑$/;"	m	class:GameGUI	access:private
+GameGUI::mRenderer	GameGUI.h	/^	OgreRenderer	* mRenderer;				\/\/ CEGUI ‰÷»æ$/;"	m	class:GameGUI	access:private
 GameGUI::quit	GameGUI.h	/^	bool quit( const CEGUI::EventArgs & evt );$/;"	p	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )
+GameGUI::returnToGame	GameGUI.h	/^	bool returnToGame( const CEGUI::EventArgs & evt );$/;"	p	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )
 GameGUI::showGUI	GameGUI.h	/^	void showGUI();$/;"	p	class:GameGUI	access:protected	signature:()
 GameGUI::toggleGUIVisibility	GameGUI.h	/^	void toggleGUIVisibility();$/;"	p	class:GameGUI	access:public	signature:()
 GameGUI::~GameGUI	GameGUI.h	/^	~GameGUI();$/;"	p	class:GameGUI	access:public	signature:()
@@ -499,6 +500,7 @@ go	GameBase.h	/^    virtual void go(void);$/;"	p	class:GameBase	access:public	si
 hideGUI	GameGUI.h	/^	void hideGUI();$/;"	p	class:GameGUI	access:protected	signature:()
 initBlendMaps	GameMap.h	/^    void initBlendMaps( Ogre::Terrain * terrain );$/;"	p	class:GameMap	access:private	signature:( Ogre::Terrain * terrain )
 initGUI	GameGUI.h	/^	void initGUI();$/;"	p	class:GameGUI	access:protected	signature:()
+initGUICallbackFunctionSet	GameGUI.h	/^	void initGUICallbackFunctionSet();$/;"	p	class:GameGUI	access:protected	signature:()
 initMap	GameMap.h	/^    virtual void initMap( Ogre::SceneManager * pSceneMgr, Ogre::Light * pLight );$/;"	p	class:GameMap	access:public	signature:( Ogre::SceneManager * pSceneMgr, Ogre::Light * pLight )
 initPhysicsWorld	PhysicsBase.h	/^	virtual void initPhysicsWorld();			\/\/ ≥ı ºªØŒÔ¿Ì ¿ΩÁ$/;"	p	class:PhysicsBase	access:public	signature:()
 initSound	SeekSeekSeek.h	/^	void initSound(void);				\/\/ ≥ı ºªØ±≥æ∞“Ù¿÷, “Ù–ß$/;"	p	class:SeekSeekSeek	access:protected	signature:(void)
@@ -540,13 +542,12 @@ mCharacterState	Character.h	/^	CharacterState					  * mCharacterState;	 \/\/ º«¬
 mCharacterState	CharacterInputListener.h	/^	CharacterState	   * mCharacterState;$/;"	m	class:CharacterInputListener	access:private
 mCharacterState	GraphicCharacter.h	/^	CharacterState	* mCharacterState;			\/\/ ‘À∂Ø◊¥Ã¨ºØ$/;"	m	class:GraphicCharacter	access:private
 mCharacterState	SeekSeekSeek.h	/^	CharacterState			* mCharacterState;			\/\/ ‘À∂Ø◊¥Ã¨ºØ$/;"	m	class:SeekSeekSeek	access:protected
-mCursorWasVisible	GameBase.h	/^    bool						  mCursorWasVisible; \/\/ was cursor visible before dialog appeared$/;"	m	class:GameBase	access:protected
 mDebugMode	SeekSeekSeek.h	/^	bool mDebugMode;									\/\/ µ˜ ‘ƒ£ Ω«–ªª$/;"	m	class:SeekSeekSeek	access:protected
-mDetailsPanel	GameBase.h	/^    OgreBites::ParamsPanel		* mDetailsPanel;     \/\/ sample details panel$/;"	m	class:GameBase	access:protected
 mFadingIn	GraphicCharacter.h	/^	bool			  mFadingIn[ NUM_ANIMS ];   \/\/ which animations are fading in$/;"	m	class:GraphicCharacter	access:private
 mFadingOut	GraphicCharacter.h	/^	bool			  mFadingOut[ NUM_ANIMS ];  \/\/ which animations are fading out$/;"	m	class:GraphicCharacter	access:private
 mGUIMgr	SeekSeekSeek.h	/^	GameGUI * mGUIMgr;									\/\/ GUIøÿ÷∆∆˜$/;"	m	class:SeekSeekSeek	access:protected
-mGameShutDown	GameGUI.h	/^	bool					  mGameShutDown;			\/\/  «∑ÒÕÀ≥ˆ”Œœ∑$/;"	m	class:GameGUI	access:private
+mGUIRoot	GameGUI.h	/^	Window			* mGUIRoot;					\/\/ GUI÷˜¥∞ø⁄$/;"	m	class:GameGUI	access:private
+mGameShutDown	GameGUI.h	/^	bool			  mGameShutDown;			\/\/  «∑ÒÕÀ≥ˆ”Œœ∑$/;"	m	class:GameGUI	access:private
 mGoalDirection	CharacterState.h	/^	Ogre::Vector3	  mGoalDirection;	\/\/ Ω«…´“∆∂Ø µº ∑ΩœÚ$/;"	m	class:CharacterState	access:private
 mGoalDirection	KinematicCharacter.h	/^	Ogre::Vector3	  mGoalDirection; \/\/ Ω«…´«∞Ω¯∑ΩœÚ$/;"	m	class:KinematicCharacter	access:protected
 mGraphicCharacter	Character.h	/^	GraphicCharacter				  * mGraphicCharacter;   \/\/ Õº–Œ—ßΩ«…´$/;"	m	class:Character	access:private
@@ -562,7 +563,6 @@ mKinematicCharacter	CharacterInputListener.h	/^	KinematicCharacter * mKinematicC
 mLanded	CharacterState.h	/^	bool			  mLanded;			\/\/ Ω«…´ «∑Ò◊≈¬‰$/;"	m	class:CharacterState	access:private
 mLight	GameBase.h	/^	Ogre::Light			* mLight;$/;"	m	class:GameBase	access:protected
 mLoadOverlay	LoadingBar.h	/^	Overlay* mLoadOverlay;$/;"	m	class:LoadingBar	access:protected
-mLoadingBar	GameBase.h	/^	LoadingBar			  mLoadingBar;	\/\/ Loging Bar$/;"	m	class:GameBase	access:protected
 mLoadingBarElement	LoadingBar.h	/^	OverlayElement* mLoadingBarElement;$/;"	m	class:LoadingBar	access:protected
 mLoadingCommentElement	LoadingBar.h	/^	OverlayElement* mLoadingCommentElement;$/;"	m	class:LoadingBar	access:protected
 mLoadingDescriptionElement	LoadingBar.h	/^	OverlayElement* mLoadingDescriptionElement;$/;"	m	class:LoadingBar	access:protected
@@ -578,7 +578,7 @@ mPluginsCfg	GameBase.h	/^    Ogre::String		  mPluginsCfg;$/;"	m	class:GameBase	a
 mProgressBarInc	LoadingBar.h	/^	Real mProgressBarInc;$/;"	m	class:LoadingBar	access:protected
 mProgressBarMaxSize	LoadingBar.h	/^	Real mProgressBarMaxSize;$/;"	m	class:LoadingBar	access:protected
 mProgressBarScriptSize	LoadingBar.h	/^	Real mProgressBarScriptSize;$/;"	m	class:LoadingBar	access:protected
-mRenderer	GameGUI.h	/^	CEGUI::OgreRenderer		* mRenderer;				\/\/ CEGUI ‰÷»æ$/;"	m	class:GameGUI	access:private
+mRenderer	GameGUI.h	/^	OgreRenderer	* mRenderer;				\/\/ CEGUI ‰÷»æ$/;"	m	class:GameGUI	access:private
 mResourcesCfg	GameBase.h	/^    Ogre::String		  mResourcesCfg;$/;"	m	class:GameBase	access:protected
 mRoot	GameBase.h	/^    Ogre::Root			* mRoot;$/;"	m	class:GameBase	access:protected
 mSceneMgr	Character.h	/^    Ogre::SceneManager				  * mSceneMgr;			 \/\/ Ogre≥°æ∞øÿ÷∆∆˜$/;"	m	class:Character	access:private
@@ -598,7 +598,6 @@ mTerrainPhysicsShape	PhysicsBase.h	/^ 	OgreBulletCollisions::CollisionShape * mT
 mTerrainsImported	GameMap.h	/^    bool						  mTerrainsImported;$/;"	m	class:GameMap	access:private
 mTimer	GraphicCharacter.h	/^	Real			  mTimer;					\/\/ general timer to see how long animations have been playing$/;"	m	class:GraphicCharacter	access:private
 mTopAnimID	GraphicCharacter.h	/^	AnimID			  mTopAnimID;               \/\/ current top (upper-body) animation$/;"	m	class:GraphicCharacter	access:private
-mTrayMgr	GameBase.h	/^    OgreBites::SdkTrayManager	* mTrayMgr;$/;"	m	class:GameBase	access:protected
 mVerticalVelocity	GraphicCharacter.h	/^	Real			  mVerticalVelocity;		\/\/ for jumping$/;"	m	class:GraphicCharacter	access:private
 mViewTurningDown	SeekSeekSeek.h	/^	bool mViewTurningDown;	\/\/ œÚœ¬$/;"	m	class:SeekSeekSeek	access:protected
 mViewTurningLeft	SeekSeekSeek.h	/^	bool mViewTurningLeft;	\/\/ œÚ◊Û–˝◊™ ”Ω«$/;"	m	class:SeekSeekSeek	access:protected
@@ -696,6 +695,7 @@ resourceGroupScriptingStarted	LoadingBar.h	/^	void resourceGroupScriptingStarted
 resourceLoadEnded	LoadingBar.h	/^	void resourceLoadEnded(void)$/;"	f	class:LoadingBar	access:public	signature:(void)
 resourceLoadStarted	LoadingBar.h	/^	void resourceLoadStarted(const ResourcePtr& resource)$/;"	f	class:LoadingBar	access:public	signature:(const ResourcePtr& resource)
 resourceLoading	LoadingBar.h	/^	Ogre::DataStreamPtr resourceLoading(const String &name, const String &group, Resource *resource)$/;"	f	class:LoadingBar	access:public	signature:(const String &name, const String &group, Resource *resource)
+returnToGame	GameGUI.h	/^	bool returnToGame( const CEGUI::EventArgs & evt );$/;"	p	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )
 scriptParseEnded	LoadingBar.h	/^	void scriptParseEnded(const String& scriptName, bool skipped)$/;"	f	class:LoadingBar	access:public	signature:(const String& scriptName, bool skipped)
 scriptParseStarted	LoadingBar.h	/^	void scriptParseStarted(const String& scriptName, bool &skipThisScript)$/;"	f	class:LoadingBar	access:public	signature:(const String& scriptName, bool &skipThisScript)
 setBaseAnimation	GraphicCharacter.h	/^	void setBaseAnimation( AnimID id, bool reset = false );$/;"	p	class:GraphicCharacter	access:private	signature:( AnimID id, bool reset = false )

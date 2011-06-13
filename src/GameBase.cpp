@@ -9,9 +9,6 @@ GameBase::GameBase(void)
     mResourcesCfg(Ogre::StringUtil::BLANK),
     mPluginsCfg(Ogre::StringUtil::BLANK),
     mCameraMan(0),
-    mDetailsPanel(0),
-	mGUIWasVisible(false),
-    mCursorWasVisible(false),
     mShutDown(false),
     mInputManager(0),
     mMouse(0),
@@ -141,8 +138,8 @@ void GameBase::loadResources(void)
 //	mLoadingBar.start( mWindow, 1, 1, 0.5 );
 
 	mSceneMgr->clearSpecialCaseRenderQueues();
-	mSceneMgr->addSpecialCaseRenderQueue( RENDER_QUEUE_OVERLAY );
-	mSceneMgr->setSpecialCaseRenderQueueMode( SceneManager::SCRQM_INCLUDE );
+//	mSceneMgr->addSpecialCaseRenderQueue( RENDER_QUEUE_OVERLAY );
+//	mSceneMgr->setSpecialCaseRenderQueueMode( SceneManager::SCRQM_INCLUDE );
 
 	//-----------------------------------
 	// load all resources.
@@ -153,7 +150,7 @@ void GameBase::loadResources(void)
 	//-----------------------------------
 
 	mSceneMgr->clearSpecialCaseRenderQueues();
-	mSceneMgr->setSpecialCaseRenderQueueMode( SceneManager::SCRQM_EXCLUDE );
+//	mSceneMgr->setSpecialCaseRenderQueueMode( SceneManager::SCRQM_EXCLUDE );
 
 	//--------------------------------
 	// ¼ÓÔØ½áÊø

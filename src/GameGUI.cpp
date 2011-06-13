@@ -62,9 +62,7 @@ void GameGUI::initGUI()
 	mGUIRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout("KjGUIMenu.layout");
 	CEGUI::System::getSingleton().setGUISheet( mGUIRoot );
 
-	//------------------------------
-	// 为离开按钮创建监听器
-	mGUIRoot->getChild(1)->subscribeEvent( CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber( & GameGUI::quit, this ) );
+	initGUICallbackFunctionSet(); // 初始化GUI回调函数
 
 	mGUIRoot->activate();
 
@@ -72,6 +70,11 @@ void GameGUI::initGUI()
 	// 隐藏GUI
 	mGUIRoot->hide();
 	CEGUI::MouseCursor::getSingleton().hide();
+}
+//------------------------------------------------------------------------
+bool GameGUI::GUIisVisible()
+{
+	return mGUIRoot->isVisible();
 }
 //------------------------------------------------------------------------
 void GameGUI::showGUI()
@@ -90,12 +93,6 @@ void GameGUI::hideGUI()
 void GameGUI::toggleGUIVisibility()
 {
 	mGUIRoot->isVisible() ? hideGUI() : showGUI();
-}
-//------------------------------------------------------------------------
-bool GameGUI::quit( const CEGUI::EventArgs & evt )
-{
-	mGameShutDown = true;
-	return true;
 }
 //------------------------------------------------------------------------
 bool GameGUI::gameShutDown()
@@ -150,4 +147,29 @@ void GameGUI::injectMouseReleased( OIS::MouseButtonID id )
 	CEGUI::System::getSingleton().injectMouseButtonUp( convertButton(id) );
 }
 //------------------------------------------------------------------------
+//------------------------------------------------------------------------
+void GameGUI::initGUICallbackFunctionSet()
+{
+	// 返回游戏
+	mGUIRoot->getChild(2)->subscribeEvent( CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber( & GameGUI::returnToGame, this ) );
+	// 离开游戏
+	mGUIRoot->getChild(3)->subscribeEvent( CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber( & GameGUI::quit, this ) );
+	
+}
+//------------------------------------------------------------------------
 
+//------------------------------------------------------------------------
+// Callback Functions.
+//------------------------------------------------------------------------
+bool GameGUI::returnToGame( const CEGUI::EventArgs & evt )
+{
+	hideGUI();
+	return true;
+}
+//------------------------------------------------------------------------
+bool GameGUI::quit( const CEGUI::EventArgs & evt )
+{
+	mGameShutDown = true;
+	return true;
+}
+//------------------------------------------------------------------------

@@ -16,6 +16,7 @@ public:
 	GameGUI();
 	~GameGUI();
 
+	bool GUIisVisible();
 	bool gameShutDown();
 	void toggleGUIVisibility();
 
@@ -29,6 +30,12 @@ protected:
 	void initGUI();
 	void showGUI();
 	void hideGUI();
+
+	void initGUICallbackFunctionSet();
+
+	//---------------------------------
+	// Callback Functions.
+	bool returnToGame( const CEGUI::EventArgs & evt );
 	bool quit( const CEGUI::EventArgs & evt );
 
 private:
