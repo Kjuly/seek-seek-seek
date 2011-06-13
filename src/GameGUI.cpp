@@ -16,73 +16,80 @@ void GameGUI::initGUI()
 	// 创建图形界面
 	mRenderer = & CEGUI::OgreRenderer::bootstrapSystem();
 
-	CEGUI::Imageset::setDefaultResourceGroup("Imagesets");
+	CEGUI::Imageset::setDefaultResourceGroup("Imagesets"); // 加载所有.imageset文件
+	// OR: CEGUI::ImagesetManager::getSingleton().createImageset("myImageset.imageset");
 	CEGUI::Font::setDefaultResourceGroup("Fonts");
 	CEGUI::Scheme::setDefaultResourceGroup("Schemes");
 	CEGUI::WidgetLookManager::setDefaultResourceGroup("LookNFeel");
 	CEGUI::WindowManager::setDefaultResourceGroup("Layouts");
 
+	//--------------------------
 	// select the skin
-	//CEGUI::SchemeManager::getSingleton().create("TaharezLook.scheme");
-	CEGUI::SchemeManager::getSingleton().create("VanillaSkin.scheme");
+	CEGUI::SchemeManager::getSingleton().create("OgreTray.scheme");
 
+	//--------------------------
 	// set the default mouse cursor
 	// the 1st parameter specifies the Imageset and the 2nd one specifies the name of the image to use from that.
-	//CEGUI::System::getSingleton().setDefaultMouseCursor("TaharezLook","MouseArrow");
-	CEGUI::System::getSingleton().setDefaultMouseCursor("Vanilla-Images","MouseArrow");
+	//CEGUI::System::getSingleton().setDefaultMouseCursor("TaharezLook","MouseArrow");					  //-------
+	//CEGUI::System::getSingleton().setDefaultMouseCursor("Vanilla-Images","MouseArrow");
+	// OgreTrayImages 为图片名称OgreTrayImages.png
+	// 两步：获取图片中鼠标部分，设置到鼠标
+	CEGUI::System::getSingleton().setDefaultMouseCursor("OgreTrayImages","MouseArrow");
 	CEGUI::MouseCursor::getSingleton().setImage( CEGUI::System::getSingleton().getDefaultMouseCursor() );
 
-	// set font
-	CEGUI::FontManager::getSingleton().create("DejaVuSans-10.font");
-
 	//-------------------------------------------------------------
-	CEGUI::WindowManager & winMgr = CEGUI::WindowManager::getSingleton();
-	//mSheetMain = GUIWinMgr.createWindow("DefaultWindow","Seek/SheetMain");
+//	CEGUI::WindowManager & winMgr = CEGUI::WindowManager::getSingleton();
+//	mGUIRoot = winMgr.createWindow("DefaultWindow","Seek/SheetMain");
+//	mGUIRoot->setPosition( CEGUI::UVector2( CEGUI::UDim(0.0,0), CEGUI::UDim(0.0,0) ) );
+	//mGUIRoot->setSize( CEGUI::UVector2( CEGUI::UDim(1.0,0), CEGUI::UDim(0.05,0) ) );
+
 	// 加载需要使用的背景图片	
-	CEGUI::ImagesetManager::getSingleton().createFromImageFile("BackgroundImage", "GPN-2000-001437.tga");
-	mSheetMain = winMgr.createWindow("Vanilla/StaticImage");
+//	CEGUI::ImagesetManager::getSingleton().createFromImageFile("BackgroundImage", "GPN-2000-001437.tga");
+	//mGUIRoot = winMgr.createWindow("TaharezLook/StaticImage","background_wnd");                         //-------
+	//mGUIRoot = winMgr.createWindow("Vanilla/StaticImage");
+//	mGUIRoot = winMgr.createWindow("OgreTray/StaticImage");
 	// set area rectangle
-	mSheetMain->setArea( CEGUI::URect(cegui_reldim(0), cegui_reldim(0), cegui_reldim(1), cegui_reldim(1)) );
+//	mGUIRoot->setArea( CEGUI::URect(cegui_reldim(0), cegui_reldim(0), cegui_reldim(1), cegui_reldim(1)) );
 	// disable frame & standard background
-	mSheetMain->setProperty("FrameEnabled","false");
-	mSheetMain->setProperty("BackgroundEnabled","false");
-	// set the bg image
-	mSheetMain->setProperty("Image","set:BackgroundImage image::full_image");
+//	mGUIRoot->setProperty("FrameEnabled","false");
+//	mGUIRoot->setProperty("BackgroundEnabled","false");
+//	mGUIRoot->setProperty("Image", "set:BackgroundImage image::full_image");
 
-	//CEGUI::Window * quit = GUIWinMgr.createWindow("TaharezLook/Button","Seek/QuitButton");
-	CEGUI::Window * quit = winMgr.createWindow("Vanilla/Button","Seek/QuitButton");
-	quit->setText("Quit");
-	// width,height; UDim:1:relativ,%; 2:absolute,pix;
-	// in this case: 15%width & 5%height compared to Window
-	quit->setSize( CEGUI::UVector2( CEGUI::UDim(0.15,0), CEGUI::UDim(0.05,0) ) );
-	quit->subscribeEvent( CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber( & GameGUI::quit, this ) );
 
-	mSheetMain->addChildWindow( quit );
-	CEGUI::System::getSingleton().setGUISheet( mSheetMain );
+	CEGUI::FontManager::getSingleton().create("DejaVuSans-10.font");
+	
+	//mGUIRoot->addChildWindow( winMgr.loadWindowLayout("VanillaWindows.layout") );
+	mGUIRoot = CEGUI::WindowManager::getSingleton().loadWindowLayout("KjGUIMenu.layout");
+	CEGUI::System::getSingleton().setGUISheet( mGUIRoot );
 
-	mSheetMain->activate();
+	//------------------------------
+	// 为离开按钮创建监听器
+	mGUIRoot->getChild(1)->subscribeEvent( CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber( & GameGUI::quit, this ) );
+
+	mGUIRoot->activate();
 
 	//------------------------------
 	// 隐藏GUI
-	mSheetMain->hide();
+	mGUIRoot->hide();
 	CEGUI::MouseCursor::getSingleton().hide();
 }
 //------------------------------------------------------------------------
 void GameGUI::showGUI()
 {
-	mSheetMain->show();
+	//mGUIRoot->activate();
+	mGUIRoot->show();
 	CEGUI::MouseCursor::getSingleton().show();
 }
 //------------------------------------------------------------------------
 void GameGUI::hideGUI()
 {
-	mSheetMain->hide();
+	mGUIRoot->hide();
 	CEGUI::MouseCursor::getSingleton().hide();
 }
 //------------------------------------------------------------------------
 void GameGUI::toggleGUIVisibility()
 {
-	mSheetMain->isVisible() ? hideGUI() : showGUI();
+	mGUIRoot->isVisible() ? hideGUI() : showGUI();
 }
 //------------------------------------------------------------------------
 bool GameGUI::quit( const CEGUI::EventArgs & evt )

@@ -33,7 +33,7 @@ protected:
 
 private:
 	OgreRenderer	* mRenderer;				// CEGUI 渲染
-	Window			* mSheetMain;				// 主窗口
+	Window			* mGUIRoot;					// GUI主窗口
 	bool			  mGameShutDown;			// 是否退出游戏
 };
 
