@@ -27,7 +27,10 @@
 #include <SdkTrays.h>
 #include <SdkCameraMan.h>
 
-//#include "LoadingBar.h"	// 加载进度条
+#include "LoadingBar.h"	// 加载进度条
+#include "CEGUI.h"									// CEGUI
+#include "RendererModules/Ogre/CEGUIOgreRenderer.h"
+#include "GameGUI.h"
 
 class GameBase :
 	public Ogre::FrameListener,
@@ -93,7 +96,8 @@ protected:
     OIS::Mouse			* mMouse;
     OIS::Keyboard		* mKeyboard;
 
-	//LoadingBar			  mLoadingBar;	// Loging Bar
+	LoadingBar			  mLoadingBar;	// Loging Bar
+	GameGUI				* mGUIMgr;					// GUI控制器
 };
 
 #endif // #ifndef __GameBase_h_

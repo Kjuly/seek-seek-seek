@@ -73,6 +73,7 @@ bool GameBase::setup(void)
 	// 5. Initialize the resources that you are going to use.
     // Create any resource listeners (for loading screens)
     createResourceListener();
+	
     // Load resources
     loadResources();
 
@@ -133,13 +134,14 @@ void GameBase::setupResources(void)
 //-------------------------------------------------------------------------
 void GameBase::loadResources(void)
 {
+	//mGUIMgr = new GameGUI();
 	//--------------------------------
 	// 开始加载
-//	mLoadingBar.start( mWindow, 1, 1, 0.5 );
+	mLoadingBar.start( mWindow, 1, 1, 0.5 );
 
 	mSceneMgr->clearSpecialCaseRenderQueues();
-//	mSceneMgr->addSpecialCaseRenderQueue( RENDER_QUEUE_OVERLAY );
-//	mSceneMgr->setSpecialCaseRenderQueueMode( SceneManager::SCRQM_INCLUDE );
+	mSceneMgr->addSpecialCaseRenderQueue( RENDER_QUEUE_OVERLAY );
+	mSceneMgr->setSpecialCaseRenderQueueMode( SceneManager::SCRQM_INCLUDE );
 
 	//-----------------------------------
 	// load all resources.
@@ -150,11 +152,11 @@ void GameBase::loadResources(void)
 	//-----------------------------------
 
 	mSceneMgr->clearSpecialCaseRenderQueues();
-//	mSceneMgr->setSpecialCaseRenderQueueMode( SceneManager::SCRQM_EXCLUDE );
+	mSceneMgr->setSpecialCaseRenderQueueMode( SceneManager::SCRQM_EXCLUDE );
 
 	//--------------------------------
 	// 加载结束
-//	mLoadingBar.finish();
+	mLoadingBar.finish();
 }
 //-------------------------------------------------------------------------
 void GameBase::chooseSceneManager(void)
