@@ -19,31 +19,36 @@ void GraphicCharacter::injectKeyDown( const OIS::KeyEvent & evt )
 	// 跳跃
 	//else if( evt.key == OIS::KC_SPACE && (mTopAnimID == ANIM_IDLE_TOP || mTopAnimID == ANIM_RUN_TOP) )
 	//else if( mCharacterState->getJumpState() && (mTopAnimID == ANIM_IDLE_TOP || mTopAnimID == ANIM_RUN_TOP) )
-	if( mCharacterState->getJumpState() && (mTopAnimID == ANIM_IDLE_TOP || mTopAnimID == ANIM_RUN_TOP) )
+/*	if( mCharacterState->getJumpState() && (mTopAnimID == ANIM_IDLE_TOP || mTopAnimID == ANIM_RUN_TOP) )
 	{
 		// jump if on ground
 		setBaseAnimation( ANIM_JUMP_START, true );
 		setTopAnimation( ANIM_NONE );
 		mTimer = 0;
 	}
-
+*/
 	// mCharacterState->getKeyDirection()非零即角色将移动，或者正在移动；
 	// mBaseAnimID = ANIM_IDLE_BASE 表示角色目前正处于 IDLE 状态
-	if( ! mCharacterState->zeroKeyDirection() && mBaseAnimID == ANIM_IDLE_BASE )
+//	if( ! mCharacterState->zeroKeyDirection() && mBaseAnimID == ANIM_IDLE_BASE )
+	if( evt.key == OIS::KC_LSHIFT ) mRun = false;
+	
+	if( ! mCharacterState->zeroKeyDirection() && mBaseAnimID == ANIM_NONE )
 	{
 		// start running if not already moving and the player wants to move
-		setBaseAnimation( ANIM_RUN_BASE, true );
-		if( mTopAnimID == ANIM_IDLE_TOP ) setTopAnimation( ANIM_RUN_TOP, true );
+	//	setBaseAnimation( ANIM_RUN_BASE, true );
+		setBaseAnimation(ANIM_RUN, true);	// Run
+		//if( mTopAnimID == ANIM_IDLE_TOP ) setTopAnimation( ANIM_RUN_TOP, true );
 	}
 }
 // ------------------------------------------------------------------------
 void GraphicCharacter::injectKeyUp( const OIS::KeyEvent & evt )
 {
-	if( mCharacterState->zeroKeyDirection() && mBaseAnimID == ANIM_RUN_BASE )
+	if( evt.key == OIS::KC_LSHIFT ) mRun = true;
+	
+	if( mCharacterState->zeroKeyDirection() && mBaseAnimID == ANIM_RUN )
 	{
 		// stop running if already moving and the player doesn't want to move
-		setBaseAnimation( ANIM_IDLE_BASE );
-		if( mTopAnimID == ANIM_RUN_TOP ) setTopAnimation( ANIM_IDLE_TOP );
+		setBaseAnimation( ANIM_NONE );
 	}
 }
 // ------------------------------------------------------------------------
@@ -53,12 +58,25 @@ void GraphicCharacter::injectMouseDown( const OIS::MouseEvent & evt, OIS::MouseB
 // ------------------------------------------------------------------------
 void GraphicCharacter::setupBody( SceneManager * pSceneMgr )
 {
+	//--------------------------------
+	// tmp
+/*	Ogre::SceneNode * characterNode = pSceneMgr->getRootSceneNode()->createChildSceneNode();
+	Ogre::Entity * characterEnt = pSceneMgr->createEntity("Character_1", "Sintel_tiny.mesh");
+	//tmpEnt->setMaterialName("Sintel_tiny");
+	characterNode->attachObject( characterEnt );
+	characterNode->setPosition( Ogre::Vector3(-30.0f,3.0f,-3.0f) );
+	characterNode->yaw(Ogre::Degree(180));
+*/
+	//--------------------------------
 	// create main model
 	mBodyNode = pSceneMgr->getRootSceneNode()->createChildSceneNode( Vector3::UNIT_Y * CHAR_HEIGHT );
-	mBodyEnt = pSceneMgr->createEntity("SinbadBody", "Sinbad.mesh");
+	mBodyEnt = pSceneMgr->createEntity("Sintel_tiny_Body", "Sintel_tiny.mesh");
+	//mBodyEnt = pSceneMgr->createEntity("Sintel_tiny_Body", "maxpayen.mesh");
 	mBodyNode->attachObject( mBodyEnt );
+	mBodyNode->yaw(Ogre::Degree(180));
 
 	mVerticalVelocity = 0;
+	mRun = true;
 }
 
 // ------------------------------------------------------------------------
@@ -68,16 +86,7 @@ void GraphicCharacter::setupAnimations()
 	// 从角色skeleton文件中获取各动画状态信息
 	mBodyEnt->getSkeleton()->setBlendMode( ANIMBLEND_CUMULATIVE );
 
-	String animNames[] =
-	{
-		"IdleBase", "IdleTop",				// Idle
-		"RunBase", "RunTop",				// Run
-		"HandsClosed", "HandsRelaxed",		// 手上无剑
-		"DrawSwords",						// 彩带
-		"SliceVertical", "SliceHorizontal", // 用剑砍
-		"Dance",							// 跳舞
-		"JumpStart", "JumpLoop", "JumpEnd"  // 跳跃
-	};
+	String animNames[] = { "Run", "Jump" };
 
 	// populate(填充) our animation list
 	// 将动画状态信息储存于对应AnimationState类数组mAnims[]中
@@ -91,19 +100,19 @@ void GraphicCharacter::setupAnimations()
 
 	// start off in the idle state (top and bottom together)
 	// 角色默认动画状态
-	setBaseAnimation( ANIM_IDLE_BASE ); // 下身
-	setTopAnimation( ANIM_IDLE_TOP );	// 上身
+	//setBaseAnimation( ANIM_NONE );
+	setBaseAnimation( ANIM_RUN );
 
 	// relax the hands since we're not holding anything
 	// 角色双手闲置
-	mAnims[ ANIM_HANDS_RELAXED ]->setEnabled(true);
+//	mAnims[ ANIM_HANDS_RELAXED ]->setEnabled(true);
 }
 // ------------------------------------------------------------------------
 // 在 转身 和 跳跃 情形下需要更新 Body
 void GraphicCharacter::updateBody( Real deltaTime )
 {
 	// 更新角色方向 | 移动已于 KinematicCharacter.cpp 中实现
-	if( ! mCharacterState->zeroKeyDirection() && mBaseAnimID != ANIM_DANCE )
+	if( ! mCharacterState->zeroKeyDirection() )
 	{
 		Quaternion toGoal = mBodyNode->getOrientation().zAxis().getRotationTo( mCharacterState->getGoalDirection() );
 
@@ -113,23 +122,23 @@ void GraphicCharacter::updateBody( Real deltaTime )
 		Real yawAtSpeed = yawToGoal / Math::Abs(yawToGoal) * deltaTime * TURN_SPEED;
 		// reduce "turnability" if we're in midair(半空中)
 		// 角色处于半空中时, 减小转身速度
-		if( mBaseAnimID == ANIM_JUMP_LOOP ) yawAtSpeed *= 0.2f;
+//		if( mBaseAnimID == ANIM_JUMP_LOOP ) yawAtSpeed *= 0.2f;
 
 		// turn as much as we can, but not more than we need to
 		if( yawToGoal < 0 )
 			yawToGoal = std::min<Real>( 0, std::max<Real>(yawToGoal, yawAtSpeed) );
-			//yawToGoal = Math::Clamp<Real>(yawToGoal, yawAtSpeed, 0);
 		else if( yawToGoal > 0 )
 			yawToGoal = std::max<Real>( 0, std::min<Real>(yawToGoal, yawAtSpeed) );
-			//yawToGoal = Math::Clamp<Real>(yawToGoal, 0, yawAtSpeed);
 		
 		// 旋转角色朝向目标方向	
 		mBodyNode->yaw( Degree( yawToGoal ) );
+
+		mBodyNode->translate(0, 0, deltaTime * RUN_SPEED * mAnims[mBaseAnimID]->getWeight(), Node::TS_LOCAL);
 	}
 
 	///------------------------------------------------
 	///角色跳跃状态
-	if( mBaseAnimID == ANIM_JUMP_LOOP )
+/*	if( mBaseAnimID == ANIM_JUMP_LOOP )
 	{
 		if( mCharacterState->getLandedState() )
 		{
@@ -137,42 +146,18 @@ void GraphicCharacter::updateBody( Real deltaTime )
 			mTimer = 0;
 		}
 	}
+*/
 }
 // ------------------------------------------------------------------------
 void GraphicCharacter::updateAnimations( Real deltaTime )
 {
 	Real baseAnimSpeed = 1;
-	Real topAnimSpeed = 1;
+//	Real topAnimSpeed = 1;
 
 	mTimer += deltaTime;
 
-	if( mBaseAnimID == ANIM_JUMP_START )
-	{
-		if( ! mCharacterState->getLandedState() )
-		{
-			// takeoff animation finished, so time to leave the ground!
-			setBaseAnimation( ANIM_JUMP_LOOP, true );
-			// apply a jump acceleration to the character
-			mVerticalVelocity = JUMP_ACCEL;
-		}
-	}
-	else if( mBaseAnimID == ANIM_JUMP_END )
-	{
-		if( mCharacterState->zeroKeyDirection() )
-		{
-			setBaseAnimation( ANIM_IDLE_BASE );
-			setTopAnimation( ANIM_IDLE_TOP );
-		}
-		else
-		{
-			setBaseAnimation( ANIM_RUN_BASE, true );
-			setTopAnimation( ANIM_RUN_TOP, true );
-		}
-	}
-
 	// increment the current base and top animation times
 	if( mBaseAnimID != ANIM_NONE ) mAnims[mBaseAnimID]->addTime( deltaTime * baseAnimSpeed );
-	if( mTopAnimID != ANIM_NONE ) mAnims[mTopAnimID]->addTime( deltaTime * topAnimSpeed );
 
 	// apply smooth transitioning between our animations
 	fadeAnimations( deltaTime );
@@ -229,7 +214,7 @@ void GraphicCharacter::setBaseAnimation( AnimID id, bool reset /*= false*/ )
 void GraphicCharacter::setTopAnimation( AnimID id, bool reset /*= false*/ )
 {
 	// 将角色旧状态更新为新状态
-	if( mTopAnimID >= 0 && mTopAnimID < NUM_ANIMS )
+/*	if( mTopAnimID >= 0 && mTopAnimID < NUM_ANIMS )
 	{
 		// if we have an old animation, fade it out
 		mFadingIn[mTopAnimID] = false;
@@ -247,5 +232,6 @@ void GraphicCharacter::setTopAnimation( AnimID id, bool reset /*= false*/ )
 		mFadingIn[id] = true;
 		if( reset ) mAnims[id]->setTimePosition(0);
 	}
+*/
 }
 // ------------------------------------------------------------------------

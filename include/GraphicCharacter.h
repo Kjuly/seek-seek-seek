@@ -21,8 +21,8 @@ using namespace Ogre;
 
 #include "CharacterState.h" // 运动状态集
 
-#define NUM_ANIMS 13           // number of animations the character has
-#define CHAR_HEIGHT 5          // height of character's center of mass above ground | 角色中心距离地面高度
+#define NUM_ANIMS 2           // number of animations the character has
+#define CHAR_HEIGHT 3.8        // height of character's center of mass above ground | 角色中心距离地面高度
 #define CAM_HEIGHT 2           // height of camera above character's center of mass
 #define RUN_SPEED 17           // character running speed in units per second
 #define TURN_SPEED 500.0f      // character turning in degrees per second
@@ -37,19 +37,8 @@ private:
 	// some of these affect separate body parts and will be blended together
 	enum AnimID
 	{
-		ANIM_IDLE_BASE,
-		ANIM_IDLE_TOP,
-		ANIM_RUN_BASE,
-		ANIM_RUN_TOP,
-		ANIM_HANDS_CLOSED,
-		ANIM_HANDS_RELAXED,
-		ANIM_DRAW_SWORDS,
-		ANIM_SLICE_VERTICAL,
-		ANIM_SLICE_HORIZONTAL,
-		ANIM_DANCE,
-		ANIM_JUMP_START,
-		ANIM_JUMP_LOOP,
-		ANIM_JUMP_END,
+		ANIM_RUN,
+		ANIM_JUMP,
 		ANIM_NONE
 	};
 
@@ -83,6 +72,7 @@ private:
 	Real			  mVerticalVelocity;		// for jumping
 	Real			  mTimer;					// general timer to see how long animations have been playing
 
+	bool mRun;									// 标记是否为跑步状态
 	CharacterState	* mCharacterState;			// 运动状态集
 };
 
