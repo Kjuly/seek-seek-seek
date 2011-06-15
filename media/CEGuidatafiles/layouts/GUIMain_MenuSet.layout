@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout >
+    <Window Type="OgreTray/TabControl" Name="MenuSet" >
+        <Property Name="TabHeight" Value="{0,28}" />
+        <Property Name="TabPanePosition" Value="Top" />
+        <Property Name="UnifiedAreaRect" Value="{{0.2,0},{0.2,0},{0.8,0},{0.75,0}}" />
+        <Window Type="DefaultWindow" Name="MenuSet/Tab_1" >
+            <Property Name="Text" Value="Audio" />
+            <Property Name="Visible" Value="True" />
+            <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{1,0},{1,0}}" />
+            <Window Type="OgreTray/RadioButton" Name="MenuSet/Tab_1/RadioBut_bgm_1" >
+                <Property Name="Text" Value="Background Music 01" />
+                <Property Name="Selected" Value="True" />
+                <Property Name="UnifiedAreaRect" Value="{{0.3,0},{0.25,0},{0.7,0},{0.33,0}}" />
+            </Window>
+            <Window Type="OgreTray/RadioButton" Name="MenuSet/Tab_1/RadioBut_bgm_2" >
+                <Property Name="Text" Value="Background Music 02" />
+                <Property Name="UnifiedAreaRect" Value="{{0.3,0},{0.38,0},{0.7,0},{0.46,0}}" />
+            </Window>
+            <Window Type="OgreTray/RadioButton" Name="MenuSet/Tab_1/RadioBut_bgm_3" >
+                <Property Name="Text" Value="Background Music 03" />
+                <Property Name="UnifiedAreaRect" Value="{{0.3,0},{0.51,0},{0.7,0},{0.59,0}}" />
+            </Window>
+        </Window>
+        <Window Type="DefaultWindow" Name="MenuSet/Tab_2" >
+            <Property Name="Text" Value="Scene" />
+			<Property Name="Visible" Value="False" />
+            <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{1,0},{1,0}}" />
+            <Window Type="OgreTray/RadioButton" Name="MenuSet/Tab_2/RadioBut_scene_1" >
+                <Property Name="Text" Value="Default: Day with Fog." />
+                <Property Name="Selected" Value="True" />
+                <Property Name="UnifiedAreaRect" Value="{{0.3,0},{0.25,0},{0.7,0},{0.33,0}}" />
+            </Window>
+            <Window Type="OgreTray/RadioButton" Name="MenuSet/Tab_2/RadioBut_scene_2" >
+                <Property Name="Text" Value="Night with Fog." />
+                <Property Name="UnifiedAreaRect" Value="{{0.3,0},{0.38,0},{0.7,0},{0.46,0}}" />
+            </Window>
+            <Window Type="OgreTray/RadioButton" Name="MenuSet/Tab_2/RadioBut_scene_3" >
+                <Property Name="Text" Value="None" />
+                <Property Name="UnifiedAreaRect" Value="{{0.3,0},{0.51,0},{0.7,0},{0.59,0}}" />
+            </Window>
+        </Window>
+        <Window Type="DefaultWindow" Name="MenuSet/Tab_3" >
+            <Property Name="Text" Value="Mode" />
+            <Property Name="Visible" Value="False" />
+            <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{1,0},{1,0}}" />
+            <Window Type="OgreTray/StaticText" Name="MenuSet/Tab_3/DebugInfo" >
+                <Property Name="Text" >  This mode is here for Developer testing the Physics World Collision.
+  Check the box below and you&apos;ll see some green lines in the game.</Property>
+                <Property Name="UnifiedAreaRect" Value="{{0.25,0},{0.18,0},{0.75,0},{0.56,0}}" />
+            </Window>
+            <Window Type="OgreTray/Checkbox" Name="MenuSet/Tab_3/DebugButton" >
+                <Property Name="Text" Value="Debug Mode" />
+                <Property Name="Selected" Value="True" />
+                <Property Name="UnifiedAreaRect" Value="{{0.38,0},{0.65,0},{0.62,0},{0.73,0}}" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

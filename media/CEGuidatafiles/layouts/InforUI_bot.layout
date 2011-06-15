@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout >
+    <Window Type="DefaultWindow" Name="InforUI/InforBot" >
+        <Property Name="UnifiedAreaRect" Value="{{0,0},{0.65,0},{1,0},{1,0}}" />
+        <Window Type="OgreTray/StaticImage" Name="InforUI/InforBot/avatarSintel" >
+            <Property Name="Image" Value="set:InforUISet image:avatarSinter" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="UnifiedAreaRect" Value="{{0.0206522,0},{0.157707,0},{0.175003,0},{0.94194,0}}" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="MousePassThroughEnabled" Value="True" />
+        </Window>
+        <Window Type="OgreTray/Slider" Name="InforUI/InforBot/energeBar" >
+            <Property Name="CurrentValue" Value="0" />
+            <Property Name="MaximumValue" Value="1" />
+            <Property Name="ClickStepSize" Value="0.01" />
+            <Property Name="UnifiedAreaRect" Value="{{0.181522,0},{0.339678,0},{0.443479,0},{0.442595,0}}" />
+        </Window>
+        <Window Type="OgreTray/Slider" Name="InforUI/InforBot/pathBar" >
+            <Property Name="CurrentValue" Value="0" />
+            <Property Name="MaximumValue" Value="1" />
+            <Property Name="ClickStepSize" Value="0.01" />
+            <Property Name="UnifiedAreaRect" Value="{{0.191304,0},{0.515878,0},{0.559783,0},{0.625598,0}}" />
+        </Window>
+    </Window>
+</GUILayout>
