@@ -45,7 +45,7 @@ void GraphicCharacter::injectKeyUp( const OIS::KeyEvent & evt )
 {
 	if( evt.key == OIS::KC_LSHIFT ) mRun = true;
 	
-	if( mCharacterState->zeroKeyDirection() && mBaseAnimID == ANIM_RUN )
+	if( mCharacterState->zeroKeyDirection() && (mBaseAnimID == ANIM_RUN || mBaseAnimID == ANIM_JUMP) )
 	{
 		// stop running if already moving and the player doesn't want to move
 		setBaseAnimation( ANIM_NONE );
@@ -157,6 +157,7 @@ void GraphicCharacter::updateAnimations( Real deltaTime )
 	mTimer += deltaTime;
 
 	// increment the current base and top animation times
+	//if( mBaseAnimID != ANIM_NONE ) mAnims[mBaseAnimID]->addTime( deltaTime * baseAnimSpeed );
 	if( mBaseAnimID != ANIM_NONE ) mAnims[mBaseAnimID]->addTime( deltaTime * baseAnimSpeed );
 
 	// apply smooth transitioning between our animations
