@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout >
+    <Window Type="OgreTray/CaptionedStaticText" Name="MenuHelp" >
+        <Property Name="CaptionFont" Value="DejaVuSans-10" />
+        <Property Name="UnifiedAreaRect" Value="{{0.2,0},{0.20,0},{0.8,0},{0.75,0}}" />
+        <Window Type="OgreTray/ScrollablePane" Name="MenuHelp/ScrollablePane" >
+            <Property Name="ContentArea" Value="l:0 t:0 r:475 b:235" />
+            <Property Name="HorzStepSize" Value="0.1" />
+            <Property Name="VertStepSize" Value="0.1" />
+            <Property Name="HorzOverlapSize" Value="0.01" />
+            <Property Name="UnifiedAreaRect" Value="{{0.0295138,0},{0.125503,0},{0.975688,0},{0.917878,0}}" />
+            <Property Name="VertOverlapSize" Value="0.01" />
+            <Property Name="HorzScrollPosition" Value="0" />
+            <Property Name="VertScrollPosition" Value="0" />
+            <AutoWindow NameSuffix="__auto_container__" >
+                <Property Name="ContentArea" Value="l:0 t:0 r:475 b:235" />
+                <Property Name="ChildExtentsArea" Value="l:0 t:0 r:475 b:235" />
+                <Window Type="OgreTray/StaticText" Name="MenuHelp/ScrollablePane/Item_1" >
+                    <Property Name="Text" Value="W/A/S/D: Control the Character to move." />
+                    <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{0.95,0},{0.2,0}}" />
+                </Window>
+                <Window Type="OgreTray/StaticText" Name="MenuHelp/ScrollablePane/Item_2" >
+                    <Property Name="Text" Value="SPACE: Jump." />
+                    <Property Name="UnifiedAreaRect" Value="{{0,0},{0.22,0},{0.95,0},{0.42,0}}" />
+                </Window>
+                <Window Type="OgreTray/StaticText" Name="MenuHelp/ScrollablePane/Item_3" >
+                    <Property Name="Text" Value="Up/Down/Left/Right: Rotate the View." />
+                    <Property Name="UnifiedAreaRect" Value="{{0.0,0},{0.44,0},{0.95,0},{0.64,0}}" />
+                </Window>
+                <Window Type="OgreTray/StaticText" Name="MenuHelp/ScrollablePane/Item_4" >
+                    <Property Name="Text" Value="PageUp/PageDown: Scale the View." />
+                    <Property Name="UnifiedAreaRect" Value="{{0,0},{0.66,0},{0.95,0},{0.86,0}}" />
+                </Window>
+                <Window Type="OgreTray/StaticText" Name="MenuHelp/ScrollablePane/" >
+                    <Property Name="Text" Value="Esc: Show Main Menu." />
+                    <Property Name="UnifiedAreaRect" Value="{{0.0,0},{0.88,0},{0.95,0},{1.08,0}}" />
+                </Window>
+            </AutoWindow>
+        </Window>
+    </Window>
+</GUILayout>
