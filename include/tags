@@ -4,23 +4,17 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+$	tags	/^GameGUI::debugModeSetOn	GameGUI.h	\/^	bool debugModeSetOn() { return mCheckDebugMode; }$\/;"	f	class:GameGUI	access:public	signature:()$/;"	v	typeref:class:__anon3
+$	tags	/^GameGUI::getRadioBgMusicID	GameGUI.h	\/^	int getRadioBgMusicID() { return mRadioBgMusicID; }$\/;"	f	class:GameGUI	access:public	signature:()$/;"	v	typeref:class:__anon4
+$	tags	/^GameGUI::setRadioBgMusicID	GameGUI.h	\/^	void setRadioBgMusicID( int pID ) { mRadioBgMusicID = pID; }$\/;"	f	class:GameGUI	access:protected	signature:( int pID )$/;"	v	typeref:class:__anon7
+$	tags	/^GameGUI::setRadioSceneModeID	GameGUI.h	\/^	void setRadioSceneModeID( int pID ) { mRadioSceneModeID = pID; }$\/;"	f	class:GameGUI	access:protected	signature:( int pID )$/;"	v	typeref:class:__anon8
+$	tags	/^GameGUI::toggleDebugMode	GameGUI.h	\/^	bool toggleDebugMode( const CEGUI::EventArgs & evt ) { mCheckDebugMode = ! mCheckDebugMode; return true; }$\/;"	f	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )$/;"	v	typeref:class:__anon6
 $	tags	/^Ogre::DotSceneLoader::DotSceneLoader	DotSceneLoader.h	\/^        DotSceneLoader() : mSceneMgr(0) {}$\/;"	f	class:Ogre::DotSceneLoader	access:public	signature:()$/;"	v	typeref:class:__anon1
 $	tags	/^Ogre::DotSceneLoader::~DotSceneLoader	DotSceneLoader.h	\/^        virtual ~DotSceneLoader() {}$\/;"	f	class:Ogre::DotSceneLoader	access:public	signature:()$/;"	v	typeref:class:__anon2
-ANIM_DANCE	GraphicCharacter.h	/^		ANIM_DANCE,$/;"	e	enum:GraphicCharacter::AnimID
-ANIM_DRAW_SWORDS	GraphicCharacter.h	/^		ANIM_DRAW_SWORDS,$/;"	e	enum:GraphicCharacter::AnimID
 ANIM_FADE_SPEED	GraphicCharacter.h	29;"	d
-ANIM_HANDS_CLOSED	GraphicCharacter.h	/^		ANIM_HANDS_CLOSED,$/;"	e	enum:GraphicCharacter::AnimID
-ANIM_HANDS_RELAXED	GraphicCharacter.h	/^		ANIM_HANDS_RELAXED,$/;"	e	enum:GraphicCharacter::AnimID
-ANIM_IDLE_BASE	GraphicCharacter.h	/^		ANIM_IDLE_BASE,$/;"	e	enum:GraphicCharacter::AnimID
-ANIM_IDLE_TOP	GraphicCharacter.h	/^		ANIM_IDLE_TOP,$/;"	e	enum:GraphicCharacter::AnimID
-ANIM_JUMP_END	GraphicCharacter.h	/^		ANIM_JUMP_END,$/;"	e	enum:GraphicCharacter::AnimID
-ANIM_JUMP_LOOP	GraphicCharacter.h	/^		ANIM_JUMP_LOOP,$/;"	e	enum:GraphicCharacter::AnimID
-ANIM_JUMP_START	GraphicCharacter.h	/^		ANIM_JUMP_START,$/;"	e	enum:GraphicCharacter::AnimID
+ANIM_JUMP	GraphicCharacter.h	/^		ANIM_JUMP,$/;"	e	enum:GraphicCharacter::AnimID
 ANIM_NONE	GraphicCharacter.h	/^		ANIM_NONE$/;"	e	enum:GraphicCharacter::AnimID
-ANIM_RUN_BASE	GraphicCharacter.h	/^		ANIM_RUN_BASE,$/;"	e	enum:GraphicCharacter::AnimID
-ANIM_RUN_TOP	GraphicCharacter.h	/^		ANIM_RUN_TOP,$/;"	e	enum:GraphicCharacter::AnimID
-ANIM_SLICE_HORIZONTAL	GraphicCharacter.h	/^		ANIM_SLICE_HORIZONTAL,$/;"	e	enum:GraphicCharacter::AnimID
-ANIM_SLICE_VERTICAL	GraphicCharacter.h	/^		ANIM_SLICE_VERTICAL,$/;"	e	enum:GraphicCharacter::AnimID
+ANIM_RUN	GraphicCharacter.h	/^		ANIM_RUN,$/;"	e	enum:GraphicCharacter::AnimID
 AnimID	GraphicCharacter.h	/^	enum AnimID$/;"	g	class:GraphicCharacter	access:private
 BT_KINEMATIC_CHARACTER_CONTROLLER_H	btKinematicCharacterController.h	18;"	d
 CAM_HEIGHT	GraphicCharacter.h	26;"	d
@@ -72,6 +66,11 @@ CharacterState::~CharacterState	CharacterState.h	/^	~CharacterState(){};$/;"	f	c
 DOT_SCENELOADER_H	DotSceneLoader.h	2;"	d
 DotSceneLoader	DotSceneLoader.h	/^        DotSceneLoader() : mSceneMgr(0) {}$/;"	f	class:Ogre::DotSceneLoader	access:public	signature:()
 DotSceneLoader	DotSceneLoader.h	/^    class DotSceneLoader$/;"	c	namespace:Ogre
+DynamicObject	PhysicsFrameListener.h	/^struct DynamicObject$/;"	s
+DynamicObject::graphicBody	PhysicsFrameListener.h	/^	Ogre::SceneNode					* graphicBody;	\/\/ Í¼ÐÎÌå$/;"	m	struct:DynamicObject	access:public
+DynamicObject::posList	PhysicsFrameListener.h	/^	std::vector< btVector3 >		  posList;		\/\/ ÔË¶¯Ä¿±êµã¶ÓÁÐ 0Îª³õÊ¼µã$/;"	m	struct:DynamicObject	access:public
+DynamicObject::posNum	PhysicsFrameListener.h	/^	Ogre::Real						  posNum;		\/\/ ÔË¶¯Ä¿±êµã¸öÊý$/;"	m	struct:DynamicObject	access:public
+DynamicObject::rigidBody	PhysicsFrameListener.h	/^	OgreBulletDynamics::RigidBody	* rigidBody;	\/\/ ÎïÀíÌå$/;"	m	struct:DynamicObject	access:public
 GRAVITY	GraphicCharacter.h	31;"	d
 GUIisVisible	GameGUI.h	/^	bool GUIisVisible();$/;"	p	class:GameGUI	access:public	signature:()
 GameBase	GameBase.h	/^    GameBase(void);$/;"	p	class:GameBase	access:public	signature:(void)
@@ -92,9 +91,11 @@ GameBase::keyReleased	GameBase.h	/^    virtual bool keyReleased( const OIS::KeyE
 GameBase::loadResources	GameBase.h	/^    virtual void loadResources(void);$/;"	p	class:GameBase	access:protected	signature:(void)
 GameBase::mCamera	GameBase.h	/^    Ogre::Camera		* mCamera;$/;"	m	class:GameBase	access:protected
 GameBase::mCameraMan	GameBase.h	/^    OgreBites::SdkCameraMan		* mCameraMan;        \/\/ basic camera controller$/;"	m	class:GameBase	access:protected
+GameBase::mGUIMgr	GameBase.h	/^	GameGUI				* mGUIMgr;					\/\/ GUIæŽ§åˆ¶å™¨$/;"	m	class:GameBase	access:protected
 GameBase::mInputManager	GameBase.h	/^    OIS::InputManager	* mInputManager;$/;"	m	class:GameBase	access:protected
 GameBase::mKeyboard	GameBase.h	/^    OIS::Keyboard		* mKeyboard;$/;"	m	class:GameBase	access:protected
 GameBase::mLight	GameBase.h	/^	Ogre::Light			* mLight;$/;"	m	class:GameBase	access:protected
+GameBase::mLoadingBar	GameBase.h	/^	LoadingBar			  mLoadingBar;	\/\/ Loging Bar$/;"	m	class:GameBase	access:protected
 GameBase::mMouse	GameBase.h	/^    OIS::Mouse			* mMouse;$/;"	m	class:GameBase	access:protected
 GameBase::mPluginsCfg	GameBase.h	/^    Ogre::String		  mPluginsCfg;$/;"	m	class:GameBase	access:protected
 GameBase::mResourcesCfg	GameBase.h	/^    Ogre::String		  mResourcesCfg;$/;"	m	class:GameBase	access:protected
@@ -115,7 +116,10 @@ GameGUI	GameGUI.h	/^	GameGUI();$/;"	p	class:GameGUI	access:public	signature:()
 GameGUI	GameGUI.h	/^class GameGUI$/;"	c
 GameGUI::GUIisVisible	GameGUI.h	/^	bool GUIisVisible();$/;"	p	class:GameGUI	access:public	signature:()
 GameGUI::GameGUI	GameGUI.h	/^	GameGUI();$/;"	p	class:GameGUI	access:public	signature:()
+GameGUI::debugModeSetOn	GameGUI.h	/^	bool debugModeSetOn() { return mCheckDebugMode; }$/;"	f	class:GameGUI	access:public	signature:()
 GameGUI::gameShutDown	GameGUI.h	/^	bool gameShutDown();$/;"	p	class:GameGUI	access:public	signature:()
+GameGUI::getRadioBgMusicID	GameGUI.h	/^	int getRadioBgMusicID() { return mRadioBgMusicID; }$/;"	f	class:GameGUI	access:public	signature:()
+GameGUI::getRadioSceneModeID	GameGUI.h	/^	int getRadioSceneModeID() { return mRadioSceneModeID; };$/;"	f	class:GameGUI	access:public	signature:()
 GameGUI::hideGUI	GameGUI.h	/^	void hideGUI();$/;"	p	class:GameGUI	access:protected	signature:()
 GameGUI::initGUI	GameGUI.h	/^	void initGUI();$/;"	p	class:GameGUI	access:protected	signature:()
 GameGUI::initGUICallbackFunctionSet	GameGUI.h	/^	void initGUICallbackFunctionSet();$/;"	p	class:GameGUI	access:protected	signature:()
@@ -124,12 +128,23 @@ GameGUI::injectKeyReleased	GameGUI.h	/^	void injectKeyReleased( const OIS::KeyEv
 GameGUI::injectMouseMoved	GameGUI.h	/^	void injectMouseMoved( const OIS::MouseEvent & evt );$/;"	p	class:GameGUI	access:public	signature:( const OIS::MouseEvent & evt )
 GameGUI::injectMousePressed	GameGUI.h	/^	void injectMousePressed( OIS::MouseButtonID id );$/;"	p	class:GameGUI	access:public	signature:( OIS::MouseButtonID id )
 GameGUI::injectMouseReleased	GameGUI.h	/^	void injectMouseReleased( OIS::MouseButtonID id );$/;"	p	class:GameGUI	access:public	signature:( OIS::MouseButtonID id )
+GameGUI::mCEGUIRoot	GameGUI.h	/^	Window			* mCEGUIRoot;				\/\/ CEGUI¸ù½Úµã$/;"	m	class:GameGUI	access:private
+GameGUI::mCheckDebugMode	GameGUI.h	/^	bool			  mCheckDebugMode;			\/\/ ÊÇ·ñÉèÖÃÎªµ÷ÊÔÄ£Ê½$/;"	m	class:GameGUI	access:private
 GameGUI::mGUIRoot	GameGUI.h	/^	Window			* mGUIRoot;					\/\/ GUIÖ÷´°¿Ú$/;"	m	class:GameGUI	access:private
 GameGUI::mGameShutDown	GameGUI.h	/^	bool			  mGameShutDown;			\/\/ ÊÇ·ñÍË³öÓÎÏ·$/;"	m	class:GameGUI	access:private
+GameGUI::mInforUIRoot	GameGUI.h	/^	Window			* mInforUIRoot;				\/\/ ÓÎÏ·½øÐÐÊ±½ÇÉ«¼´Ê±ÐÅÏ¢$/;"	m	class:GameGUI	access:private
+GameGUI::mRadioBgMusicID	GameGUI.h	/^	int				  mRadioBgMusicID;			\/\/ ±³¾°ÒôÀÖID$/;"	m	class:GameGUI	access:private
+GameGUI::mRadioSceneModeID	GameGUI.h	/^	int				  mRadioSceneModeID;		\/\/ »·¾³Ð§¹ûID$/;"	m	class:GameGUI	access:private
 GameGUI::mRenderer	GameGUI.h	/^	OgreRenderer	* mRenderer;				\/\/ CEGUI äÖÈ¾$/;"	m	class:GameGUI	access:private
 GameGUI::quit	GameGUI.h	/^	bool quit( const CEGUI::EventArgs & evt );$/;"	p	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )
 GameGUI::returnToGame	GameGUI.h	/^	bool returnToGame( const CEGUI::EventArgs & evt );$/;"	p	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )
+GameGUI::returnToMenuRoot	GameGUI.h	/^	bool returnToMenuRoot( const CEGUI::EventArgs & evt );$/;"	p	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )
+GameGUI::setRadioBgMusicID	GameGUI.h	/^	void setRadioBgMusicID( int pID ) { mRadioBgMusicID = pID; }$/;"	f	class:GameGUI	access:protected	signature:( int pID )
+GameGUI::setRadioSceneModeID	GameGUI.h	/^	void setRadioSceneModeID( int pID ) { mRadioSceneModeID = pID; }$/;"	f	class:GameGUI	access:protected	signature:( int pID )
 GameGUI::showGUI	GameGUI.h	/^	void showGUI();$/;"	p	class:GameGUI	access:protected	signature:()
+GameGUI::showMenuHelp	GameGUI.h	/^	bool showMenuHelp( const CEGUI::EventArgs & evt );$/;"	p	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )
+GameGUI::showMenuSet	GameGUI.h	/^	bool showMenuSet( const CEGUI::EventArgs & evt );$/;"	p	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )
+GameGUI::toggleDebugMode	GameGUI.h	/^	bool toggleDebugMode( const CEGUI::EventArgs & evt ) { mCheckDebugMode = ! mCheckDebugMode; return true; }$/;"	f	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )
 GameGUI::toggleGUIVisibility	GameGUI.h	/^	void toggleGUIVisibility();$/;"	p	class:GameGUI	access:public	signature:()
 GameGUI::~GameGUI	GameGUI.h	/^	~GameGUI();$/;"	p	class:GameGUI	access:public	signature:()
 GameMap	GameMap.h	/^    GameMap( Ogre::SceneManager * pSceneMgr, Ogre::Light * pLight );$/;"	p	class:GameMap	access:public	signature:( Ogre::SceneManager * pSceneMgr, Ogre::Light * pLight )
@@ -154,20 +169,9 @@ GameMap::mTerrainsImported	GameMap.h	/^    bool						  mTerrainsImported;$/;"	m	
 GameMap::~GameMap	GameMap.h	/^    virtual ~GameMap(void);$/;"	p	class:GameMap	access:public	signature:(void)
 GraphicCharacter	GraphicCharacter.h	/^	GraphicCharacter( SceneManager * pSceneMgr, CharacterState * pCharacterState );$/;"	p	class:GraphicCharacter	access:public	signature:( SceneManager * pSceneMgr, CharacterState * pCharacterState )
 GraphicCharacter	GraphicCharacter.h	/^class GraphicCharacter$/;"	c
-GraphicCharacter::ANIM_DANCE	GraphicCharacter.h	/^		ANIM_DANCE,$/;"	e	enum:GraphicCharacter::AnimID
-GraphicCharacter::ANIM_DRAW_SWORDS	GraphicCharacter.h	/^		ANIM_DRAW_SWORDS,$/;"	e	enum:GraphicCharacter::AnimID
-GraphicCharacter::ANIM_HANDS_CLOSED	GraphicCharacter.h	/^		ANIM_HANDS_CLOSED,$/;"	e	enum:GraphicCharacter::AnimID
-GraphicCharacter::ANIM_HANDS_RELAXED	GraphicCharacter.h	/^		ANIM_HANDS_RELAXED,$/;"	e	enum:GraphicCharacter::AnimID
-GraphicCharacter::ANIM_IDLE_BASE	GraphicCharacter.h	/^		ANIM_IDLE_BASE,$/;"	e	enum:GraphicCharacter::AnimID
-GraphicCharacter::ANIM_IDLE_TOP	GraphicCharacter.h	/^		ANIM_IDLE_TOP,$/;"	e	enum:GraphicCharacter::AnimID
-GraphicCharacter::ANIM_JUMP_END	GraphicCharacter.h	/^		ANIM_JUMP_END,$/;"	e	enum:GraphicCharacter::AnimID
-GraphicCharacter::ANIM_JUMP_LOOP	GraphicCharacter.h	/^		ANIM_JUMP_LOOP,$/;"	e	enum:GraphicCharacter::AnimID
-GraphicCharacter::ANIM_JUMP_START	GraphicCharacter.h	/^		ANIM_JUMP_START,$/;"	e	enum:GraphicCharacter::AnimID
+GraphicCharacter::ANIM_JUMP	GraphicCharacter.h	/^		ANIM_JUMP,$/;"	e	enum:GraphicCharacter::AnimID
 GraphicCharacter::ANIM_NONE	GraphicCharacter.h	/^		ANIM_NONE$/;"	e	enum:GraphicCharacter::AnimID
-GraphicCharacter::ANIM_RUN_BASE	GraphicCharacter.h	/^		ANIM_RUN_BASE,$/;"	e	enum:GraphicCharacter::AnimID
-GraphicCharacter::ANIM_RUN_TOP	GraphicCharacter.h	/^		ANIM_RUN_TOP,$/;"	e	enum:GraphicCharacter::AnimID
-GraphicCharacter::ANIM_SLICE_HORIZONTAL	GraphicCharacter.h	/^		ANIM_SLICE_HORIZONTAL,$/;"	e	enum:GraphicCharacter::AnimID
-GraphicCharacter::ANIM_SLICE_VERTICAL	GraphicCharacter.h	/^		ANIM_SLICE_VERTICAL,$/;"	e	enum:GraphicCharacter::AnimID
+GraphicCharacter::ANIM_RUN	GraphicCharacter.h	/^		ANIM_RUN,$/;"	e	enum:GraphicCharacter::AnimID
 GraphicCharacter::AnimID	GraphicCharacter.h	/^	enum AnimID$/;"	g	class:GraphicCharacter	access:private
 GraphicCharacter::GraphicCharacter	GraphicCharacter.h	/^	GraphicCharacter( SceneManager * pSceneMgr, CharacterState * pCharacterState );$/;"	p	class:GraphicCharacter	access:public	signature:( SceneManager * pSceneMgr, CharacterState * pCharacterState )
 GraphicCharacter::addTime	GraphicCharacter.h	/^	void addTime( Real deltaTime );$/;"	p	class:GraphicCharacter	access:public	signature:( Real deltaTime )
@@ -184,6 +188,7 @@ GraphicCharacter::mBodyNode	GraphicCharacter.h	/^	SceneNode		* mBodyNode;$/;"	m	
 GraphicCharacter::mCharacterState	GraphicCharacter.h	/^	CharacterState	* mCharacterState;			\/\/ ÔË¶¯×´Ì¬¼¯$/;"	m	class:GraphicCharacter	access:private
 GraphicCharacter::mFadingIn	GraphicCharacter.h	/^	bool			  mFadingIn[ NUM_ANIMS ];   \/\/ which animations are fading in$/;"	m	class:GraphicCharacter	access:private
 GraphicCharacter::mFadingOut	GraphicCharacter.h	/^	bool			  mFadingOut[ NUM_ANIMS ];  \/\/ which animations are fading out$/;"	m	class:GraphicCharacter	access:private
+GraphicCharacter::mRun	GraphicCharacter.h	/^	bool mRun;									\/\/ ±ê¼ÇÊÇ·ñÎªÅÜ²½×´Ì¬$/;"	m	class:GraphicCharacter	access:private
 GraphicCharacter::mTimer	GraphicCharacter.h	/^	Real			  mTimer;					\/\/ general timer to see how long animations have been playing$/;"	m	class:GraphicCharacter	access:private
 GraphicCharacter::mTopAnimID	GraphicCharacter.h	/^	AnimID			  mTopAnimID;               \/\/ current top (upper-body) animation$/;"	m	class:GraphicCharacter	access:private
 GraphicCharacter::mVerticalVelocity	GraphicCharacter.h	/^	Real			  mVerticalVelocity;		\/\/ for jumping$/;"	m	class:GraphicCharacter	access:private
@@ -311,10 +316,12 @@ PhysicsFrameListener	PhysicsFrameListener.h	/^    PhysicsFrameListener($/;"	p	cl
 PhysicsFrameListener	PhysicsFrameListener.h	/^class PhysicsFrameListener : public PhysicsBase$/;"	c	inherits:PhysicsBase
 PhysicsFrameListener::PhysicsFrameListener	PhysicsFrameListener.h	/^    PhysicsFrameListener($/;"	p	class:PhysicsFrameListener	access:public	signature:( Ogre::SceneManager * sceneMgr, GameMap * pTerrain, Ogre::Vector3 gravityVector, Ogre::AxisAlignedBox bounds )
 PhysicsFrameListener::createBox	PhysicsFrameListener.h	/^ 	void createBox( Ogre::SceneManager * pSceneMgr, Ogre::Camera * mCamera );					\/\/ Í¶ÖÀºÐ×Ó$/;"	p	class:PhysicsFrameListener	access:public	signature:( Ogre::SceneManager * pSceneMgr, Ogre::Camera * mCamera )
-PhysicsFrameListener::createBoxShape	PhysicsFrameListener.h	/^	void createBoxShape( Ogre::Entity * entity, Ogre::Vector3 position, bool bStatic = false ); \/\/ ´´½¨ºÐ×Ó$/;"	p	class:PhysicsFrameListener	access:public	signature:( Ogre::Entity * entity, Ogre::Vector3 position, bool bStatic = false )
 PhysicsFrameListener::createPhysicsScene	PhysicsFrameListener.h	/^	virtual void createPhysicsScene();		\/\/ ÔÚµØÐÎ»ù´¡ÉÏ¹¹½¨³¡¾°$/;"	p	class:PhysicsFrameListener	access:public	signature:()
 PhysicsFrameListener::createPhysicsTerrain	PhysicsFrameListener.h	/^	virtual void createPhysicsTerrain();	\/\/ ¹¹½¨µØÐÎ$/;"	p	class:PhysicsFrameListener	access:public	signature:()
+PhysicsFrameListener::createSceneObject	PhysicsFrameListener.h	/^	void createSceneObject( Ogre::Entity * entity, Ogre::Vector3 position, bool bStatic = false, bool autoMove = false );	$/;"	p	class:PhysicsFrameListener	access:protected	signature:( Ogre::Entity * entity, Ogre::Vector3 position, bool bStatic = false, bool autoMove = false )
 PhysicsFrameListener::destroyPhysicsWorld	PhysicsFrameListener.h	/^	virtual void destroyPhysicsWorld();		\/\/ ÊÍ·ÅÄÚ´æ$/;"	p	class:PhysicsFrameListener	access:public	signature:()
+PhysicsFrameListener::mDynamicObjects	PhysicsFrameListener.h	/^	std::vector< DynamicObject >	mDynamicObjects;$/;"	m	class:PhysicsFrameListener	access:private
+PhysicsFrameListener::updateDynamicObject	PhysicsFrameListener.h	/^	void updateDynamicObject();$/;"	p	class:PhysicsFrameListener	access:public	signature:()
 PhysicsFrameListener::~PhysicsFrameListener	PhysicsFrameListener.h	/^ 	~PhysicsFrameListener();$/;"	p	class:PhysicsFrameListener	access:public	signature:()
 RUN_SPEED	GraphicCharacter.h	27;"	d
 SeekSeekSeek	SeekSeekSeek.h	/^    SeekSeekSeek(void);$/;"	p	class:SeekSeekSeek	access:public	signature:(void)
@@ -339,7 +346,6 @@ SeekSeekSeek::mCharacter	SeekSeekSeek.h	/^	Character				* mCharacter;				\/\/ ½Ç
 SeekSeekSeek::mCharacterInputListener	SeekSeekSeek.h	/^	CharacterInputListener	* mCharacterInputListener;	\/\/ ½ÇÉ«¶¯×÷ÊäÈë¼àÌý$/;"	m	class:SeekSeekSeek	access:protected
 SeekSeekSeek::mCharacterState	SeekSeekSeek.h	/^	CharacterState			* mCharacterState;			\/\/ ÔË¶¯×´Ì¬¼¯$/;"	m	class:SeekSeekSeek	access:protected
 SeekSeekSeek::mDebugMode	SeekSeekSeek.h	/^	bool mDebugMode;									\/\/ µ÷ÊÔÄ£Ê½ÇÐ»»$/;"	m	class:SeekSeekSeek	access:protected
-SeekSeekSeek::mGUIMgr	SeekSeekSeek.h	/^	GameGUI * mGUIMgr;									\/\/ GUI¿ØÖÆÆ÷$/;"	m	class:SeekSeekSeek	access:protected
 SeekSeekSeek::mMap	SeekSeekSeek.h	/^	GameMap					* mMap;						\/\/ ÓÎÏ·µØÍ¼$/;"	m	class:SeekSeekSeek	access:protected
 SeekSeekSeek::mPhysicsFrameListener	SeekSeekSeek.h	/^	PhysicsFrameListener	* mPhysicsFrameListener;	\/\/ ÎïÀíÊÂ¼þ¼àÌý$/;"	m	class:SeekSeekSeek	access:protected
 SeekSeekSeek::mPivotPitch	SeekSeekSeek.h	/^	Real mPivotPitch;		\/\/ ÉÏÏÂÏÞÖÆÀÛ¼Ó¶ÈÊý$/;"	m	class:SeekSeekSeek	access:protected
@@ -368,6 +374,9 @@ __KinematicCharacter_h_	KinematicCharacter.h	14;"	d
 __PhysicsBase_h_	PhysicsBase.h	12;"	d
 __PhysicsFrameListener_h_	PhysicsFrameListener.h	10;"	d
 __SeekSeekSeek_h_	SeekSeekSeek.h	11;"	d
+__anon6::mCheckDebugMode	tags	/^GameGUI::toggleDebugMode	GameGUI.h	\/^	bool toggleDebugMode( const CEGUI::EventArgs & evt ) { mCheckDebugMode = ! mCheckDebugMode; return true; }$\/;"	f	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )$/;"	m	class:__anon6	file:	access:private
+__anon7::mRadioBgMusicID	tags	/^GameGUI::setRadioBgMusicID	GameGUI.h	\/^	void setRadioBgMusicID( int pID ) { mRadioBgMusicID = pID; }$\/;"	f	class:GameGUI	access:protected	signature:( int pID )$/;"	m	class:__anon7	file:	access:private
+__anon8::mRadioSceneModeID	tags	/^GameGUI::setRadioSceneModeID	GameGUI.h	\/^	void setRadioSceneModeID( int pID ) { mRadioSceneModeID = pID; }$\/;"	f	class:GameGUI	access:protected	signature:( int pID )$/;"	m	class:__anon8	file:	access:private
 addTime	GraphicCharacter.h	/^	void addTime( Real deltaTime );$/;"	p	class:GraphicCharacter	access:public	signature:( Real deltaTime )
 btKinematicCharacterController	btKinematicCharacterController.h	/^	btKinematicCharacterController( btPairCachingGhostObject* ghostObject,btConvexShape* convexShape,btScalar stepHeight, int upAxis = 1 );$/;"	p	class:btKinematicCharacterController	access:public	signature:( btPairCachingGhostObject* ghostObject,btConvexShape* convexShape,btScalar stepHeight, int upAxis = 1 )
 btKinematicCharacterController	btKinematicCharacterController.h	/^class btKinematicCharacterController : public btCharacterControllerInterface$/;"	c	inherits:btCharacterControllerInterface
@@ -438,7 +447,6 @@ computeReflectionDirection	btKinematicCharacterController.h	/^	btVector3 compute
 configure	GameBase.h	/^    virtual bool configure(void);$/;"	p	class:GameBase	access:protected	signature:(void)
 configureTerrainDefaults	GameMap.h	/^    void configureTerrainDefaults( Ogre::SceneManager * pSceneMgr, Ogre::Light * pLight );$/;"	p	class:GameMap	access:private	signature:( Ogre::SceneManager * pSceneMgr, Ogre::Light * pLight )
 createBox	PhysicsFrameListener.h	/^ 	void createBox( Ogre::SceneManager * pSceneMgr, Ogre::Camera * mCamera );					\/\/ Í¶ÖÀºÐ×Ó$/;"	p	class:PhysicsFrameListener	access:public	signature:( Ogre::SceneManager * pSceneMgr, Ogre::Camera * mCamera )
-createBoxShape	PhysicsFrameListener.h	/^	void createBoxShape( Ogre::Entity * entity, Ogre::Vector3 position, bool bStatic = false ); \/\/ ´´½¨ºÐ×Ó$/;"	p	class:PhysicsFrameListener	access:public	signature:( Ogre::Entity * entity, Ogre::Vector3 position, bool bStatic = false )
 createCamera	GameBase.h	/^	virtual void createCamera(void)		= 0;$/;"	p	class:GameBase	access:protected	signature:(void)
 createCamera	SeekSeekSeek.h	/^    virtual void createCamera(void);    \/\/ Camera$/;"	p	class:SeekSeekSeek	access:protected	signature:(void)
 createEnvir	SeekSeekSeek.h	/^    virtual void createEnvir(void);     \/\/ Environment: Light, Sky, etc.$/;"	p	class:SeekSeekSeek	access:protected	signature:(void)
@@ -454,10 +462,12 @@ createPhysicsTerrain	PhysicsFrameListener.h	/^	virtual void createPhysicsTerrain
 createResourceListener	GameBase.h	/^    virtual void createResourceListener(void);$/;"	p	class:GameBase	access:protected	signature:(void)
 createScene	GameBase.h	/^    virtual void createScene(void)		= 0;$/;"	p	class:GameBase	access:protected	signature:(void)
 createScene	SeekSeekSeek.h	/^    virtual void createScene(void);		\/\/ Scene Main$/;"	p	class:SeekSeekSeek	access:protected	signature:(void)
+createSceneObject	PhysicsFrameListener.h	/^	void createSceneObject( Ogre::Entity * entity, Ogre::Vector3 position, bool bStatic = false, bool autoMove = false );	$/;"	p	class:PhysicsFrameListener	access:protected	signature:( Ogre::Entity * entity, Ogre::Vector3 position, bool bStatic = false, bool autoMove = false )
 createViewports	GameBase.h	/^	virtual void createViewports(void)	= 0;$/;"	p	class:GameBase	access:protected	signature:(void)
 createViewports	SeekSeekSeek.h	/^    virtual void createViewports(void); \/\/ Viewport$/;"	p	class:SeekSeekSeek	access:protected	signature:(void)
 debugDraw	btKinematicCharacterController.h	/^	void debugDraw( btIDebugDraw * debugDrawer );$/;"	p	class:btKinematicCharacterController	access:public	signature:( btIDebugDraw * debugDrawer )
 debugDrawer	PhysicsBase.h	/^ 	OgreBulletCollisions::DebugDrawer * debugDrawer;			\/\/ ÓÃÓÚDeBugÃè»æÂÌÏß$/;"	m	class:PhysicsBase	access:protected
+debugModeSetOn	GameGUI.h	/^	bool debugModeSetOn() { return mCheckDebugMode; }$/;"	f	class:GameGUI	access:public	signature:()
 defineTerrain	GameMap.h	/^    void defineTerrain( long x, long y );$/;"	p	class:GameMap	access:private	signature:( long x, long y )
 destroyPhysicsWorld	PhysicsBase.h	/^	virtual void destroyPhysicsWorld();$/;"	p	class:PhysicsBase	access:public	signature:()
 destroyPhysicsWorld	PhysicsFrameListener.h	/^	virtual void destroyPhysicsWorld();		\/\/ ÊÍ·ÅÄÚ´æ$/;"	p	class:PhysicsFrameListener	access:public	signature:()
@@ -493,10 +503,13 @@ getMapEnt	GameMap.h	/^	Ogre::Entity * getMapEnt() { return mTerrain; }$/;"	f	cla
 getMaxSlope	btKinematicCharacterController.h	/^	btScalar getMaxSlope() const;$/;"	p	class:btKinematicCharacterController	access:public	signature:() const
 getPhysicsWorld	PhysicsBase.h	/^	OgreBulletDynamics::DynamicsWorld * getPhysicsWorld(){ return mWorld; }$/;"	f	class:PhysicsBase	access:public	signature:()
 getProperty	DotSceneLoader.h	/^        String getProperty(const String &ndNm, const String &prop);$/;"	p	class:Ogre::DotSceneLoader	access:public	signature:(const String &ndNm, const String &prop)
+getRadioBgMusicID	GameGUI.h	/^	int getRadioBgMusicID() { return mRadioBgMusicID; }$/;"	f	class:GameGUI	access:public	signature:()
+getRadioSceneModeID	GameGUI.h	/^	int getRadioSceneModeID() { return mRadioSceneModeID; };$/;"	f	class:GameGUI	access:public	signature:()
 getUpAxisDirections	btKinematicCharacterController.h	/^	static btVector3 * getUpAxisDirections();$/;"	p	class:btKinematicCharacterController	access:protected	signature:()
 getWorldTransform	KinematicCharacter.h	/^	btTransform getWorldTransform() const;$/;"	p	class:KinematicCharacter	access:public	signature:() const
 getWorldTransform	KinematicCharacter.h	/^	void getWorldTransform( btTransform & pWorldTrans ) const;$/;"	p	class:KinematicCharacter	access:public	signature:( btTransform & pWorldTrans ) const
 go	GameBase.h	/^    virtual void go(void);$/;"	p	class:GameBase	access:public	signature:(void)
+graphicBody	PhysicsFrameListener.h	/^	Ogre::SceneNode					* graphicBody;	\/\/ Í¼ÐÎÌå$/;"	m	struct:DynamicObject	access:public
 hideGUI	GameGUI.h	/^	void hideGUI();$/;"	p	class:GameGUI	access:protected	signature:()
 initBlendMaps	GameMap.h	/^    void initBlendMaps( Ogre::Terrain * terrain );$/;"	p	class:GameMap	access:private	signature:( Ogre::Terrain * terrain )
 initGUI	GameGUI.h	/^	void initGUI();$/;"	p	class:GameGUI	access:protected	signature:()
@@ -530,6 +543,7 @@ mBodies	PhysicsBase.h	/^ 	std::deque< OgreBulletDynamics::RigidBody * >         
 mBodyEnt	GraphicCharacter.h	/^	Entity			* mBodyEnt;$/;"	m	class:GraphicCharacter	access:private
 mBodyNode	GraphicCharacter.h	/^	SceneNode		* mBodyNode;$/;"	m	class:GraphicCharacter	access:private
 mBounds	PhysicsBase.h	/^	Ogre::AxisAlignedBox				mBounds;				\/\/ ÊÀ½ç¿ò¼Ü$/;"	m	class:PhysicsBase	access:protected
+mCEGUIRoot	GameGUI.h	/^	Window			* mCEGUIRoot;				\/\/ CEGUI¸ù½Úµã$/;"	m	class:GameGUI	access:private
 mCamera	GameBase.h	/^    Ogre::Camera		* mCamera;$/;"	m	class:GameBase	access:protected
 mCameraGoal	SeekSeekSeek.h	/^	SceneNode * mCameraGoal;	\/\/ Ïà»úÄ¿±ê$/;"	m	class:SeekSeekSeek	access:protected
 mCameraMan	GameBase.h	/^    OgreBites::SdkCameraMan		* mCameraMan;        \/\/ basic camera controller$/;"	m	class:GameBase	access:protected
@@ -542,10 +556,13 @@ mCharacterState	Character.h	/^	CharacterState					  * mCharacterState;	 \/\/ ¼ÇÂ
 mCharacterState	CharacterInputListener.h	/^	CharacterState	   * mCharacterState;$/;"	m	class:CharacterInputListener	access:private
 mCharacterState	GraphicCharacter.h	/^	CharacterState	* mCharacterState;			\/\/ ÔË¶¯×´Ì¬¼¯$/;"	m	class:GraphicCharacter	access:private
 mCharacterState	SeekSeekSeek.h	/^	CharacterState			* mCharacterState;			\/\/ ÔË¶¯×´Ì¬¼¯$/;"	m	class:SeekSeekSeek	access:protected
+mCheckDebugMode	GameGUI.h	/^	bool			  mCheckDebugMode;			\/\/ ÊÇ·ñÉèÖÃÎªµ÷ÊÔÄ£Ê½$/;"	m	class:GameGUI	access:private
+mCheckDebugMode	tags	/^GameGUI::toggleDebugMode	GameGUI.h	\/^	bool toggleDebugMode( const CEGUI::EventArgs & evt ) { mCheckDebugMode = ! mCheckDebugMode; return true; }$\/;"	f	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )$/;"	m	class:__anon6	file:	access:private
 mDebugMode	SeekSeekSeek.h	/^	bool mDebugMode;									\/\/ µ÷ÊÔÄ£Ê½ÇÐ»»$/;"	m	class:SeekSeekSeek	access:protected
+mDynamicObjects	PhysicsFrameListener.h	/^	std::vector< DynamicObject >	mDynamicObjects;$/;"	m	class:PhysicsFrameListener	access:private
 mFadingIn	GraphicCharacter.h	/^	bool			  mFadingIn[ NUM_ANIMS ];   \/\/ which animations are fading in$/;"	m	class:GraphicCharacter	access:private
 mFadingOut	GraphicCharacter.h	/^	bool			  mFadingOut[ NUM_ANIMS ];  \/\/ which animations are fading out$/;"	m	class:GraphicCharacter	access:private
-mGUIMgr	SeekSeekSeek.h	/^	GameGUI * mGUIMgr;									\/\/ GUI¿ØÖÆÆ÷$/;"	m	class:SeekSeekSeek	access:protected
+mGUIMgr	GameBase.h	/^	GameGUI				* mGUIMgr;					\/\/ GUIæŽ§åˆ¶å™¨$/;"	m	class:GameBase	access:protected
 mGUIRoot	GameGUI.h	/^	Window			* mGUIRoot;					\/\/ GUIÖ÷´°¿Ú$/;"	m	class:GameGUI	access:private
 mGameShutDown	GameGUI.h	/^	bool			  mGameShutDown;			\/\/ ÊÇ·ñÍË³öÓÎÏ·$/;"	m	class:GameGUI	access:private
 mGoalDirection	CharacterState.h	/^	Ogre::Vector3	  mGoalDirection;	\/\/ ½ÇÉ«ÒÆ¶¯Êµ¼Ê·½Ïò$/;"	m	class:CharacterState	access:private
@@ -553,6 +570,7 @@ mGoalDirection	KinematicCharacter.h	/^	Ogre::Vector3	  mGoalDirection; \/\/ ½ÇÉ«
 mGraphicCharacter	Character.h	/^	GraphicCharacter				  * mGraphicCharacter;   \/\/ Í¼ÐÎÑ§½ÇÉ«$/;"	m	class:Character	access:private
 mGravityVector	PhysicsBase.h	/^	Ogre::Vector3						mGravityVector;			\/\/ ÖØÁ¦$/;"	m	class:PhysicsBase	access:protected
 mInfoLabel	GameMap.h	/^    OgreBites::Label			* mInfoLabel;$/;"	m	class:GameMap	access:private
+mInforUIRoot	GameGUI.h	/^	Window			* mInforUIRoot;				\/\/ ÓÎÏ·½øÐÐÊ±½ÇÉ«¼´Ê±ÐÅÏ¢$/;"	m	class:GameGUI	access:private
 mInitProportion	LoadingBar.h	/^	Real mInitProportion;$/;"	m	class:LoadingBar	access:protected
 mInputManager	GameBase.h	/^    OIS::InputManager	* mInputManager;$/;"	m	class:GameBase	access:protected
 mJump	CharacterState.h	/^	bool			  mJump;			\/\/ ½ÇÉ«ÊÇ·ñ´¦ÓÚÌøÔ¾×´Ì¬$/;"	m	class:CharacterState	access:private
@@ -563,6 +581,7 @@ mKinematicCharacter	CharacterInputListener.h	/^	KinematicCharacter * mKinematicC
 mLanded	CharacterState.h	/^	bool			  mLanded;			\/\/ ½ÇÉ«ÊÇ·ñ×ÅÂä$/;"	m	class:CharacterState	access:private
 mLight	GameBase.h	/^	Ogre::Light			* mLight;$/;"	m	class:GameBase	access:protected
 mLoadOverlay	LoadingBar.h	/^	Overlay* mLoadOverlay;$/;"	m	class:LoadingBar	access:protected
+mLoadingBar	GameBase.h	/^	LoadingBar			  mLoadingBar;	\/\/ Loging Bar$/;"	m	class:GameBase	access:protected
 mLoadingBarElement	LoadingBar.h	/^	OverlayElement* mLoadingBarElement;$/;"	m	class:LoadingBar	access:protected
 mLoadingCommentElement	LoadingBar.h	/^	OverlayElement* mLoadingCommentElement;$/;"	m	class:LoadingBar	access:protected
 mLoadingDescriptionElement	LoadingBar.h	/^	OverlayElement* mLoadingDescriptionElement;$/;"	m	class:LoadingBar	access:protected
@@ -578,9 +597,14 @@ mPluginsCfg	GameBase.h	/^    Ogre::String		  mPluginsCfg;$/;"	m	class:GameBase	a
 mProgressBarInc	LoadingBar.h	/^	Real mProgressBarInc;$/;"	m	class:LoadingBar	access:protected
 mProgressBarMaxSize	LoadingBar.h	/^	Real mProgressBarMaxSize;$/;"	m	class:LoadingBar	access:protected
 mProgressBarScriptSize	LoadingBar.h	/^	Real mProgressBarScriptSize;$/;"	m	class:LoadingBar	access:protected
+mRadioBgMusicID	GameGUI.h	/^	int				  mRadioBgMusicID;			\/\/ ±³¾°ÒôÀÖID$/;"	m	class:GameGUI	access:private
+mRadioBgMusicID	tags	/^GameGUI::setRadioBgMusicID	GameGUI.h	\/^	void setRadioBgMusicID( int pID ) { mRadioBgMusicID = pID; }$\/;"	f	class:GameGUI	access:protected	signature:( int pID )$/;"	m	class:__anon7	file:	access:private
+mRadioSceneModeID	GameGUI.h	/^	int				  mRadioSceneModeID;		\/\/ »·¾³Ð§¹ûID$/;"	m	class:GameGUI	access:private
+mRadioSceneModeID	tags	/^GameGUI::setRadioSceneModeID	GameGUI.h	\/^	void setRadioSceneModeID( int pID ) { mRadioSceneModeID = pID; }$\/;"	f	class:GameGUI	access:protected	signature:( int pID )$/;"	m	class:__anon8	file:	access:private
 mRenderer	GameGUI.h	/^	OgreRenderer	* mRenderer;				\/\/ CEGUI äÖÈ¾$/;"	m	class:GameGUI	access:private
 mResourcesCfg	GameBase.h	/^    Ogre::String		  mResourcesCfg;$/;"	m	class:GameBase	access:protected
 mRoot	GameBase.h	/^    Ogre::Root			* mRoot;$/;"	m	class:GameBase	access:protected
+mRun	GraphicCharacter.h	/^	bool mRun;									\/\/ ±ê¼ÇÊÇ·ñÎªÅÜ²½×´Ì¬$/;"	m	class:GraphicCharacter	access:private
 mSceneMgr	Character.h	/^    Ogre::SceneManager				  * mSceneMgr;			 \/\/ Ogre³¡¾°¿ØÖÆÆ÷$/;"	m	class:Character	access:private
 mSceneMgr	DotSceneLoader.h	/^        SceneManager *mSceneMgr;$/;"	m	class:Ogre::DotSceneLoader	access:protected
 mSceneMgr	GameBase.h	/^    Ogre::SceneManager	* mSceneMgr;$/;"	m	class:GameBase	access:protected
@@ -658,6 +682,8 @@ parseQuaternion	DotSceneLoader.h	/^        Quaternion parseQuaternion(TiXmlEleme
 parseVector3	DotSceneLoader.h	/^        Vector3 parseVector3(TiXmlElement *XMLNode);$/;"	p	class:Ogre::DotSceneLoader	access:protected	signature:(TiXmlElement *XMLNode)
 perpindicularComponent	btKinematicCharacterController.h	/^	btVector3 perpindicularComponent (const btVector3& direction, const btVector3& normal);$/;"	p	class:btKinematicCharacterController	access:protected	signature:(const btVector3& direction, const btVector3& normal)
 playerStep	btKinematicCharacterController.h	/^	void playerStep( btCollisionWorld* collisionWorld, btScalar dt );$/;"	p	class:btKinematicCharacterController	access:public	signature:( btCollisionWorld* collisionWorld, btScalar dt )
+posList	PhysicsFrameListener.h	/^	std::vector< btVector3 >		  posList;		\/\/ ÔË¶¯Ä¿±êµã¶ÓÁÐ 0Îª³õÊ¼µã$/;"	m	struct:DynamicObject	access:public
+posNum	PhysicsFrameListener.h	/^	Ogre::Real						  posNum;		\/\/ ÔË¶¯Ä¿±êµã¸öÊý$/;"	m	struct:DynamicObject	access:public
 preStep	btKinematicCharacterController.h	/^	void preStep( btCollisionWorld* collisionWorld );$/;"	p	class:btKinematicCharacterController	access:public	signature:( btCollisionWorld* collisionWorld )
 processBillboardSet	DotSceneLoader.h	/^        void processBillboardSet(TiXmlElement *XMLNode, SceneNode *pParent);$/;"	p	class:Ogre::DotSceneLoader	access:protected	signature:(TiXmlElement *XMLNode, SceneNode *pParent)
 processCamera	DotSceneLoader.h	/^        void processCamera(TiXmlElement *XMLNode, SceneNode *pParent = 0);$/;"	p	class:Ogre::DotSceneLoader	access:protected	signature:(TiXmlElement *XMLNode, SceneNode *pParent = 0)
@@ -696,6 +722,8 @@ resourceLoadEnded	LoadingBar.h	/^	void resourceLoadEnded(void)$/;"	f	class:Loadi
 resourceLoadStarted	LoadingBar.h	/^	void resourceLoadStarted(const ResourcePtr& resource)$/;"	f	class:LoadingBar	access:public	signature:(const ResourcePtr& resource)
 resourceLoading	LoadingBar.h	/^	Ogre::DataStreamPtr resourceLoading(const String &name, const String &group, Resource *resource)$/;"	f	class:LoadingBar	access:public	signature:(const String &name, const String &group, Resource *resource)
 returnToGame	GameGUI.h	/^	bool returnToGame( const CEGUI::EventArgs & evt );$/;"	p	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )
+returnToMenuRoot	GameGUI.h	/^	bool returnToMenuRoot( const CEGUI::EventArgs & evt );$/;"	p	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )
+rigidBody	PhysicsFrameListener.h	/^	OgreBulletDynamics::RigidBody	* rigidBody;	\/\/ ÎïÀíÌå$/;"	m	struct:DynamicObject	access:public
 scriptParseEnded	LoadingBar.h	/^	void scriptParseEnded(const String& scriptName, bool skipped)$/;"	f	class:LoadingBar	access:public	signature:(const String& scriptName, bool skipped)
 scriptParseStarted	LoadingBar.h	/^	void scriptParseStarted(const String& scriptName, bool &skipThisScript)$/;"	f	class:LoadingBar	access:public	signature:(const String& scriptName, bool &skipThisScript)
 setBaseAnimation	GraphicCharacter.h	/^	void setBaseAnimation( AnimID id, bool reset = false );$/;"	p	class:GraphicCharacter	access:private	signature:( AnimID id, bool reset = false )
@@ -711,6 +739,8 @@ setKeyDirectionZ	CharacterState.h	/^	void setKeyDirectionZ( Ogre::Real pZ ){ mKe
 setLandedState	CharacterState.h	/^	void setLandedState( bool pLanded ){ mLanded = pLanded; }$/;"	f	class:CharacterState	access:public	signature:( bool pLanded )
 setMaxJumpHeight	btKinematicCharacterController.h	/^	void setMaxJumpHeight( btScalar maxJumpHeight );$/;"	p	class:btKinematicCharacterController	access:public	signature:( btScalar maxJumpHeight )
 setMaxSlope	btKinematicCharacterController.h	/^	void setMaxSlope( btScalar slopeRadians );$/;"	p	class:btKinematicCharacterController	access:public	signature:( btScalar slopeRadians )
+setRadioBgMusicID	GameGUI.h	/^	void setRadioBgMusicID( int pID ) { mRadioBgMusicID = pID; }$/;"	f	class:GameGUI	access:protected	signature:( int pID )
+setRadioSceneModeID	GameGUI.h	/^	void setRadioSceneModeID( int pID ) { mRadioSceneModeID = pID; }$/;"	f	class:GameGUI	access:protected	signature:( int pID )
 setTopAnimation	GraphicCharacter.h	/^	void setTopAnimation( AnimID id, bool reset = false );$/;"	p	class:GraphicCharacter	access:private	signature:( AnimID id, bool reset = false )
 setUpAxis	btKinematicCharacterController.h	/^	void setUpAxis( int axis )$/;"	f	class:btKinematicCharacterController	access:public	signature:( int axis )
 setUseGhostSweepTest	btKinematicCharacterController.h	/^	void setUseGhostSweepTest( bool useGhostObjectSweepTest )$/;"	f	class:btKinematicCharacterController	access:public	signature:( bool useGhostObjectSweepTest )
@@ -722,11 +752,14 @@ setupAnimations	GraphicCharacter.h	/^	void setupAnimations();$/;"	p	class:Graphi
 setupBody	GraphicCharacter.h	/^	void setupBody( SceneManager * pSceneMgr );$/;"	p	class:GraphicCharacter	access:private	signature:( SceneManager * pSceneMgr )
 setupResources	GameBase.h	/^    virtual void setupResources(void);$/;"	p	class:GameBase	access:protected	signature:(void)
 showGUI	GameGUI.h	/^	void showGUI();$/;"	p	class:GameGUI	access:protected	signature:()
+showMenuHelp	GameGUI.h	/^	bool showMenuHelp( const CEGUI::EventArgs & evt );$/;"	p	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )
+showMenuSet	GameGUI.h	/^	bool showMenuSet( const CEGUI::EventArgs & evt );$/;"	p	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )
 start	LoadingBar.h	/^	virtual void start(RenderWindow* window, $/;"	f	class:LoadingBar	access:public	signature:(RenderWindow* window, unsigned short numGroupsInit = 1, unsigned short numGroupsLoad = 1, Real initProportion = 0.70f)
 staticObjects	DotSceneLoader.h	/^        std::vector<String> staticObjects;$/;"	m	class:Ogre::DotSceneLoader	access:public
 stepDown	btKinematicCharacterController.h	/^	void stepDown (btCollisionWorld* collisionWorld, btScalar dt);$/;"	p	class:btKinematicCharacterController	access:protected	signature:(btCollisionWorld* collisionWorld, btScalar dt)
 stepForwardAndStrafe	btKinematicCharacterController.h	/^	void stepForwardAndStrafe (btCollisionWorld* collisionWorld, const btVector3& walkMove);$/;"	p	class:btKinematicCharacterController	access:protected	signature:(btCollisionWorld* collisionWorld, const btVector3& walkMove)
 stepUp	btKinematicCharacterController.h	/^	void stepUp (btCollisionWorld* collisionWorld);$/;"	p	class:btKinematicCharacterController	access:protected	signature:(btCollisionWorld* collisionWorld)
+toggleDebugMode	GameGUI.h	/^	bool toggleDebugMode( const CEGUI::EventArgs & evt ) { mCheckDebugMode = ! mCheckDebugMode; return true; }$/;"	f	class:GameGUI	access:protected	signature:( const CEGUI::EventArgs & evt )
 toggleGUIVisibility	GameGUI.h	/^	void toggleGUIVisibility();$/;"	p	class:GameGUI	access:public	signature:()
 typeName	DotSceneLoader.h	/^        String typeName;$/;"	m	class:Ogre::nodeProperty	access:public
 update	Character.h	/^	void update( Ogre::Real deltaTime );	\/\/ ¸üÐÂËùÓÐ£¬°üÀ¨ÒÆ¶¯¡¢ÌøÔ¾¡¢×ÅÂä×´Ì¬¸üÐÂµÈ$/;"	p	class:Character	access:public	signature:( Ogre::Real deltaTime )
@@ -735,6 +768,7 @@ updateAnimations	GraphicCharacter.h	/^	void updateAnimations( Real deltaTime );$
 updateBody	GraphicCharacter.h	/^	void updateBody( Real deltaTime );$/;"	p	class:GraphicCharacter	access:private	signature:( Real deltaTime )
 updateCamera	SeekSeekSeek.h	/^	void updateCamera( Real deltaTime );									 \/\/ ¸üÐÂ Camera$/;"	p	class:SeekSeekSeek	access:protected	signature:( Real deltaTime )
 updateCameraGoal	SeekSeekSeek.h	/^	void updateCameraGoal( Real deltaYaw, Real deltaPitch, Real deltaZoom ); \/\/ ¸üÐÂ Camera Ä¿±ê·½Ïò | ¸üÐÂÊÓ½Ç$/;"	p	class:SeekSeekSeek	access:protected	signature:( Real deltaYaw, Real deltaPitch, Real deltaZoom )
+updateDynamicObject	PhysicsFrameListener.h	/^	void updateDynamicObject();$/;"	p	class:PhysicsFrameListener	access:public	signature:()
 updateTargetPositionBasedOnCollision	btKinematicCharacterController.h	/^	void updateTargetPositionBasedOnCollision (const btVector3& hit_normal, btScalar tangentMag = btScalar(0.0), btScalar normalMag = btScalar(1.0));$/;"	p	class:btKinematicCharacterController	access:protected	signature:(const btVector3& hit_normal, btScalar tangentMag = btScalar(0.0), btScalar normalMag = btScalar(1.0))
 valueName	DotSceneLoader.h	/^        String valueName;$/;"	m	class:Ogre::nodeProperty	access:public
 warp	btKinematicCharacterController.h	/^	void warp( const btVector3& origin );$/;"	p	class:btKinematicCharacterController	access:public	signature:( const btVector3& origin )

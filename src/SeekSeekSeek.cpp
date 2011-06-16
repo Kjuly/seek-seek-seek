@@ -196,6 +196,10 @@ bool SeekSeekSeek::frameRenderingQueued(const Ogre::FrameEvent& evt)
 
 	// 物理世界模拟
 	mPhysicsFrameListener->getPhysicsWorld()->stepSimulation( evt.timeSinceLastFrame );
+
+	// 更新有移动等行为的场景对象
+	mPhysicsFrameListener->updateDynamicObject();
+
 	// 更新角色动画状态
 	mCharacter->update( evt.timeSinceLastFrame );
 

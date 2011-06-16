@@ -11,6 +11,21 @@
 
 #include "PhysicsBase.h" // 物理世界基本设置
 
+// LIB Bullet
+#include "btBulletDynamicsCommon.h"
+#include "btBulletCollisionCommon.h"
+using namespace OgreBulletDynamics;
+using namespace OgreBulletCollisions;
+
+struct DynamicObject
+{
+	OgreBulletDynamics::RigidBody	* rigidBody;	// 物理体
+	Ogre::SceneNode					* graphicBody;	// 图形体
+	int								  posNum;		// 运动目标点个数
+	int								  currPosID;	// 当前运动到的节点ID
+	std::vector< btVector3 >		  posList;		// 运动目标点队列 0为初始点
+};
+
 class PhysicsFrameListener : public PhysicsBase
 {
 public:
@@ -23,10 +38,21 @@ public:
  	~PhysicsFrameListener();
 	virtual void destroyPhysicsWorld();		// 释放内存
 
-	void createBoxShape( Ogre::Entity * entity, Ogre::Vector3 position, bool bStatic = false ); // 创建盒子
  	void createBox( Ogre::SceneManager * pSceneMgr, Ogre::Camera * mCamera );					// 投掷盒子
 	virtual void createPhysicsTerrain();	// 构建地形
 	virtual void createPhysicsScene();		// 在地形基础上构建场景
+
+	void updateDynamicObject();
+
+protected:
+	// 创建场景对象 | true: 静态  false: 动态
+	void createSceneObject( Ogre::Entity * entity, Ogre::Vector3 origPos,
+			btVector3 pPosList[], int pPosNum, // 运动目标点队列
+			bool bStatic = false, bool autoMove = false
+			);
+
+private:
+	std::vector< DynamicObject >	mDynamicObjects;
 };
 
 #endif

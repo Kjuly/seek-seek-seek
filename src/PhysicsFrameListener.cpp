@@ -19,6 +19,13 @@ PhysicsFrameListener::~PhysicsFrameListener()
 void PhysicsFrameListener::destroyPhysicsWorld()
 {
 	PhysicsBase::destroyPhysicsWorld();
+
+	// 删除场景中的自动对象
+	while( ! mDynamicObjects.empty() )
+	{
+		mDynamicObjects.pop_back();
+	}
+	mDynamicObjects.clear();
 }
 // --------------------------------------------------------------------------------
 // 构建地面物理体
@@ -167,7 +174,7 @@ void PhysicsFrameListener::createPhysicsScene()
 			node->scale(0.05f, 0.05f, 0.05f);	// the cube is too big for us
 
 			pos = base + Ogre::Vector3( 5 * x, 5 * y, 5 * z );
-			createBoxShape( entity, pos, false );
+			createSceneObject( entity, pos, false );
 	}
 */
 
@@ -179,11 +186,33 @@ void PhysicsFrameListener::createPhysicsScene()
  	node->attachObject( entity );
  	node->scale(0.05f, 0.05f, 0.05f);	// the cube is too big for us
 
-	createBoxShape( entity, Ogre::Vector3(10.0,5.0,0.0), false );
+	createSceneObject( entity, Ogre::Vector3(10.0,5.0,0.0), false );
 */
+
+	// 创建盒子
+ 	SceneNode * node = mSceneMgr->getRootSceneNode()->createChildSceneNode();
+ 	Entity * entity = mSceneMgr->createEntity( "Box" + StringConverter::toString( mNumEntitiesInstanced ), "cube.mesh" );
+ 	entity->setMaterialName( "Examples/BumpyMetal" );
+ 	node = mSceneMgr->getRootSceneNode()->createChildSceneNode();
+ 	node->attachObject( entity );
+ 	node->scale(0.05f, 0.05f, 0.05f);	// the cube is too big for us
+
+	// 自动对象运动目标点队列
+	btVector3 posList[2] = {
+		btVector3( 10.0, 5.0, 0.0 ),
+		btVector3( 10.0, 5.0, 10.0 )
+	};
+
+	createSceneObject( entity, Ogre::Vector3(10.0,5.0,0.0), posList, 2, true, true );
+
 }
 // --------------------------------------------------------------------------------
-void PhysicsFrameListener::createBoxShape( Ogre::Entity * entity, Ogre::Vector3 position, bool bStatic /*= false*/ )
+// 场景对象分静态和动态物体: 静态:不可移动 动态:可移动
+// 同时又分自动和非自动: 自动:自己在移动的障碍物等对象
+void PhysicsFrameListener::createSceneObject( Ogre::Entity * entity, Ogre::Vector3 origPos,
+		btVector3 pPosList[], int pPosNum, // 运动目标点队列
+		bool bStatic /*= false*/, bool autoMove /*= false*/
+		)
 {
 	// 最原始的静态BOX
 	Ogre::SceneNode * node = entity->getParentSceneNode();
@@ -191,26 +220,55 @@ void PhysicsFrameListener::createBoxShape( Ogre::Entity * entity, Ogre::Vector3 
     float mass =  bStatic ? 0.0f : 1.0f;
 	srand( (unsigned)time( NULL ) );
 
-	//node->setPosition( position );
+	//node->setPosition( origPos );
 	node->setOrientation( Quaternion( Degree( Ogre::Math::RangeRandom(0.0,60.0) ), Vector3::UNIT_Y ) );
 
 	OgreBulletCollisions::BoxCollisionShape * sceneBoxShape = new OgreBulletCollisions::BoxCollisionShape( size );
 
-	// and the Bullet rigid body
-	OgreBulletDynamics::RigidBody * defaultBody = new OgreBulletDynamics::RigidBody( entity->getName(), mWorld );
-	defaultBody->setShape( 
-			node,							  // Ogre::SceneNode *
-			sceneBoxShape,					  // OgreBulletCollisions::CollisionShape *
-			0.6f,                             // dynamic body restitution
-		    0.6f,                             // dynamic body friction
-		    mass,                             // dynamic bodymass
-		    //node->_getDerivedPosition(),      // starting position of the box | Vector3 &
-		    position,      // starting position of the box | Vector3 &
-		    node->_getDerivedOrientation()  // orientation of the box | Quaternion &
-			); 
-	mShapes.push_back( sceneBoxShape );
-	mBodies.push_back( defaultBody );
-	mNumEntitiesInstanced++;				
+	// 若非场景中自动对象
+	if( ! autoMove )
+	{
+		// and the Bullet rigid body
+		OgreBulletDynamics::RigidBody * rigidBody = new OgreBulletDynamics::RigidBody( entity->getName(), mWorld );
+		rigidBody = new OgreBulletDynamics::RigidBody( entity->getName(), mWorld );
+		rigidBody->setShape( 
+				node,							  // Ogre::SceneNode *
+				sceneBoxShape,					  // OgreBulletCollisions::CollisionShape *
+				0.6f,                             // dynamic body restitution
+				0.6f,                             // dynamic body friction
+				mass,                             // dynamic bodymass
+				//node->_getDerivedPosition(),      // starting position of the box | Vector3 &
+				origPos,      // starting position of the box | Vector3 &
+				node->_getDerivedOrientation()  // orientation of the box | Quaternion &
+				); 
+		mShapes.push_back( sceneBoxShape );
+		mBodies.push_back( rigidBody );
+		mNumEntitiesInstanced++;
+	}
+	else
+	{
+		DynamicObject dynamicObject; // 创建自动对象
+
+		dynamicObject.rigidBody = new OgreBulletDynamics::RigidBody( entity->getName(), mWorld );
+		dynamicObject.rigidBody->setShape( 
+				node,							  // Ogre::SceneNode *
+				sceneBoxShape,					  // OgreBulletCollisions::CollisionShape *
+				0.6f,                             // dynamic body restitution
+				0.6f,                             // dynamic body friction
+				mass,                             // dynamic bodymass
+				//node->_getDerivedPosition(),      // starting position of the box | Vector3 &
+				origPos,      // starting position of the box | Vector3 &
+				node->_getDerivedOrientation()  // orientation of the box | Quaternion &
+				); 
+		dynamicObject.graphicBody	= node;
+		dynamicObject.currPosID		= 0;
+		dynamicObject.posNum		= pPosNum;
+
+		for( int i = 0; i < pPosNum; ++i )
+			dynamicObject.posList.push_back( pPosList[ i ] );
+
+		mDynamicObjects.push_back( dynamicObject );
+	}
 }
 // --------------------------------------------------------------------------------
 void PhysicsFrameListener::createBox( Ogre::SceneManager * pSceneMgr, Ogre::Camera * mCamera )
@@ -260,5 +318,42 @@ void PhysicsFrameListener::createBox( Ogre::SceneManager * pSceneMgr, Ogre::Came
  	// push the created objects to the dequese
  	mShapes.push_back( sceneBoxShape );
  	mBodies.push_back( defaultBody );				
+}
+// --------------------------------------------------------------------------------
+void PhysicsFrameListener::updateDynamicObject()
+{
+	btTransform pos;
+	btVector3 targetPos;
+
+	for( int i = 0; i < mDynamicObjects.size(); ++i )
+	{
+		pos = mDynamicObjects.at( i ).rigidBody->getBulletRigidBody()->getWorldTransform();
+
+		btVector3 nextPoint = mDynamicObjects.at( i ).posList.at(
+				(mDynamicObjects.at( i ).currPosID + 1) % (mDynamicObjects.at( i ).posNum - 1)
+				);
+		if( mDynamicObjects.at( i ).currPosID == 0
+				&& pos.getOrigin()[2] < nextPoint[2] )
+		{
+			targetPos = pos.getOrigin() + btVector3(0,0,0.1);
+		}
+		/*
+	std::cout << mDynamicObjects.size() << std::endl;
+		else if( mDynamicObjects.at( i ).currPosID == 1
+				&& pos.getOrigin()[2] > mDynamicObjects.at( i ).posList.at( mDynamicObjects.at( i ).posNum )[2] )
+		{
+			targetPos = pos.getOrigin() - btVector3(0,0,0.1);
+		}
+		else
+		{
+			mDynamicObjects.at( i ).currPosID = ++mDynamicObjects.at( i ).currPosID % ( mDynamicObjects.at( i ).posNum - 1 );
+			targetPos = pos.getOrigin();
+		}
+
+		pos.setOrigin( targetPos );
+		mDynamicObjects.at( i ).rigidBody->getBulletRigidBody()->setWorldTransform( pos );		  // 更新物理体
+		mDynamicObjects.at( i ).graphicBody->setPosition( targetPos[0], targetPos[1], targetPos[2] ); // 更新图形体
+		*/
+	}
 }
 // --------------------------------------------------------------------------------
