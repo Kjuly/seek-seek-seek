@@ -34,7 +34,8 @@ void GameMap::initMap( Ogre::SceneManager * pSceneMgr, Ogre::Light * pLight )
 {
 	// .Scene File Loader
 	std::auto_ptr<Ogre::DotSceneLoader> sceneLoader( new Ogre::DotSceneLoader() );
-	sceneLoader->parseDotScene( "seek_map.scene", "General", mSceneMgr );
+	sceneLoader->parseDotScene( "map_2_static.scene", "General", mSceneMgr );	// 静态地形
+	sceneLoader->parseDotScene( "map_2_dynamic.scene", "General", mSceneMgr );	// 动态地形
 /*
 	// Play with startup Texture Filtering options
 	// Note: Pressing T on runtime will discarde those settings

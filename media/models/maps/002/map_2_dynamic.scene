@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<scene export_time="1308246860.872985" exported_by="kjuly" formatVersion="1.0.1" previous_export_time="0">
+	<nodes>
+		<node name="moveblock_2" uuid="090b947f67daf1693a1e96150bee4465">
+			<position x="140.048492" y="31.542511" z="-13.213976"/>
+			<quaternion w="1.000000" x="-0.000000" y="0.000000" z="0.000000"/>
+			<scale x="1.000000" y="1.000000" z="1.000000"/>
+			<game>
+				<sensors/>
+				<actuators/>
+			</game>
+			<entity actor="False" anisotropic_friction="False" damping_rot="0.10000000149011612" damping_trans="0.03999999910593033" friction_x="1.0" friction_y="1.0" friction_z="1.0" ghost="False" inertia_tensor="0.4000000059604645" lock_rot_x="False" lock_rot_y="False" lock_rot_z="False" lock_trans_x="False" lock_trans_y="False" lock_trans_z="False" mass="1.0" mass_radius="1.0" meshFile="moveblock_2.mesh" name="moveblock_2" physics_type="STATIC" velocity_max="0.0" velocity_min="0.0"/>
+		</node>
+		<node name="moveblock_3" uuid="39f2c251ff463a422c468724b9e9c031">
+			<position x="207.678909" y="31.542511" z="20.228127"/>
+			<quaternion w="1.000000" x="-0.000000" y="0.000000" z="0.000000"/>
+			<scale x="1.000000" y="1.000000" z="1.000000"/>
+			<game>
+				<sensors/>
+				<actuators/>
+			</game>
+			<entity actor="False" anisotropic_friction="False" damping_rot="0.10000000149011612" damping_trans="0.03999999910593033" friction_x="1.0" friction_y="1.0" friction_z="1.0" ghost="False" inertia_tensor="0.4000000059604645" lock_rot_x="False" lock_rot_y="False" lock_rot_z="False" lock_trans_x="False" lock_trans_y="False" lock_trans_z="False" mass="1.0" mass_radius="1.0" meshFile="moveblock_3.mesh" name="moveblock_3" physics_type="STATIC" velocity_max="0.0" velocity_min="0.0"/>
+		</node>
+		<node name="moveplat_1" uuid="4dab954791936599e1fc892d2e6a3d50">
+			<position x="173.625366" y="26.499298" z="48.526886"/>
+			<quaternion w="1.000000" x="-0.000000" y="0.000000" z="0.000000"/>
+			<scale x="1.000000" y="1.000000" z="1.000000"/>
+			<game>
+				<sensors/>
+				<actuators/>
+			</game>
+			<entity actor="False" anisotropic_friction="False" damping_rot="0.10000000149011612" damping_trans="0.03999999910593033" friction_x="1.0" friction_y="1.0" friction_z="1.0" ghost="False" inertia_tensor="0.4000000059604645" lock_rot_x="False" lock_rot_y="False" lock_rot_z="False" lock_trans_x="False" lock_trans_y="False" lock_trans_z="False" mass="1.0" mass_radius="1.0" meshFile="moveplat_1.mesh" name="moveplat_1" physics_type="STATIC" velocity_max="0.0" velocity_min="0.0"/>
+		</node>
+		<node name="moveplat_2" uuid="f45b38bf9b968788fbb14536aeefa47a">
+			<position x="0.000060" y="52.405380" z="-46.428951"/>
+			<quaternion w="1.000000" x="-0.000000" y="0.000000" z="0.000000"/>
+			<scale x="1.000000" y="1.000000" z="1.000000"/>
+			<game>
+				<sensors/>
+				<actuators/>
+			</game>
+			<entity actor="False" anisotropic_friction="False" damping_rot="0.10000000149011612" damping_trans="0.03999999910593033" friction_x="1.0" friction_y="1.0" friction_z="1.0" ghost="False" inertia_tensor="0.4000000059604645" lock_rot_x="False" lock_rot_y="False" lock_rot_z="False" lock_trans_x="False" lock_trans_y="False" lock_trans_z="False" mass="1.0" mass_radius="1.0" meshFile="moveplat_2.mesh" name="moveplat_2" physics_type="STATIC" velocity_max="0.0" velocity_min="0.0"/>
+		</node>
+	</nodes>
+	<externals>
+		<item type="material">
+			<file name="Scene.material"/>
+		</item>
+	</externals>
+	<environment>
+		<colorDiffuse b="0.05087608844041824" g="0.05087608844041824" r="0.05087608844041824"/>
+		<colorBackground b="0.05087608844041824" g="0.05087608844041824" r="0.05087608844041824"/>
+		<colorAmbient b="0.0" g="0.0" r="0.0"/>
+	</environment>
+</scene>

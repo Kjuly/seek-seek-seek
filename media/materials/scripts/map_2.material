@@ -1,0 +1,96 @@
+
+material _missing_material_ 
+{
+    receive_shadows off
+    technique
+    {
+        pass
+        {
+            ambient 0.1 0.1 0.1 1.0
+            diffuse 0.8 0.0 0.0 1.0
+            specular 0.5 0.5 0.5 1.0 12.5
+            emissive 0.3 0.3 0.3 1.0
+        }
+    }
+}
+
+material wire_148177027 
+{
+	receive_shadows on
+	technique
+	{
+		pass
+		{
+			cull_hardware none
+			ambient 0.5803999900817871 0.694100022315979 0.10589999705553055 1.0
+			diffuse 0.46431999898433673 0.5552800261271003 0.08471999890685078 1.0
+			specular 0.3499999940395355 0.3499999940395355 0.3499999940395355 1.0 4.0
+			emissive 0.0 0.0 0.0 1.0
+			scene_blend one zero
+		}
+	}
+}
+material wire_006135113 
+{
+	receive_shadows on
+	technique
+	{
+		pass
+		{
+			cull_hardware none
+			ambient 0.023499999195337296 0.5293999910354614 0.4431000053882599 1.0
+			diffuse 0.018799999636411657 0.4235199991393088 0.3544800095927716 1.0
+			specular 0.3499999940395355 0.3499999940395355 0.3499999940395355 1.0 4.0
+			emissive 0.0 0.0 0.0 1.0
+			scene_blend one zero
+		}
+	}
+}
+material wire_008110135 
+{
+	receive_shadows on
+	technique
+	{
+		pass
+		{
+			cull_hardware none
+			ambient 0.03139999881386757 0.43140000104904175 0.5293999910354614 1.0
+			diffuse 0.02511999942541121 0.34512000598192216 0.4235199991393088 1.0
+			specular 0.3499999940395355 0.3499999940395355 0.3499999940395355 1.0 4.0
+			emissive 0.0 0.0 0.0 1.0
+			scene_blend one zero
+		}
+	}
+}
+material wire_028149177 
+{
+	receive_shadows on
+	technique
+	{
+		pass
+		{
+			cull_hardware none
+			ambient 0.10980000346899033 0.5842999815940857 0.694100022315979 1.0
+			diffuse 0.0878400040841103 0.4674399922406671 0.5552800261271003 1.0
+			specular 0.3499999940395355 0.3499999940395355 0.3499999940395355 1.0 4.0
+			emissive 0.0 0.0 0.0 1.0
+			scene_blend one zero
+		}
+	}
+}
+material wire_008061138 
+{
+	receive_shadows on
+	technique
+	{
+		pass
+		{
+			cull_hardware none
+			ambient 0.03139999881386757 0.23919999599456787 0.5411999821662903 1.0
+			diffuse 0.02511999942541121 0.19135999964714046 0.43295999218463876 1.0
+			specular 0.3499999940395355 0.3499999940395355 0.3499999940395355 1.0 4.0
+			emissive 0.0 0.0 0.0 1.0
+			scene_blend one zero
+		}
+	}
+}

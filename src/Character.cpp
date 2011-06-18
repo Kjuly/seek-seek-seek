@@ -25,7 +25,7 @@ void Character::createKinematicCharacter()
 	Ogre::Entity * playerEntity = mGraphicCharacter->getBodyEnt();
 
 	// 初始方位
-	playerNode->setPosition( Ogre::Vector3(-25.0,5.0,0.0) ); 
+	playerNode->setPosition( Ogre::Vector3(0.0,5.0,0.0) ); 
 	// 方向
 	playerNode->setOrientation( Quaternion( Degree( Ogre::Math::RangeRandom(0.0,0.0) ), Vector3::UNIT_Y ) ); 
 

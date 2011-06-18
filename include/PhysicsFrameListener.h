@@ -14,16 +14,19 @@
 // LIB Bullet
 #include "btBulletDynamicsCommon.h"
 #include "btBulletCollisionCommon.h"
+using namespace Ogre;
 using namespace OgreBulletDynamics;
 using namespace OgreBulletCollisions;
 
+// 非玩家控制对象
 struct DynamicObject
 {
 	OgreBulletDynamics::RigidBody	* rigidBody;	// 物理体
 	Ogre::SceneNode					* graphicBody;	// 图形体
 	int								  posNum;		// 运动目标点个数
 	int								  currPosID;	// 当前运动到的节点ID
-	std::vector< btVector3 >		  posList;		// 运动目标点队列 0为初始点
+	std::vector< Ogre::Vector3 >	  posList;		// 运动目标点队列 0为初始点
+	Ogre::Vector3					  moveStep;		// 运动步长
 };
 
 class PhysicsFrameListener : public PhysicsBase
@@ -42,12 +45,16 @@ public:
 	virtual void createPhysicsTerrain();	// 构建地形
 	virtual void createPhysicsScene();		// 在地形基础上构建场景
 
+	// 更新非玩家控制对象
+	void updateNPCObject();
 	void updateDynamicObject();
 
 protected:
+	void createTerrain01();
+	void createTerrain02();
 	// 创建场景对象 | true: 静态  false: 动态
 	void createSceneObject( Ogre::Entity * entity, Ogre::Vector3 origPos,
-			btVector3 pPosList[], int pPosNum, // 运动目标点队列
+			Ogre::Vector3 pPosList[], int pPosNum, // 运动目标点队列
 			bool bStatic = false, bool autoMove = false
 			);
 
