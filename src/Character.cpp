@@ -29,12 +29,13 @@ void Character::createKinematicCharacter()
 	// ·½Ïò
 	playerNode->setOrientation( Quaternion( Degree( Ogre::Math::RangeRandom(0.0,0.0) ), Vector3::UNIT_Y ) ); 
 
-	Vector3 size = playerNode->_getDerivedScale() * playerEntity->getBoundingBox().getHalfSize();
-	OgreBulletCollisions::CollisionShape * mPlayerPhysicsShape = new OgreBulletCollisions::CapsuleCollisionShape( Ogre::Real(2.5), Ogre::Real(1.9), Vector3::UNIT_Y );
+	//Vector3 size = playerNode->_getDerivedScale() * playerEntity->getBoundingBox().getHalfSize();
+	//OgreBulletCollisions::CollisionShape * mPlayerPhysicsShape = new OgreBulletCollisions::CapsuleCollisionShape( Ogre::Real(2.5), Ogre::Real(1.9), Vector3::UNIT_Y );
+	OgreBulletCollisions::CollisionShape * mPlayerPhysicsShape = new OgreBulletCollisions::SphereCollisionShape( Ogre::Real(3) );
 
 	//--------------------------------------------
 	// Character BoundingBox Test
-	OgreBulletDynamics::RigidBody * mSceneBody = new OgreBulletDynamics::RigidBody( "Player", mWorld );
+/*	OgreBulletDynamics::RigidBody * mSceneBody = new OgreBulletDynamics::RigidBody( "Player", mWorld );
 	mSceneBody->setStaticShape(
 			playerNode,
 			mPlayerPhysicsShape,
@@ -42,10 +43,11 @@ void Character::createKinematicCharacter()
 			0.6f,
 			playerNode->_getDerivedPosition(),
 			playerNode->_getDerivedOrientation()
+			//Ogre::Quaternion( Ogre::Degree(90), Ogre::Vector3::UNIT_Z )
 			);
 	// Character BoundingBox Test END
 	//--------------------------------------------
-
+*/
 	// --------------------------------------
 	// Kinematic Character
 	// a special btCollisionObject, useful for fast localized collision queries

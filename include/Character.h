@@ -15,6 +15,7 @@
 #include "GraphicCharacter.h"		// 图形学角色
 #include "KinematicCharacter.h"		// 运动学角色
 #include "CharacterState.h"			// 角色状态
+#include "Shapes/OgreBulletCollisionsSphereShape.h"
 
 class Character
 {

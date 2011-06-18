@@ -84,7 +84,8 @@ void SeekSeekSeek::createEnvir(void)
     mSceneMgr->setAmbientLight( Ogre::ColourValue(0.2, 0.2, 0.2) );
 
 	// Fog
-	Ogre::ColourValue fadeColour(0.9, 0.9, 0.9);
+	//Ogre::ColourValue fadeColour(0.9, 0.9, 0.9);
+	Ogre::ColourValue fadeColour(0.0, 0.0, 0.0);
     mSceneMgr->setFog( Ogre::FOG_LINEAR, fadeColour, 0.0, 10, 210 );
     mWindow->getViewport(0)->setBackgroundColour( fadeColour );
 	mBgFog = 1; // °×Ìì£¬°×Îí

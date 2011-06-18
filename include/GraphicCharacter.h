@@ -35,12 +35,6 @@ class GraphicCharacter
 private:
 	// all the animations our character has, and a null ID
 	// some of these affect separate body parts and will be blended together
-	enum AnimID
-	{
-		ANIM_RUN,
-		ANIM_JUMP,
-		ANIM_NONE
-	};
 
 public:
 	GraphicCharacter( SceneManager * pSceneMgr, CharacterState * pCharacterState );
@@ -55,20 +49,10 @@ public:
 
 private:
 	void setupBody( SceneManager * pSceneMgr );
-	void setupAnimations();
 	void updateBody( Real deltaTime );
-	void updateAnimations( Real deltaTime );
-	void fadeAnimations( Real deltaTime );
-	void setBaseAnimation( AnimID id, bool reset = false );
-	void setTopAnimation( AnimID id, bool reset = false );
 
 	SceneNode		* mBodyNode;
 	Entity			* mBodyEnt;
-	AnimationState	* mAnims[ NUM_ANIMS ];		// master animation list
-	AnimID			  mBaseAnimID;              // current base (full- or lower-body) animation
-	AnimID			  mTopAnimID;               // current top (upper-body) animation
-	bool			  mFadingIn[ NUM_ANIMS ];   // which animations are fading in
-	bool			  mFadingOut[ NUM_ANIMS ];  // which animations are fading out
 	Real			  mVerticalVelocity;		// for jumping
 	Real			  mTimer;					// general timer to see how long animations have been playing
 
