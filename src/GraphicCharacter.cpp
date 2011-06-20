@@ -1,15 +1,17 @@
 #include "GraphicCharacter.h"
 
 // ------------------------------------------------------------------------
-GraphicCharacter::GraphicCharacter( SceneManager * pSceneMgr, CharacterState * pCharacterState )
+GraphicCharacter::GraphicCharacter( SceneManager * pSceneMgr, CharacterState * pCharacterState ) :
+	mSceneMgr( pSceneMgr )
 {
 	mCharacterState = pCharacterState;
-	setupBody( pSceneMgr );
+	setupBody();
 }
 // ------------------------------------------------------------------------
 void GraphicCharacter::addTime( Real deltaTime )
 {
 	updateBody( deltaTime );
+	//mYellowLightAnimState->addTime( deltaTime );
 }
 // ------------------------------------------------------------------------
 void GraphicCharacter::injectKeyDown( const OIS::KeyEvent & evt )
@@ -40,12 +42,12 @@ void GraphicCharacter::injectMouseDown( const OIS::MouseEvent & evt, OIS::MouseB
 {
 }
 // ------------------------------------------------------------------------
-void GraphicCharacter::setupBody( SceneManager * pSceneMgr )
+void GraphicCharacter::setupBody()
 {
 	//--------------------------------
 	// tmp
-/*	Ogre::SceneNode * characterNode = pSceneMgr->getRootSceneNode()->createChildSceneNode();
-	Ogre::Entity * characterEnt = pSceneMgr->createEntity("colorBall_blue", "colorBall_blue.mesh");
+/*	Ogre::SceneNode * characterNode = mSceneMgr->getRootSceneNode()->createChildSceneNode();
+	Ogre::Entity * characterEnt = mSceneMgr->createEntity("colorBall_blue", "colorBall_blue.mesh");
 	//tmpEnt->setMaterialName("Sintel_tiny");
 	characterNode->attachObject( characterEnt );
 	characterNode->setPosition( Ogre::Vector3(-10.0f,3.0f,-3.0f) );
@@ -53,8 +55,8 @@ void GraphicCharacter::setupBody( SceneManager * pSceneMgr )
 	characterNode->pitch(Ogre::Degree(90));
 	//characterNode->yaw(Ogre::Degree(180));
 	
-	Ogre::SceneNode * tmpNode = pSceneMgr->getRootSceneNode()->createChildSceneNode();
-	Ogre::Entity * tmpEnt = pSceneMgr->createEntity("colorBall_tmp", "Mesh.004.mesh");
+	Ogre::SceneNode * tmpNode = mSceneMgr->getRootSceneNode()->createChildSceneNode();
+	Ogre::Entity * tmpEnt = mSceneMgr->createEntity("colorBall_tmp", "Mesh.004.mesh");
 	//tmpEnt->setMaterialName("Sintel_tiny");
 	tmpNode->attachObject( tmpEnt );
 	tmpNode->setPosition( Ogre::Vector3(-10.0f,3.0f,-3.0f) );
@@ -63,18 +65,26 @@ void GraphicCharacter::setupBody( SceneManager * pSceneMgr )
 */
 	//--------------------------------
 	// create main model
-	mBodyNode = pSceneMgr->getRootSceneNode()->createChildSceneNode( Vector3::UNIT_Y * CHAR_HEIGHT );
-	mBodyEnt = pSceneMgr->createEntity("colorBall_blue", "colorBall_blue.mesh");
-	//mBodyEnt = pSceneMgr->createEntity("colorBall_blue", "yinYangBall.mesh");
+	mBodyNode = mSceneMgr->getRootSceneNode()->createChildSceneNode( Vector3::UNIT_Y * CHAR_HEIGHT );
+	mBodyEnt = mSceneMgr->createEntity("colorBall_blue", "colorBall_blue.mesh");
+	//mBodyEnt = mSceneMgr->createEntity("colorBall_blue", "yinYangBall.mesh");
 	mBodyNode->attachObject( mBodyEnt );
 	mBodyNode->setScale( 3.0, 3.0, 3.0 );
 	mBodyNode->yaw(Ogre::Degree(90));
 	//mBodyNode->roll(Ogre::Degree(90));
 	//mBodyNode->roll
+
+	// attach a light with the same colour to the light node
+	Ogre::Light * light = mSceneMgr->createLight();
+	light->setDiffuseColour( Ogre::ColourValue(0,0.742,1) );
+	light->setPowerScale(100);
+	light->setShadowFarDistance(1000);
+	mBodyNode->attachObject( light );
+
 /*	//--------------------------------
 	// create main model
-	mBodyNode = pSceneMgr->getRootSceneNode()->createChildSceneNode( Vector3::UNIT_Y * CHAR_HEIGHT );
-	mBodyEnt = pSceneMgr->createEntity("Sintel_tiny_Body", "Sintel_tiny.mesh");
+	mBodyNode = mSceneMgr->getRootSceneNode()->createChildSceneNode( Vector3::UNIT_Y * CHAR_HEIGHT );
+	mBodyEnt = mSceneMgr->createEntity("Sintel_tiny_Body", "Sintel_tiny.mesh");
 	mBodyNode->attachObject( mBodyEnt );
 	mBodyNode->yaw(Ogre::Degree(180));
 */

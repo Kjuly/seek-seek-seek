@@ -48,9 +48,10 @@ public:
 	void injectMouseDown( const OIS::MouseEvent & evt, OIS::MouseButtonID id );
 
 private:
-	void setupBody( SceneManager * pSceneMgr );
+	void setupBody();
 	void updateBody( Real deltaTime );
 
+	SceneManager	* mSceneMgr;
 	SceneNode		* mBodyNode;
 	Entity			* mBodyEnt;
 	Real			  mVerticalVelocity;		// for jumping
@@ -58,6 +59,7 @@ private:
 
 	bool mRun;									// 标记是否为跑步状态
 	CharacterState	* mCharacterState;			// 运动状态集
+	AnimationState* mYellowLightAnimState;
 };
 
 #endif
