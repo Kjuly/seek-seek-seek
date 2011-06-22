@@ -95,7 +95,8 @@ void GameGUI::initGUI()
 
 	// 显示InforUI
 	mCEGUIRoot->show();
-	mInforUIRoot->show();
+//	mInforUIRoot->show();
+	mInforUIRoot->hide();		// 目前暂时不显示游戏时的角色信息界面 >>> 6-20-1447
 	//------------------------------
 	// 隐藏GUI
 	CEGUI::MouseCursor::getSingleton().hide();

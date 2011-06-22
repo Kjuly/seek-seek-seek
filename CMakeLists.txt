@@ -35,10 +35,16 @@ if(WIN32)
 	set(OPENAL_INCLUDE_DIR
 		E:/openal/OpenALSDK/include
 	)
-
 	# OgreAL >>> 5-8-2056
 	set(OGREAL_INCLUDE_DIR
 		E:/openal/OgreAL-Eihort/include
+	)
+	# CEGUI
+	set(CEGUI_INCLUDE_DIR
+		E:/CEGUI-0.7.5/cegui/include
+	)
+	set(CEGUI_INCLUDE_DIRS
+		${CEGUI_INCLUDE_DIR}
 	)
 endif(WIN32)
  
@@ -256,6 +262,20 @@ if(WIN32) # >>> 5-7-134
 		"E:/ogrebullet/lib/Debug/OgreBulletDynamics_d.lib"
 		"E:/openal/OpenALSDK/libs/Win32/OpenAL32.lib"	# OpenAL >>> 5-8-2100
 		"E:/openal/OgreAL-Eihort/lib/Release/OgreAL.lib"# OgreAL >>> 5-8-2100
+		"E:/CEGUI-0.7.5/lib/CEGUIOgreRenderer_d.lib"
+		"E:/CEGUI-0.7.5/lib/CEGUIBase_d.lib"
+		"E:/CEGUI-0.7.5/lib/CEGUICoronaImageCodec_d.lib"
+		"E:/CEGUI-0.7.5/lib/CEGUIDevILImageCodec_d.lib"
+		"E:/CEGUI-0.7.5/lib/CEGUIDirect3D9Renderer_d.lib"
+		"E:/CEGUI-0.7.5/lib/CEGUIExpatParser_d.lib"
+		"E:/CEGUI-0.7.5/lib/CEGUIFalagardWRBase_d.lib"
+		"E:/CEGUI-0.7.5/lib/CEGUIFreeImageImageCodec_d.lib"
+		"E:/CEGUI-0.7.5/lib/CEGUILuaScriptModule_d.lib"
+		"E:/CEGUI-0.7.5/lib/CEGUIOpenGLRenderer_d.lib"
+		"E:/CEGUI-0.7.5/lib/CEGUISILLYImageCodec_d.lib"
+		"E:/CEGUI-0.7.5/lib/CEGUISTBImageCodec_d.lib"
+		"E:/CEGUI-0.7.5/lib/CEGUITGAImageCodec_d.lib"
+		"E:/CEGUI-0.7.5/lib/tolua++_d.lib"
 )
 endif(WIN32)
 if(UNIX)

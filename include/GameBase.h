@@ -1,9 +1,9 @@
 /*
  *	   FILENAME: GameBase.h
  * ------------------------------------------------------------------------
- *	DESCRIPTION:	æ¸¸æˆæ¡†æ¶çš„æœ€åº•å±‚è®¾ç½®ï¼ŒåŒ…æ‹¬çª—å£çš„åˆå§‹åŒ–ã€æ¸¸æˆèµ„æºçš„
- *				è°ƒç”¨ã€ç…§ç›¸æœºå’Œè§†è§’çš„åˆ›å»ºï¼Œä»¥åŠé”®ç›˜å’Œé¼ æ ‡çš„è¾“å…¥ç›‘å¬ç­‰ã€‚
- *					æ‰€æœ‰å‡½æ•°å®šä¹‰ä¸ºè™šå‡½æ•°ï¼Œç”±SeekSeekSeekç±»ç»§æ‰¿ã€‚
+ *	DESCRIPTION:	ÓÎÏ·¿ò¼ÜµÄ×îµ×²ãÉèÖÃ£¬°üÀ¨´°¿ÚµÄ³õÊ¼»¯¡¢ÓÎÏ·×ÊÔ´µÄ
+ *				µ÷ÓÃ¡¢ÕÕÏà»úºÍÊÓ½ÇµÄ´´½¨£¬ÒÔ¼°¼üÅÌºÍÊó±êµÄÊäÈë¼àÌıµÈ¡£
+ *					ËùÓĞº¯Êı¶¨ÒåÎªĞéº¯Êı£¬ÓÉSeekSeekSeekÀà¼Ì³Ğ¡£
  * ------------------------------------------------------------------------
  */
 
@@ -27,7 +27,7 @@
 #include <SdkTrays.h>
 #include <SdkCameraMan.h>
 
-#include "LoadingBar.h"	// åŠ è½½è¿›åº¦æ¡
+#include "LoadingBar.h"	// ¼ÓÔØ½ø¶ÈÌõ
 #include "CEGUI.h"									// CEGUI
 #include "RendererModules/Ogre/CEGUIOgreRenderer.h"
 #include "GameGUI.h"
@@ -89,7 +89,7 @@ protected:
 
     // OgreBites
     OgreBites::SdkCameraMan		* mCameraMan;        // basic camera controller
-    bool						  mShutDown;		 // é€šè¿‡é”®ç›˜æ§åˆ¶é€€å‡ºæ¸¸æˆ
+    bool						  mShutDown;		 // Í¨¹ı¼üÅÌ¿ØÖÆÍË³öÓÎÏ·
 
     //OIS Input devices
     OIS::InputManager	* mInputManager;
@@ -97,7 +97,7 @@ protected:
     OIS::Keyboard		* mKeyboard;
 
 	LoadingBar			  mLoadingBar;	// Loging Bar
-	GameGUI				* mGUIMgr;					// GUIæ§åˆ¶å™¨
+	GameGUI				* mGUIMgr;					// GUI¿ØÖÆÆ÷
 };
 
 #endif // #ifndef __GameBase_h_
